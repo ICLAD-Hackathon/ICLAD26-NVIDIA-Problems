@@ -4,7 +4,7 @@
 
 Design:     sha512
 Technology: ASAP7 RVT TT
-Date:       2026-04-23 21:15:56
+Date:       2026-04-24 04:05:36
 
 ================================================================================
                          POWER SUMMARY TABLE
@@ -21,12 +21,12 @@ Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
 Sequential             1.95e-03   4.33e-05   5.83e-07   1.99e-03  89.5%
-Combinational          1.05e-04   1.26e-04   3.30e-06   2.34e-04  10.5%
+Combinational          1.05e-04   1.26e-04   3.31e-06   2.34e-04  10.5%
 Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  2.05e-03   1.69e-04   3.88e-06   2.23e-03 100.0%
+Total                  2.05e-03   1.69e-04   3.89e-06   2.23e-03 100.0%
                           92.2%       7.6%       0.2%
 
 --------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ Error running: report_power -instances -highest_power_instances 20
 +----------------------+------------+---------------------+
 | Category             | Cell Count | Est. Power Contrib. |
 +----------------------+------------+---------------------+
-| Sequential           |       3674 |              12.8% |
-| Combinational        |      25095 |              87.2% |
+| Sequential           |       3674 |              12.7% |
+| Combinational        |      25192 |              87.3% |
 +----------------------+------------+---------------------+
 
 Note: Power contribution percentages are rough estimates based on cell count.

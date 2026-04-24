@@ -16,12 +16,22 @@ This repository contains optimized IP designs with Verilator testbenches and Yos
 
 ## Prerequisites
 
-Use the Docker development environment for a reproducible toolchain. See [ENV_PREPARATION.md](ENV_PREPARATION.md) for setup instructions.
+Full setup (Docker image, container usage, and **ASAP7 techlib** for synthesis/STA) is documented in **[ENV_PREPARATION.md](ENV_PREPARATION.md)**. Read that file first.
 
-```bash
-docker build -t iclad-dev:v1 .
-docker run --rm -it -v "$(pwd):/workspace" -w /workspace iclad-dev:v1
-```
+Summary:
+
+1. **Toolchain (optional but recommended)** — Build and run the Docker image from this repo root (see [ENV_PREPARATION.md](ENV_PREPARATION.md)):
+
+   ```bash
+   docker build -t iclad-dev:v1 .
+   docker run --rm -it -v "$(pwd):/workspace" -w /workspace iclad-dev:v1
+   ```
+
+2. **ASAP7 PDK for Yosys / OpenSTA** — Clone the OpenROAD ASAP7 standard-cell kit into `techlib/` and extract the NLDM `*.lib.7z` archives (7-Zip) so tools can read plain `.lib` files. Exact commands are in [ENV_PREPARATION.md](ENV_PREPARATION.md#asap7-standard-cell-library-techlib).
+
+   Default layout used by synthesis scripts: `techlib/asap7sc7p5t_28/LIB/NLDM/` (override with `ASAP7_LIB_DIR` if you install elsewhere).
+
+   Upstream repository: [The-OpenROAD-Project/asap7sc7p5t_28](https://github.com/The-OpenROAD-Project/asap7sc7p5t_28.git).
 
 ## Running Verilator Testbenches
 

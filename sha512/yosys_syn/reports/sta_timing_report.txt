@@ -4,7 +4,7 @@
 
 Design:     sha512
 Technology: ASAP7 RVT TT
-Date:       2026-04-23 21:15:56
+Date:       2026-04-24 04:05:36
 
 --------------------------------------------------------------------------------
                          INPUT FILES
@@ -35,12 +35,12 @@ Liberty Files:
 +----------------------+------------------+------------------+
 | Metric               | Setup (max)      | Hold (min)       |
 +----------------------+------------------+------------------+
-| WNS                  |       -129.84 ps |          0.00 ps |
-| TNS                  |       -960.60 ps |          0.00 ps |
-| Worst Slack          |       -129.84 ps |         48.66 ps |
+| WNS                  |       -126.95 ps |          0.00 ps |
+| TNS                  |       -951.34 ps |          0.00 ps |
+| Worst Slack          |       -126.95 ps |         48.66 ps |
 +----------------------+------------------+------------------+
 
-  Setup Timing: FAILED (negative slack: -129.84 ps)
+  Setup Timing: FAILED (negative slack: -126.95 ps)
   Hold Timing:  PASSED (positive slack)
 
 ================================================================================
@@ -59,8 +59,8 @@ Liberty Files:
 
 Setup Clock Skew:
 Clock clk
-   0.00 source latency _53826_/CLK ^
-   0.00 target latency _53826_/CLK ^
+   0.00 source latency _54020_/CLK ^
+   0.00 target latency _54020_/CLK ^
    0.00 CRPR
 --------------
    0.00 setup skew
@@ -68,8 +68,8 @@ Clock clk
 
 Hold Clock Skew:
 Clock clk
-   0.00 source latency _53826_/CLK ^
-   0.00 target latency _53826_/CLK ^
+   0.00 source latency _54020_/CLK ^
+   0.00 target latency _54020_/CLK ^
    0.00 CRPR
 --------------
    0.00 hold skew
@@ -94,9 +94,9 @@ Clock clk
 +----------------------+------------------+
 | Category             | Count            |
 +----------------------+------------------+
-| Total Cells          |            28769 |
+| Total Cells          |            28866 |
 | Sequential           |             3674 |
-| Combinational        |            25095 |
+| Combinational        |            25192 |
 +----------------------+------------------+
 
 Cell Type Breakdown (top 20):
@@ -105,11 +105,11 @@ Cell Type Breakdown (top 20):
 +------------------------------------------+------------+
 | AO21x1_ASAP7_75t_R                       |       3798 |
 | DFFASRHQNx1_ASAP7_75t_R                  |       3674 |
-| BUFx2_ASAP7_75t_R                        |       2442 |
+| BUFx2_ASAP7_75t_R                        |       2546 |
 | OA211x2_ASAP7_75t_R                      |       2307 |
 | NAND2x1_ASAP7_75t_R                      |       2181 |
-| XNOR2x2_ASAP7_75t_R                      |       2022 |
-| INVx1_ASAP7_75t_R                        |       1984 |
+| XNOR2x2_ASAP7_75t_R                      |       2023 |
+| INVx1_ASAP7_75t_R                        |       1985 |
 | NOR2x1_ASAP7_75t_R                       |       1558 |
 | AND2x2_ASAP7_75t_R                       |       1048 |
 | MAJx2_ASAP7_75t_R                        |       1027 |

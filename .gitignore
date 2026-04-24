@@ -3,6 +3,7 @@
 *.swp
 *.raw2
 *.log
+*.vvp
 ./NVDLA/*txn.raw
 ./NVDLA/out.txt
 ./NVDLA/vmod/dw_components/
