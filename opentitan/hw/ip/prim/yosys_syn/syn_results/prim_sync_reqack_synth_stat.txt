@@ -1,0 +1,29 @@
+
+165. Printing statistics.
+
+=== prim_sync_reqack ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       30        - wires
+       30        - wire bits
+       17        - public wires
+       17        - public wire bits
+        9        - ports
+        9        - port bits
+       23    4.403 cells
+        8    3.033   DFFASRHQNx1_ASAP7_75t_R
+        5    0.219   INVx1_ASAP7_75t_R
+        1    0.058   INVx2_ASAP7_75t_R
+        2    0.175   NAND2x1_ASAP7_75t_R
+        2    0.204   OA21x2_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+        1    0.175   XNOR2x1_ASAP7_75t_R
+        1     0.16   XNOR2x2_ASAP7_75t_R
+        1    0.175   XOR2x1_ASAP7_75t_R
+        1     0.16   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\prim_sync_reqack': 4.403160
+     of which used for sequential elements: 3.032640 (68.87%)
+

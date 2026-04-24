@@ -1,0 +1,191 @@
+# Verilated -*- Makefile -*-
+# DESCRIPTION: Verilator output: Make include file with class lists
+#
+# This file lists generated Verilated files, for including in higher level makefiles.
+# See VNV_nvdla.mk for the caller.
+
+### Switches...
+# C11 constructs required?  0/1 (always on now)
+VM_C11 = 1
+# Coverage output mode?  0/1 (from --coverage)
+VM_COVERAGE = 0
+# Parallel builds?  0/1 (from --output-split)
+VM_PARALLEL_BUILDS = 0
+# Threaded output mode?  0/1/N threads (from --threads)
+VM_THREADS = 0
+# Tracing output mode?  0/1 (from --trace/--trace-fst)
+VM_TRACE = 0
+# Tracing output mode in FST format?  0/1 (from --trace-fst)
+VM_TRACE_FST = 0
+# Tracing threaded output mode?  0/1/N threads (from --trace-thread)
+VM_TRACE_THREADS = 0
+# Separate FST writer thread? 0/1 (from --trace-fst with --trace-thread > 0)
+VM_TRACE_FST_WRITER_THREAD = 0
+
+### Object file lists...
+# Generated module classes, fast-path, compile with highest optimization
+VM_CLASSES_FAST += \
+	VNV_nvdla \
+	VNV_nvdla___024root__DepSet_h50c1b64a__0 \
+	VNV_nvdla___024root__DepSet_h8875eadb__0 \
+	VNV_nvdla_NV_NVDLA_partition_m__DepSet_h2a785ae9__0 \
+	VNV_nvdla_NV_NVDLA_partition_m__DepSet_h6f510329__0 \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_h604332ab__0 \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_hcac5c50d__0 \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_hece8d6e2__0 \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_h2c5d0a73__0 \
+	VNV_nvdla_NV_NVDLA_CDP_WDMA_dat_fifo__DepSet_h75f87255__0 \
+	VNV_nvdla_NV_NVDLA_CDP_WDMA_dat_fifo__DepSet_h4df748ce__0 \
+	VNV_nvdla_NV_NVDLA_CDMA_dual_reg__DepSet_he0b2bbd9__0 \
+	VNV_nvdla_NV_NVDLA_CDMA_CVT_cell__DepSet_h539bb5a9__0 \
+	VNV_nvdla_NV_NVDLA_CDMA_CVT_cell__DepSet_hcbd355d9__0 \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h8e2385fe__0 \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h300a15f5__0 \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h683f4982__0 \
+	VNV_nvdla_NV_NVDLA_SDP_REG_dual__DepSet_hff3e92f4__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_lat_fifo__DepSet_h580a4bd2__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_lat_fifo__DepSet_hed005be8__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_ro_fifo__DepSet_h76404f0f__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_ro_fifo__DepSet_h3c582f46__0 \
+	VNV_nvdla_NV_NVDLA_CDP_RDMA_ro_fifo__DepSet_h2e82dae2__0 \
+	VNV_nvdla_NV_NVDLA_CDP_RDMA_ro_fifo__DepSet_h66492d1c__0 \
+	VNV_nvdla_NV_NVDLA_PDP_RDMA_ro_fifo__DepSet_h8c014569__0 \
+	VNV_nvdla_NV_NVDLA_PDP_RDMA_ro_fifo__DepSet_h33c77109__0 \
+	VNV_nvdla_NV_NVDLA_PDP_WDMA_DAT_fifo__DepSet_h941f0523__0 \
+	VNV_nvdla_NV_NVDLA_PDP_WDMA_DAT_fifo__DepSet_h5d2297ed__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_IG_bpt__DepSet_h617cc13e__0 \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_h212da0c7__0 \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_h631cbedd__0 \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_had8558d6__0 \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_hedb27c5f__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt__DepSet_h6eab6d0b__0 \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt__DepSet_h0c51cbc3__0 \
+	VNV_nvdla_NV_NVDLA_PDP_CORE_unit1d__DepSet_h54ef193c__0 \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_h30289572__0 \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_h88436c7d__0 \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_hcff8910a__0 \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_hfb26b7af__0 \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_h414d4e3e__0 \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_h98fa7347__0 \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__DepSet_hd9b123af__0 \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__DepSet_h0e26b22d__0 \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__DepSet_h4e12e73a__0 \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_h1e5e0091__0 \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_hd20bf8f8__0 \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_h0a401c8d__0 \
+	VNV_nvdla_NV_NVDLA_SDP_RDMA_EG_ro__DepSet_h7dafe83e__0 \
+	VNV_nvdla_NV_NVDLA_SDP_RDMA_EG_ro__DepSet_h5a757a6b__0 \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h93454ea4__0 \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h5fee32f7__0 \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h7f5b6680__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi22__DepSet_h78a3df0d__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi22__DepSet_h9b369cc4__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi19__DepSet_h153f3d20__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi13__DepSet_h7f10c355__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi9__DepSet_h5d4f66ff__0 \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi7__DepSet_h305ea37a__0 \
+
+# Generated module classes, non-fast-path, compile with low/medium optimization
+VM_CLASSES_SLOW += \
+	VNV_nvdla__ConstPool_0 \
+	VNV_nvdla___024root__Slow \
+	VNV_nvdla___024root__DepSet_h50c1b64a__0__Slow \
+	VNV_nvdla___024root__DepSet_h8875eadb__0__Slow \
+	VNV_nvdla_NV_NVDLA_partition_m__Slow \
+	VNV_nvdla_NV_NVDLA_partition_m__DepSet_h2a785ae9__0__Slow \
+	VNV_nvdla_NV_NVDLA_partition_m__DepSet_h6f510329__0__Slow \
+	VNV_nvdla_nv_ram_rws_256x64__Slow \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_h48574786__0__Slow \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_hece8d6e2__0__Slow \
+	VNV_nvdla_nv_ram_rws_256x64__DepSet_h2c5d0a73__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_WDMA_dat_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_WDMA_dat_fifo__DepSet_h75f87255__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_WDMA_dat_fifo__DepSet_h4df748ce__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDMA_dual_reg__Slow \
+	VNV_nvdla_NV_NVDLA_CDMA_dual_reg__DepSet_h309e437c__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDMA_CVT_cell__Slow \
+	VNV_nvdla_NV_NVDLA_CDMA_CVT_cell__DepSet_h539bb5a9__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDMA_CVT_cell__DepSet_hcbd355d9__0__Slow \
+	VNV_nvdla_nv_ram_rws_16x64__Slow \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h8e2385fe__0__Slow \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h300a15f5__0__Slow \
+	VNV_nvdla_nv_ram_rws_16x64__DepSet_h683f4982__0__Slow \
+	VNV_nvdla_NV_NVDLA_SDP_REG_dual__Slow \
+	VNV_nvdla_NV_NVDLA_SDP_REG_dual__DepSet_h92b1b8cd__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_lat_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_lat_fifo__DepSet_h580a4bd2__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_lat_fifo__DepSet_hed005be8__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_ro_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_ro_fifo__DepSet_h76404f0f__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_EG_ro_fifo__DepSet_h3c582f46__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_RDMA_ro_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_RDMA_ro_fifo__DepSet_h2e82dae2__0__Slow \
+	VNV_nvdla_NV_NVDLA_CDP_RDMA_ro_fifo__DepSet_h66492d1c__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_RDMA_ro_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_RDMA_ro_fifo__DepSet_h8c014569__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_RDMA_ro_fifo__DepSet_h33c77109__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_WDMA_DAT_fifo__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_WDMA_DAT_fifo__DepSet_h941f0523__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_WDMA_DAT_fifo__DepSet_h5d2297ed__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_IG_bpt__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_IG_bpt__DepSet_h1343e695__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_READ_IG_bpt__DepSet_h617cc13e__0__Slow \
+	VNV_nvdla_nv_ram_rwst_256x8__Slow \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_h212da0c7__0__Slow \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_had8558d6__0__Slow \
+	VNV_nvdla_nv_ram_rwst_256x8__DepSet_hedb27c5f__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt__DepSet_h6eab6d0b__0__Slow \
+	VNV_nvdla_NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt__DepSet_h0c51cbc3__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_CORE_unit1d__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_CORE_unit1d__DepSet_h27365c97__0__Slow \
+	VNV_nvdla_NV_NVDLA_PDP_CORE_unit1d__DepSet_h54ef193c__0__Slow \
+	VNV_nvdla_nv_ram_rws_128x18__Slow \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_h30289572__0__Slow \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_h88436c7d__0__Slow \
+	VNV_nvdla_nv_ram_rws_128x18__DepSet_hcff8910a__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__Slow \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_hfb26b7af__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_h414d4e3e__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_128x6__Fz2__DepSet_h98fa7347__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__Slow \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__DepSet_h0e26b22d__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_61x65__Fz2__DepSet_h4e12e73a__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_h1e5e0091__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_hd20bf8f8__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x16__Fz2__DepSet_h0a401c8d__0__Slow \
+	VNV_nvdla_NV_NVDLA_SDP_RDMA_EG_ro__Slow \
+	VNV_nvdla_NV_NVDLA_SDP_RDMA_EG_ro__DepSet_h7dafe83e__0__Slow \
+	VNV_nvdla_NV_NVDLA_SDP_RDMA_EG_ro__DepSet_h5a757a6b__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h93454ea4__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h5fee32f7__0__Slow \
+	VNV_nvdla_nv_ram_rwsp_160x65__Fz2__DepSet_h7f5b6680__0__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi22__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi22__DepSet_h78a3df0d__0__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi19__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi19__DepSet_h87509bdd__0__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi13__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi13__DepSet_h1b03794c__0__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi9__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi9__DepSet_hcf08422e__0__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi7__Slow \
+	VNV_nvdla_ScanShareSel_JTAG_reg_ext_cg__pi7__DepSet_h39795465__0__Slow \
+
+# Generated support classes, fast-path, compile with highest optimization
+VM_SUPPORT_FAST += \
+
+# Generated support classes, non-fast-path, compile with low/medium optimization
+VM_SUPPORT_SLOW += \
+	VNV_nvdla__Syms \
+
+# Global classes, need linked once per executable, fast-path, compile with highest optimization
+VM_GLOBAL_FAST += \
+	verilated \
+
+# Global classes, need linked once per executable, non-fast-path, compile with low/medium optimization
+VM_GLOBAL_SLOW += \
+
+
+# Verilated -*- Makefile -*-

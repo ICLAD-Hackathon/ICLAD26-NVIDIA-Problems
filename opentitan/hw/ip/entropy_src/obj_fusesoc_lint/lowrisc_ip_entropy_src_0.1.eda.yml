@@ -1,0 +1,1710 @@
+version: 0.2.1
+name: lowrisc_ip_entropy_src_0.1
+toplevel: entropy_src
+dependencies:
+  lowrisc:ip:entropy_src_ack_sm_pkg:0.1: []
+  lowrisc:ip:entropy_src_main_sm_pkg:0.1: []
+  lowrisc:ip:jtag_pkg:0.1: []
+  lowrisc:lint:comportable:0.1: []
+  lowrisc:prim:macros:0.1: []
+  lowrisc:tool:check_tool_requirements:0.1: []
+  lowrisc:lint:common:0.1:
+  - lowrisc:tool:check_tool_requirements:0.1
+  lowrisc:prim_asap7:flop_no_rst:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:assert:0.1:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:cipher_pkg:0.1:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:and2:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:buf:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:const:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:const_sec:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:flop:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:xnor2:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim_generic:xor2:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:pad_wrapper_pkg:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:secded:0.1:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:sha2_pkg:0:
+  - lowrisc:lint:common:0.1
+  lowrisc:prim:blanker:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim_generic:and2:0
+  lowrisc:prim:cdc_rand_delay:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:cipher:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:cipher_pkg:0.1
+  lowrisc:prim:count:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim_generic:clock_mux2:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:lfsr:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:cipher_pkg:0.1
+  lowrisc:prim:max_tree:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:mubi_pkg:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:prim_dom_and_2share:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:sec_anchor:0.1:
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:sha2:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:sha2_pkg:0
+  lowrisc:prim:sparse_fsm:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:sum_tree:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim:util:0.1:
+  - lowrisc:prim:assert:0.1
+  lowrisc:prim_xilinx_ultrascale:pad_wrapper:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:pad_wrapper_pkg:0
+  lowrisc:darjeeling_constants:top_pkg:0:
+  - lowrisc:prim:util:0.1
+  lowrisc:ip:entropy_src_pkg:0.1:
+  - lowrisc:prim:util:0.1
+  lowrisc:ip:lc_ctrl_state_pkg:0.1:
+  - lowrisc:prim:util:0.1
+  lowrisc:prim_asap7:flop_en:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:sec_anchor:0.1
+  lowrisc:prim_generic:clock_inv:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:clock_mux2:0
+  lowrisc:prim_generic:flop_2sync:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:cdc_rand_delay:0
+  - lowrisc:prim_generic:flop:0
+  lowrisc:prim:leading_one_ppc:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:util:0.1
+  lowrisc:prim:mubi:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim_generic:flop:0
+  - lowrisc:prim:mubi_pkg:0.1
+  lowrisc:prim:onehot_check:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:util:0.1
+  lowrisc:prim:arbiter:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:leading_one_ppc:0
+  - lowrisc:prim:util:0.1
+  lowrisc:prim:diff_decode:0:
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:flop_2sync:0
+  - lowrisc:prim_generic:xnor2:0
+  lowrisc:prim:edge_detector:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:flop_2sync:0
+  lowrisc:prim:fifo:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:count:0
+  - lowrisc:prim_generic:flop_2sync:0
+  - lowrisc:prim:util:0.1
+  lowrisc:prim_generic:rst_sync:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim_generic:clock_mux2:0
+  - lowrisc:prim_generic:flop_2sync:0
+  - lowrisc:prim:mubi:0.1
+  lowrisc:prim:reg_we_check:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim:onehot_check:0
+  - lowrisc:prim:util:0.1
+  lowrisc:prim:subreg:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:mubi:0.1
+  lowrisc:tlul:headers:0.1:
+  - lowrisc:prim:mubi_pkg:0.1
+  - lowrisc:prim:secded:0.1
+  - lowrisc:darjeeling_constants:top_pkg:0
+  lowrisc:darjeeling_constants:top_racl_pkg:0.1:
+  - lowrisc:darjeeling_constants:top_pkg:0
+  - lowrisc:tlul:headers:0.1
+  lowrisc:ip:lc_ctrl_pkg:0.1:
+  - lowrisc:ip:lc_ctrl_state_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:tlul:headers:0.1
+  lowrisc:prim:esc:0:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim:count:0
+  - lowrisc:prim:diff_decode:0
+  - lowrisc:prim_generic:flop:0
+  - lowrisc:prim:sec_anchor:0.1
+  lowrisc:tlul:trans_intg:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:secded:0.1
+  - lowrisc:tlul:headers:0.1
+  lowrisc:ip:otp_ctrl_pkg:1.0:
+  - lowrisc:ip:lc_ctrl_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:lint:comportable:0.1
+  lowrisc:prim:alert:0:
+  - lowrisc:ip:lc_ctrl_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim:diff_decode:0
+  - lowrisc:prim_generic:flop:0
+  - lowrisc:prim:mubi:0.1
+  - lowrisc:prim:sec_anchor:0.1
+  lowrisc:prim:lc_sync:0.1:
+  - lowrisc:ip:lc_ctrl_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim_generic:flop_2sync:0
+  lowrisc:tlul:common:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim:fifo:0
+  - lowrisc:tlul:headers:0.1
+  - lowrisc:tlul:trans_intg:0.1
+  lowrisc:prim:all:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:alert:0
+  - lowrisc:prim_generic:and2:0
+  - lowrisc:prim:arbiter:0
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim_generic:buf:0
+  - lowrisc:prim:cipher:0
+  - lowrisc:prim_generic:clock_inv:0
+  - lowrisc:prim_generic:clock_mux2:0
+  - lowrisc:prim_generic:const:0
+  - lowrisc:prim_generic:const_sec:0
+  - lowrisc:prim:diff_decode:0
+  - lowrisc:prim:esc:0
+  - lowrisc:prim:fifo:0
+  - lowrisc:prim_generic:flop:0
+  - lowrisc:prim_generic:flop_2sync:0
+  - lowrisc:prim_asap7:flop_en:0
+  - lowrisc:prim_asap7:flop_no_rst:0
+  - lowrisc:prim_xilinx_ultrascale:pad_wrapper:0
+  - lowrisc:prim:reg_we_check:0
+  - lowrisc:prim_generic:rst_sync:0
+  - lowrisc:prim:sha2:0
+  - lowrisc:prim:subreg:0
+  - lowrisc:prim:util:0.1
+  - lowrisc:prim_generic:xnor2:0
+  - lowrisc:prim_generic:xor2:0
+  lowrisc:tlul:adapter_host:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:trans_intg:0.1
+  - lowrisc:darjeeling_constants:top_pkg:0
+  lowrisc:tlul:adapter_reg:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:secded:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:trans_intg:0.1
+  lowrisc:tlul:adapter_sram:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:util:0.1
+  - lowrisc:tlul:common:0.1
+  lowrisc:tlul:lc_gate:0.1:
+  - lowrisc:ip:lc_ctrl_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:blanker:0
+  - lowrisc:prim:lc_sync:0.1
+  - lowrisc:prim:sparse_fsm:0
+  - lowrisc:tlul:common:0.1
+  lowrisc:tlul:request_loopback:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:util:0.1
+  - lowrisc:tlul:common:0.1
+  lowrisc:tlul:socket_1n:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:headers:0.1
+  lowrisc:tlul:socket_m1:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:arbiter:0
+  - lowrisc:prim:assert:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:headers:0.1
+  lowrisc:tlul:sram2tlul:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:tlul:common:0.1
+  lowrisc:tlul:adapter_racl:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:util:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:request_loopback:0.1
+  - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+  lowrisc:tlul:adapter_reg_racl:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:secded:0.1
+  - lowrisc:tlul:adapter_reg:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:request_loopback:0.1
+  - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+  pulp-platform:riscv-dbg:0.1:0:
+  - lowrisc:prim:all:0.1
+  - lowrisc:prim_generic:clock_inv:0
+  lowrisc:tlul:adapter_dmi:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:secded:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:tlul:trans_intg:0.1
+  - pulp-platform:riscv-dbg:0.1:0
+  lowrisc:tlul:adapter_sram_racl:0.1:
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:util:0.1
+  - lowrisc:tlul:adapter_racl:0.1
+  - lowrisc:tlul:adapter_sram:0.1
+  - lowrisc:tlul:common:0.1
+  - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+  lowrisc:tlul:jtag_dtm:0.1:
+  - lowrisc:ip:jtag_pkg:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:all:0.1
+  - lowrisc:tlul:adapter_host:0.1
+  - pulp-platform:riscv-dbg:0.1:0
+  lowrisc:ip:tlul:0.1:
+  - lowrisc:tlul:adapter_dmi:0.1
+  - lowrisc:tlul:adapter_reg:0.1
+  - lowrisc:tlul:adapter_reg_racl:0.1
+  - lowrisc:tlul:adapter_sram:0.1
+  - lowrisc:tlul:adapter_sram_racl:0.1
+  - lowrisc:tlul:jtag_dtm:0.1
+  - lowrisc:tlul:lc_gate:0.1
+  - lowrisc:tlul:request_loopback:0.1
+  - lowrisc:tlul:socket_1n:0.1
+  - lowrisc:tlul:socket_m1:0.1
+  - lowrisc:tlul:sram2tlul:0.1
+  lowrisc:ip:sha3:0.1:
+  - lowrisc:ip:tlul:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:prim:all:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:mubi:0.1
+  - lowrisc:prim:prim_dom_and_2share:0.1
+  lowrisc:ip:entropy_src:0.1:
+  - lowrisc:ip:entropy_src_ack_sm_pkg:0.1
+  - lowrisc:ip:entropy_src_main_sm_pkg:0.1
+  - lowrisc:ip:entropy_src_pkg:0.1
+  - lowrisc:ip:otp_ctrl_pkg:1.0
+  - lowrisc:ip:sha3:0.1
+  - lowrisc:ip:tlul:0.1
+  - lowrisc:lint:common:0.1
+  - lowrisc:lint:comportable:0.1
+  - lowrisc:prim:all:0.1
+  - lowrisc:prim:assert:0.1
+  - lowrisc:prim:count:0
+  - lowrisc:prim:edge_detector:0.1
+  - lowrisc:prim:lfsr:0.1
+  - lowrisc:prim:macros:0.1
+  - lowrisc:prim:max_tree:0
+  - lowrisc:prim:mubi:0.1
+  - lowrisc:prim:sparse_fsm:0
+  - lowrisc:prim:sum_tree:0
+  - lowrisc:darjeeling_constants:top_pkg:0
+cores:
+  lowrisc:ip:entropy_src_ack_sm_pkg:0.1:
+    core_file: ../rtl/entropy_src_ack_sm_pkg.core
+    dependencies: []
+    license: null
+  lowrisc:ip:entropy_src_main_sm_pkg:0.1:
+    core_file: ../rtl/entropy_src_main_sm_pkg.core
+    dependencies: []
+    license: null
+  lowrisc:ip:jtag_pkg:0.1:
+    core_file: ../../rv_dm/jtag_pkg.core
+    dependencies: []
+    license: null
+  lowrisc:lint:comportable:0.1:
+    core_file: ../../../lint/comportable.core
+    dependencies: []
+    license: null
+  lowrisc:prim:macros:0.1:
+    core_file: ../../prim/prim_macros.core
+    dependencies: []
+    license: null
+  lowrisc:tool:check_tool_requirements:0.1:
+    core_file: ../../../check_tool_requirements.core
+    dependencies: []
+    license: null
+  lowrisc:lint:common:0.1:
+    core_file: ../../../lint/common.core
+    dependencies:
+    - lowrisc:tool:check_tool_requirements:0.1
+    license: null
+  lowrisc:prim_asap7:flop_no_rst:0:
+    core_file: ../../prim_asap7/prim_asap7_flop_no_rst.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:assert:0.1:
+    core_file: ../../prim/prim_assert.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:cipher_pkg:0.1:
+    core_file: ../../prim/prim_cipher_pkg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:and2:0:
+    core_file: ../../prim_generic/prim_generic_and2.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:buf:0:
+    core_file: ../../prim_generic/prim_generic_buf.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:const:0:
+    core_file: ../../prim_generic/prim_generic_const.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:const_sec:0:
+    core_file: ../../prim_generic/prim_generic_const_sec.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:flop:0:
+    core_file: ../../prim_generic/prim_generic_flop.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:xnor2:0:
+    core_file: ../../prim_generic/prim_generic_xnor2.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim_generic:xor2:0:
+    core_file: ../../prim_generic/prim_generic_xor2.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:pad_wrapper_pkg:0:
+    core_file: ../../prim/prim_pad_wrapper_pkg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:secded:0.1:
+    core_file: ../../prim/prim_secded.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:sha2_pkg:0:
+    core_file: ../../prim/prim_sha2_pkg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    license: null
+  lowrisc:prim:blanker:0:
+    core_file: ../../prim/prim_blanker.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim_generic:and2:0
+    license: null
+  lowrisc:prim:cdc_rand_delay:0:
+    core_file: ../../prim/prim_cdc_rand_delay.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:cipher:0:
+    core_file: ../../prim/prim_cipher.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:cipher_pkg:0.1
+    license: null
+  lowrisc:prim:count:0:
+    core_file: ../../prim/prim_count.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim_generic:clock_mux2:0:
+    core_file: ../../prim_generic/prim_generic_clock_mux2.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:lfsr:0.1:
+    core_file: ../../prim/prim_lfsr.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:cipher_pkg:0.1
+    license: null
+  lowrisc:prim:max_tree:0:
+    core_file: ../../prim/prim_max_tree.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:mubi_pkg:0.1:
+    core_file: ../../prim/prim_mubi_pkg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:prim_dom_and_2share:0.1:
+    core_file: ../../prim/prim_dom_and_2share.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:sec_anchor:0.1:
+    core_file: ../../prim/prim_sec_anchor.core
+    dependencies:
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:sha2:0:
+    core_file: ../../prim/prim_sha2.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:sha2_pkg:0
+    license: null
+  lowrisc:prim:sparse_fsm:0:
+    core_file: ../../prim/prim_sparse_fsm.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:sum_tree:0:
+    core_file: ../../prim/prim_sum_tree.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim:util:0.1:
+    core_file: ../../prim/prim_util.core
+    dependencies:
+    - lowrisc:prim:assert:0.1
+    license: null
+  lowrisc:prim_xilinx_ultrascale:pad_wrapper:0:
+    core_file: ../../prim_xilinx_ultrascale/prim_xilinx_ultrascale_pad_wrapper.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:pad_wrapper_pkg:0
+    license: null
+  lowrisc:darjeeling_constants:top_pkg:0:
+    core_file: ../../../top_darjeeling/top_pkg.core
+    dependencies:
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:ip:entropy_src_pkg:0.1:
+    core_file: ../entropy_src_pkg.core
+    dependencies:
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:ip:lc_ctrl_state_pkg:0.1:
+    core_file: ../../lc_ctrl/lc_ctrl_state_pkg.core
+    dependencies:
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim_asap7:flop_en:0:
+    core_file: ../../prim_asap7/prim_asap7_flop_en.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:sec_anchor:0.1
+    license: null
+  lowrisc:prim_generic:clock_inv:0:
+    core_file: ../../prim_generic/prim_generic_clock_inv.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:clock_mux2:0
+    license: null
+  lowrisc:prim_generic:flop_2sync:0:
+    core_file: ../../prim_generic/prim_generic_flop_2sync.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:cdc_rand_delay:0
+    - lowrisc:prim_generic:flop:0
+    license: null
+  lowrisc:prim:leading_one_ppc:0:
+    core_file: ../../prim/prim_leading_one_ppc.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim:mubi:0.1:
+    core_file: ../../prim/prim_mubi.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim_generic:flop:0
+    - lowrisc:prim:mubi_pkg:0.1
+    license: null
+  lowrisc:prim:onehot_check:0:
+    core_file: ../../prim/prim_onehot_check.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim:arbiter:0:
+    core_file: ../../prim/prim_arbiter.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:leading_one_ppc:0
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim:diff_decode:0:
+    core_file: ../../prim/prim_diff_decode.core
+    dependencies:
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:flop_2sync:0
+    - lowrisc:prim_generic:xnor2:0
+    license: null
+  lowrisc:prim:edge_detector:0.1:
+    core_file: ../../prim/prim_edge_detector.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:flop_2sync:0
+    license: null
+  lowrisc:prim:fifo:0:
+    core_file: ../../prim/prim_fifo.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:count:0
+    - lowrisc:prim_generic:flop_2sync:0
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim_generic:rst_sync:0:
+    core_file: ../../prim_generic/prim_generic_rst_sync.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim_generic:clock_mux2:0
+    - lowrisc:prim_generic:flop_2sync:0
+    - lowrisc:prim:mubi:0.1
+    license: null
+  lowrisc:prim:reg_we_check:0:
+    core_file: ../../prim/prim_reg_we_check.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim:onehot_check:0
+    - lowrisc:prim:util:0.1
+    license: null
+  lowrisc:prim:subreg:0:
+    core_file: ../../prim/prim_subreg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:mubi:0.1
+    license: null
+  lowrisc:tlul:headers:0.1:
+    core_file: ../../tlul/headers.core
+    dependencies:
+    - lowrisc:prim:mubi_pkg:0.1
+    - lowrisc:prim:secded:0.1
+    - lowrisc:darjeeling_constants:top_pkg:0
+    license: null
+  lowrisc:darjeeling_constants:top_racl_pkg:0.1:
+    core_file: ../../../top_darjeeling/top_darjeeling_racl_pkg.core
+    dependencies:
+    - lowrisc:darjeeling_constants:top_pkg:0
+    - lowrisc:tlul:headers:0.1
+    license: null
+  lowrisc:ip:lc_ctrl_pkg:0.1:
+    core_file: ../../lc_ctrl/lc_ctrl_pkg.core
+    dependencies:
+    - lowrisc:ip:lc_ctrl_state_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:tlul:headers:0.1
+    license: null
+  lowrisc:prim:esc:0:
+    core_file: ../../prim/prim_esc.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim:count:0
+    - lowrisc:prim:diff_decode:0
+    - lowrisc:prim_generic:flop:0
+    - lowrisc:prim:sec_anchor:0.1
+    license: null
+  lowrisc:tlul:trans_intg:0.1:
+    core_file: ../../tlul/trans_intg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:secded:0.1
+    - lowrisc:tlul:headers:0.1
+    license: null
+  lowrisc:ip:otp_ctrl_pkg:1.0:
+    core_file: ../../otp_ctrl/otp_ctrl_pkg.core
+    dependencies:
+    - lowrisc:ip:lc_ctrl_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:lint:comportable:0.1
+    license: null
+  lowrisc:prim:alert:0:
+    core_file: ../../prim/prim_alert.core
+    dependencies:
+    - lowrisc:ip:lc_ctrl_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim:diff_decode:0
+    - lowrisc:prim_generic:flop:0
+    - lowrisc:prim:mubi:0.1
+    - lowrisc:prim:sec_anchor:0.1
+    license: null
+  lowrisc:prim:lc_sync:0.1:
+    core_file: ../../prim/prim_lc_sync.core
+    dependencies:
+    - lowrisc:ip:lc_ctrl_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim_generic:flop_2sync:0
+    license: null
+  lowrisc:tlul:common:0.1:
+    core_file: ../../tlul/common.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim:fifo:0
+    - lowrisc:tlul:headers:0.1
+    - lowrisc:tlul:trans_intg:0.1
+    license: null
+  lowrisc:prim:all:0.1:
+    core_file: ../../prim/prim.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:alert:0
+    - lowrisc:prim_generic:and2:0
+    - lowrisc:prim:arbiter:0
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim_generic:buf:0
+    - lowrisc:prim:cipher:0
+    - lowrisc:prim_generic:clock_inv:0
+    - lowrisc:prim_generic:clock_mux2:0
+    - lowrisc:prim_generic:const:0
+    - lowrisc:prim_generic:const_sec:0
+    - lowrisc:prim:diff_decode:0
+    - lowrisc:prim:esc:0
+    - lowrisc:prim:fifo:0
+    - lowrisc:prim_generic:flop:0
+    - lowrisc:prim_generic:flop_2sync:0
+    - lowrisc:prim_asap7:flop_en:0
+    - lowrisc:prim_asap7:flop_no_rst:0
+    - lowrisc:prim_xilinx_ultrascale:pad_wrapper:0
+    - lowrisc:prim:reg_we_check:0
+    - lowrisc:prim_generic:rst_sync:0
+    - lowrisc:prim:sha2:0
+    - lowrisc:prim:subreg:0
+    - lowrisc:prim:util:0.1
+    - lowrisc:prim_generic:xnor2:0
+    - lowrisc:prim_generic:xor2:0
+    license: null
+  lowrisc:tlul:adapter_host:0.1:
+    core_file: ../../tlul/adapter_host.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:trans_intg:0.1
+    - lowrisc:darjeeling_constants:top_pkg:0
+    license: null
+  lowrisc:tlul:adapter_reg:0.1:
+    core_file: ../../tlul/adapter_reg.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:secded:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:trans_intg:0.1
+    license: null
+  lowrisc:tlul:adapter_sram:0.1:
+    core_file: ../../tlul/adapter_sram.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:util:0.1
+    - lowrisc:tlul:common:0.1
+    license: null
+  lowrisc:tlul:lc_gate:0.1:
+    core_file: ../../tlul/tlul_lc_gate.core
+    dependencies:
+    - lowrisc:ip:lc_ctrl_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:blanker:0
+    - lowrisc:prim:lc_sync:0.1
+    - lowrisc:prim:sparse_fsm:0
+    - lowrisc:tlul:common:0.1
+    license: null
+  lowrisc:tlul:request_loopback:0.1:
+    core_file: ../../tlul/request_loopback.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:util:0.1
+    - lowrisc:tlul:common:0.1
+    license: null
+  lowrisc:tlul:socket_1n:0.1:
+    core_file: ../../tlul/socket_1n.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:headers:0.1
+    license: null
+  lowrisc:tlul:socket_m1:0.1:
+    core_file: ../../tlul/socket_m1.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:arbiter:0
+    - lowrisc:prim:assert:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:headers:0.1
+    license: null
+  lowrisc:tlul:sram2tlul:0.1:
+    core_file: ../../tlul/sram2tlul.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:tlul:common:0.1
+    license: null
+  lowrisc:tlul:adapter_racl:0.1:
+    core_file: ../../tlul/adapter_racl.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:util:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:request_loopback:0.1
+    - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+    license: null
+  lowrisc:tlul:adapter_reg_racl:0.1:
+    core_file: ../../tlul/adapter_reg_racl.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:secded:0.1
+    - lowrisc:tlul:adapter_reg:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:request_loopback:0.1
+    - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+    license: null
+  pulp-platform:riscv-dbg:0.1:0:
+    core_file: ../../../vendor/pulp_riscv_dbg.core
+    dependencies:
+    - lowrisc:prim:all:0.1
+    - lowrisc:prim_generic:clock_inv:0
+    license: null
+  lowrisc:tlul:adapter_dmi:0.1:
+    core_file: ../../tlul/adapter_dmi.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:secded:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:tlul:trans_intg:0.1
+    - pulp-platform:riscv-dbg:0.1:0
+    license: null
+  lowrisc:tlul:adapter_sram_racl:0.1:
+    core_file: ../../tlul/adapter_sram_racl.core
+    dependencies:
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:util:0.1
+    - lowrisc:tlul:adapter_racl:0.1
+    - lowrisc:tlul:adapter_sram:0.1
+    - lowrisc:tlul:common:0.1
+    - lowrisc:darjeeling_constants:top_racl_pkg:0.1
+    license: null
+  lowrisc:tlul:jtag_dtm:0.1:
+    core_file: ../../tlul/jtag_dtm.core
+    dependencies:
+    - lowrisc:ip:jtag_pkg:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:all:0.1
+    - lowrisc:tlul:adapter_host:0.1
+    - pulp-platform:riscv-dbg:0.1:0
+    license: null
+  lowrisc:ip:tlul:0.1:
+    core_file: ../../tlul/tlul.core
+    dependencies:
+    - lowrisc:tlul:adapter_dmi:0.1
+    - lowrisc:tlul:adapter_reg:0.1
+    - lowrisc:tlul:adapter_reg_racl:0.1
+    - lowrisc:tlul:adapter_sram:0.1
+    - lowrisc:tlul:adapter_sram_racl:0.1
+    - lowrisc:tlul:jtag_dtm:0.1
+    - lowrisc:tlul:lc_gate:0.1
+    - lowrisc:tlul:request_loopback:0.1
+    - lowrisc:tlul:socket_1n:0.1
+    - lowrisc:tlul:socket_m1:0.1
+    - lowrisc:tlul:sram2tlul:0.1
+    license: null
+  lowrisc:ip:sha3:0.1:
+    core_file: ../../kmac/sha3.core
+    dependencies:
+    - lowrisc:ip:tlul:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:prim:all:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:mubi:0.1
+    - lowrisc:prim:prim_dom_and_2share:0.1
+    license: null
+  lowrisc:ip:entropy_src:0.1:
+    core_file: ../entropy_src.core
+    dependencies:
+    - lowrisc:ip:entropy_src_ack_sm_pkg:0.1
+    - lowrisc:ip:entropy_src_main_sm_pkg:0.1
+    - lowrisc:ip:entropy_src_pkg:0.1
+    - lowrisc:ip:otp_ctrl_pkg:1.0
+    - lowrisc:ip:sha3:0.1
+    - lowrisc:ip:tlul:0.1
+    - lowrisc:lint:common:0.1
+    - lowrisc:lint:comportable:0.1
+    - lowrisc:prim:all:0.1
+    - lowrisc:prim:assert:0.1
+    - lowrisc:prim:count:0
+    - lowrisc:prim:edge_detector:0.1
+    - lowrisc:prim:lfsr:0.1
+    - lowrisc:prim:macros:0.1
+    - lowrisc:prim:max_tree:0
+    - lowrisc:prim:mubi:0.1
+    - lowrisc:prim:sparse_fsm:0
+    - lowrisc:prim:sum_tree:0
+    - lowrisc:darjeeling_constants:top_pkg:0
+    license: null
+parameters:
+  SYNTHESIS:
+    datatype: bool
+    paramtype: vlogdefine
+    default: true
+tool_options:
+  verilator:
+    verilator_options:
+    - -DDISABLE_PRIM_CDC_RAND_DELAY
+    - -Wall
+    mode: lint-only
+filters: []
+flow_options: {}
+hooks:
+  pre_build:
+  - name: check_tool_requirements_verilator
+    cmd:
+    - python3
+    - check_tool_requirements.py
+    - verilator
+    env:
+      FILES_ROOT: src/lowrisc_tool_check_tool_requirements_0.1
+files:
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_ack_sm_pkg_0.1/entropy_src_ack_sm_pkg.sv
+  core: lowrisc:ip:entropy_src_ack_sm_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_main_sm_pkg_0.1/entropy_src_main_sm_pkg.sv
+  core: lowrisc:ip:entropy_src_main_sm_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_jtag_pkg_0.1/rtl/jtag_pkg.sv
+  core: lowrisc:ip:jtag_pkg:0.1
+- file_type: vlt
+  name: src/lowrisc_lint_comportable_0.1/tools/verilator/comportable.vlt
+  core: lowrisc:lint:comportable:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_macros_0.1/rtl/prim_macros.svh
+  core: lowrisc:prim:macros:0.1
+- file_type: user
+  name: check_tool_requirements.py
+  core: lowrisc:tool:check_tool_requirements:0.1
+- file_type: user
+  name: tool_requirements.py
+  core: lowrisc:tool:check_tool_requirements:0.1
+- file_type: vlt
+  name: src/lowrisc_lint_common_0.1/tools/verilator/common.vlt
+  core: lowrisc:lint:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_asap7_flop_no_rst_0/rtl/prim_flop_no_rst.sv
+  core: lowrisc:prim_asap7:flop_no_rst:0
+- file_type: vlt
+  name: src/lowrisc_prim_assert_0.1/lint/prim_assert.vlt
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_assert.sv
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_assert_dummy_macros.svh
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_assert_yosys_macros.svh
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_assert_standard_macros.svh
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_assert_sec_cm.svh
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_assert_0.1/rtl/prim_flop_macros.sv
+  core: lowrisc:prim:assert:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_cipher_pkg_0.1/rtl/prim_cipher_pkg.sv
+  core: lowrisc:prim:cipher_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_and2_0/rtl/prim_and2.sv
+  core: lowrisc:prim_generic:and2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_buf_0/rtl/prim_buf.sv
+  core: lowrisc:prim_generic:buf:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_const_0/rtl/prim_const.sv
+  core: lowrisc:prim_generic:const:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_const_sec_0/rtl/prim_const_sec.sv
+  core: lowrisc:prim_generic:const_sec:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_flop_0/rtl/prim_flop.sv
+  core: lowrisc:prim_generic:flop:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_xnor2_0/rtl/prim_xnor2.sv
+  core: lowrisc:prim_generic:xnor2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_xor2_0/rtl/prim_xor2.sv
+  core: lowrisc:prim_generic:xor2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_pad_wrapper_pkg_0/rtl/prim_pad_wrapper_pkg.sv
+  core: lowrisc:prim:pad_wrapper_pkg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_pkg.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_dec.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_enc.sv
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_secded_0.1/rtl/prim_secded_inc.svh
+  core: lowrisc:prim:secded:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sha2_pkg_0/rtl/prim_sha2_pkg.sv
+  core: lowrisc:prim:sha2_pkg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_blanker_0/rtl/prim_blanker.sv
+  core: lowrisc:prim:blanker:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_cdc_rand_delay_0/rtl/prim_cdc_rand_delay.sv
+  core: lowrisc:prim:cdc_rand_delay:0
+- file_type: vlt
+  name: src/lowrisc_prim_cdc_rand_delay_0/lint/prim_cdc_rand_delay.vlt
+  core: lowrisc:prim:cdc_rand_delay:0
+- file_type: vlt
+  name: src/lowrisc_prim_cipher_0/lint/prim_cipher.vlt
+  core: lowrisc:prim:cipher:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_cipher_0/rtl/prim_subst_perm.sv
+  core: lowrisc:prim:cipher:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_cipher_0/rtl/prim_present.sv
+  core: lowrisc:prim:cipher:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_cipher_0/rtl/prim_prince.sv
+  core: lowrisc:prim:cipher:0
+- file_type: vlt
+  name: src/lowrisc_prim_count_0/lint/prim_count.vlt
+  core: lowrisc:prim:count:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_count_0/rtl/prim_count_pkg.sv
+  core: lowrisc:prim:count:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_count_0/rtl/prim_count.sv
+  core: lowrisc:prim:count:0
+- file_type: vlt
+  name: src/lowrisc_prim_generic_clock_mux2_0/lint/prim_generic_clock_mux2.vlt
+  core: lowrisc:prim_generic:clock_mux2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_clock_mux2_0/rtl/prim_clock_mux2.sv
+  core: lowrisc:prim_generic:clock_mux2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_lfsr_0.1/rtl/prim_lfsr.sv
+  core: lowrisc:prim:lfsr:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_max_tree_0/lint/prim_max_tree.vlt
+  core: lowrisc:prim:max_tree:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_max_tree_0/rtl/prim_max_tree.sv
+  core: lowrisc:prim:max_tree:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_pkg_0.1/rtl/prim_mubi_pkg.sv
+  core: lowrisc:prim:mubi_pkg:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_prim_dom_and_2share_0.1/lint/prim.vlt
+  core: lowrisc:prim:prim_dom_and_2share:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_prim_dom_and_2share_0.1/rtl/prim_dom_and_2share.sv
+  core: lowrisc:prim:prim_dom_and_2share:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sec_anchor_0.1/rtl/prim_sec_anchor_buf.sv
+  core: lowrisc:prim:sec_anchor:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sec_anchor_0.1/rtl/prim_sec_anchor_const.sv
+  core: lowrisc:prim:sec_anchor:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sec_anchor_0.1/rtl/prim_sec_anchor_flop.sv
+  core: lowrisc:prim:sec_anchor:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_sha2_0/lint/prim_sha2.vlt
+  core: lowrisc:prim:sha2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sha2_0/rtl/prim_sha2_pad.sv
+  core: lowrisc:prim:sha2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sha2_0/rtl/prim_sha2.sv
+  core: lowrisc:prim:sha2:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sha2_0/rtl/prim_sha2_32.sv
+  core: lowrisc:prim:sha2:0
+- file_type: vlt
+  name: src/lowrisc_prim_sparse_fsm_0/lint/prim_sparse_fsm_flop.vlt
+  core: lowrisc:prim:sparse_fsm:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sparse_fsm_0/rtl/prim_sparse_fsm_flop.sv
+  core: lowrisc:prim:sparse_fsm:0
+- file_type: vlt
+  name: src/lowrisc_prim_sum_tree_0/lint/prim_sum_tree.vlt
+  core: lowrisc:prim:sum_tree:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_sum_tree_0/rtl/prim_sum_tree.sv
+  core: lowrisc:prim:sum_tree:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_util_0.1/rtl/prim_util_pkg.sv
+  core: lowrisc:prim:util:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_xilinx_ultrascale_pad_wrapper_0/lint/prim_xilinx_ultrascale_pad_wrapper.vlt
+  core: lowrisc:prim_xilinx_ultrascale:pad_wrapper:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_xilinx_ultrascale_pad_wrapper_0/rtl/prim_pad_wrapper.sv
+  core: lowrisc:prim_xilinx_ultrascale:pad_wrapper:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_darjeeling_constants_top_pkg_0/rtl/top_pkg.sv
+  core: lowrisc:darjeeling_constants:top_pkg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_pkg_0.1/rtl/entropy_src_pkg.sv
+  core: lowrisc:ip:entropy_src_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_lc_ctrl_state_pkg_0.1/rtl/lc_ctrl_state_pkg.sv
+  core: lowrisc:ip:lc_ctrl_state_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_asap7_flop_en_0/rtl/prim_flop_en.sv
+  core: lowrisc:prim_asap7:flop_en:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_clock_inv_0/rtl/prim_clock_inv.sv
+  core: lowrisc:prim_generic:clock_inv:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_flop_2sync_0/rtl/prim_flop_2sync.sv
+  core: lowrisc:prim_generic:flop_2sync:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_leading_one_ppc_0/rtl/prim_leading_one_ppc.sv
+  core: lowrisc:prim:leading_one_ppc:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sender.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sync.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_dec.sv
+  core: lowrisc:prim:mubi:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_onehot_check_0/lint/prim_onehot_check.vlt
+  core: lowrisc:prim:onehot_check:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_onehot_check_0/rtl/prim_onehot_check.sv
+  core: lowrisc:prim:onehot_check:0
+- file_type: vlt
+  name: src/lowrisc_prim_arbiter_0/lint/prim_arbiter.vlt
+  core: lowrisc:prim:arbiter:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_arbiter_0/rtl/prim_arbiter_fixed.sv
+  core: lowrisc:prim:arbiter:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_arbiter_0/rtl/prim_arbiter_ppc.sv
+  core: lowrisc:prim:arbiter:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_arbiter_0/rtl/prim_arbiter_tree.sv
+  core: lowrisc:prim:arbiter:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_arbiter_0/rtl/prim_arbiter_tree_dup.sv
+  core: lowrisc:prim:arbiter:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_diff_decode_0/rtl/prim_diff_decode.sv
+  core: lowrisc:prim:diff_decode:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_edge_detector_0.1/rtl/prim_edge_detector.sv
+  core: lowrisc:prim:edge_detector:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_fifo_0/lint/prim_fifo.vlt
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_async_sram_adapter.sv
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_async_simple.sv
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_async.sv
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_sync.sv
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_sync_cnt.sv
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  is_include_file: true
+  name: src/lowrisc_prim_fifo_0/rtl/prim_fifo_assert.svh
+  core: lowrisc:prim:fifo:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_generic_rst_sync_0/rtl/prim_rst_sync.sv
+  core: lowrisc:prim_generic:rst_sync:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_reg_we_check_0/rtl/prim_reg_we_check.sv
+  core: lowrisc:prim:reg_we_check:0
+- file_type: vlt
+  name: src/lowrisc_prim_subreg_0/lint/prim_subreg.vlt
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_subreg_pkg.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_reg_cdc.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_reg_cdc_arb.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_subreg.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_subreg_arb.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_subreg_ext.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_subreg_0/rtl/prim_subreg_shadow.sv
+  core: lowrisc:prim:subreg:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_headers_0.1/rtl/tlul_pkg.sv
+  core: lowrisc:tlul:headers:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_darjeeling_constants_top_racl_pkg_0.1/rtl/autogen/top_racl_pkg.sv
+  core: lowrisc:darjeeling_constants:top_racl_pkg:0.1
+- file_type: vlt
+  name: src/lowrisc_ip_lc_ctrl_pkg_0.1/lint/lc_ctrl_pkg.vlt
+  core: lowrisc:ip:lc_ctrl_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_lc_ctrl_pkg_0.1/rtl/lc_ctrl_reg_pkg.sv
+  core: lowrisc:ip:lc_ctrl_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_lc_ctrl_pkg_0.1/rtl/lc_ctrl_pkg.sv
+  core: lowrisc:ip:lc_ctrl_pkg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_esc_0/rtl/prim_esc_pkg.sv
+  core: lowrisc:prim:esc:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_esc_0/rtl/prim_esc_receiver.sv
+  core: lowrisc:prim:esc:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_esc_0/rtl/prim_esc_sender.sv
+  core: lowrisc:prim:esc:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_data_integ_enc.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_data_integ_dec.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_cmd_intg_gen.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_cmd_intg_chk.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_rsp_intg_gen.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_trans_intg_0.1/rtl/tlul_rsp_intg_chk.sv
+  core: lowrisc:tlul:trans_intg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_otp_ctrl_pkg_1.0/rtl/otp_ctrl_pkg.sv
+  core: lowrisc:ip:otp_ctrl_pkg:1.0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_alert_0/rtl/prim_alert_pkg.sv
+  core: lowrisc:prim:alert:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_alert_0/rtl/prim_alert_receiver.sv
+  core: lowrisc:prim:alert:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_alert_0/rtl/prim_alert_sender.sv
+  core: lowrisc:prim:alert:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_lc_sync_0.1/rtl/prim_lc_sync.sv
+  core: lowrisc:prim:lc_sync:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_common_0.1/lint/tlul_common.vlt
+  core: lowrisc:tlul:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_common_0.1/rtl/tlul_fifo_sync.sv
+  core: lowrisc:tlul:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_common_0.1/rtl/tlul_fifo_async.sv
+  core: lowrisc:tlul:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_common_0.1/rtl/tlul_assert.sv
+  core: lowrisc:tlul:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_common_0.1/rtl/tlul_err.sv
+  core: lowrisc:tlul:common:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_common_0.1/rtl/tlul_assert_multiple.sv
+  core: lowrisc:tlul:common:0.1
+- file_type: vlt
+  name: src/lowrisc_prim_all_0.1/lint/prim.vlt
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_clock_gating_sync.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_sram_arbiter.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_slicer.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_sync_reqack.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_sync_reqack_data.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_sync_slow_fast.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_keccak.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_packer.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_packer_fifo.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_gate_gen.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_pulse_sync.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_filter.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_filter_ctr.sv
+  core: lowrisc:prim:all:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_prim_all_0.1/rtl/prim_intr_hw.sv
+  core: lowrisc:prim:all:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_adapter_host_0.1/lint/tlul_adapter_host.vlt
+  core: lowrisc:tlul:adapter_host:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_host_0.1/rtl/tlul_adapter_host.sv
+  core: lowrisc:tlul:adapter_host:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_adapter_reg_0.1/lint/tlul_adapter_reg.vlt
+  core: lowrisc:tlul:adapter_reg:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_reg_0.1/rtl/tlul_adapter_reg.sv
+  core: lowrisc:tlul:adapter_reg:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_adapter_sram_0.1/lint/tlul_adapter_sram.vlt
+  core: lowrisc:tlul:adapter_sram:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_sram_0.1/rtl/tlul_sram_byte.sv
+  core: lowrisc:tlul:adapter_sram:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_sram_0.1/rtl/tlul_adapter_sram.sv
+  core: lowrisc:tlul:adapter_sram:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_lc_gate_0.1/lint/tlul_lc_gate.vlt
+  core: lowrisc:tlul:lc_gate:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_lc_gate_0.1/rtl/tlul_lc_gate.sv
+  core: lowrisc:tlul:lc_gate:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_request_loopback_0.1/lint/tlul_request_loopback.vlt
+  core: lowrisc:tlul:request_loopback:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_request_loopback_0.1/rtl/tlul_request_loopback.sv
+  core: lowrisc:tlul:request_loopback:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_socket_1n_0.1/lint/tlul_socket_1n.vlt
+  core: lowrisc:tlul:socket_1n:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_socket_1n_0.1/rtl/tlul_err_resp.sv
+  core: lowrisc:tlul:socket_1n:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_socket_1n_0.1/rtl/tlul_socket_1n.sv
+  core: lowrisc:tlul:socket_1n:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_socket_m1_0.1/lint/tlul_socket_m1.vlt
+  core: lowrisc:tlul:socket_m1:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_socket_m1_0.1/rtl/tlul_socket_m1.sv
+  core: lowrisc:tlul:socket_m1:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_sram2tlul_0.1/lint/tlul_sram2tlul.vlt
+  core: lowrisc:tlul:sram2tlul:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_sram2tlul_0.1/rtl/sram2tlul.sv
+  core: lowrisc:tlul:sram2tlul:0.1
+- file_type: vlt
+  name: src/lowrisc_tlul_adapter_racl_0.1/lint/tlul_adapter_racl.vlt
+  core: lowrisc:tlul:adapter_racl:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_racl_0.1/rtl/tlul_adapter_racl.sv
+  core: lowrisc:tlul:adapter_racl:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_reg_racl_0.1/rtl/tlul_adapter_reg_racl.sv
+  core: lowrisc:tlul:adapter_reg_racl:0.1
+- file_type: vlt
+  name: src/pulp-platform_riscv-dbg_0.1_0/lint/pulp_riscv_dbg.vlt
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/debug_rom/debug_rom.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/debug_rom/debug_rom_one_scratch.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dm_pkg.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dm_sba.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dm_csrs.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dm_mem.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dmi_cdc.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dmi_jtag.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dmi_jtag_tap.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/pulp-platform_riscv-dbg_0.1_0/pulp_riscv_dbg/src/dm_top.sv
+  core: pulp-platform:riscv-dbg:0.1:0
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_dmi_0.1/rtl/tlul_adapter_dmi.sv
+  core: lowrisc:tlul:adapter_dmi:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_adapter_sram_racl_0.1/rtl/tlul_adapter_sram_racl.sv
+  core: lowrisc:tlul:adapter_sram_racl:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_tlul_jtag_dtm_0.1/rtl/tlul_jtag_dtm.sv
+  core: lowrisc:tlul:jtag_dtm:0.1
+- file_type: vlt
+  name: src/lowrisc_ip_sha3_0.1/lint/sha3.vlt
+  core: lowrisc:ip:sha3:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_sha3_0.1/rtl/sha3_pkg.sv
+  core: lowrisc:ip:sha3:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_sha3_0.1/rtl/keccak_round.sv
+  core: lowrisc:ip:sha3:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_sha3_0.1/rtl/keccak_2share.sv
+  core: lowrisc:ip:sha3:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_sha3_0.1/rtl/sha3pad.sv
+  core: lowrisc:ip:sha3:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_sha3_0.1/rtl/sha3.sv
+  core: lowrisc:ip:sha3:0.1
+- file_type: vlt
+  name: src/lowrisc_ip_entropy_src_0.1/lint/entropy_src.vlt
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_reg_pkg.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_reg_top.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_watermark_reg.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_field_en.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_cntr_reg.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_ack_sm.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_main_sm.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_repcnt_ht.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_repcnts_ht.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_adaptp_ht.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_bucket_ht.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_markov_ht.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_enable_delay.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src_core.sv
+  core: lowrisc:ip:entropy_src:0.1
+- file_type: systemVerilogSource
+  name: src/lowrisc_ip_entropy_src_0.1/rtl/entropy_src.sv
+  core: lowrisc:ip:entropy_src:0.1
+vpi: []

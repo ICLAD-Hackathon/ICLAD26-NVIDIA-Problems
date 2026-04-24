@@ -1,0 +1,3 @@
+STUBLIB_csrc = libcsrc_sysc_stubs.a
+STUBS = _stublist \
+	nvdla_top_sc_adapter/nvdla_top_sc_adapter_stubs \

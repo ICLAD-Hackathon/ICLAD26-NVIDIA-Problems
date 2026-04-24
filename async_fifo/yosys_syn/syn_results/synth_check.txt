@@ -1,0 +1,16 @@
+
+23. Executing CHECK pass (checking for obvious problems).
+Checking module async_fifo...
+Warning: Wire async_fifo.\wfull is used but has no driver.
+Warning: Wire async_fifo.\awfull is used but has no driver.
+Warning: Wire async_fifo.\rdata [7] is used but has no driver.
+Warning: Wire async_fifo.\rdata [6] is used but has no driver.
+Warning: Wire async_fifo.\rdata [5] is used but has no driver.
+Warning: Wire async_fifo.\rdata [4] is used but has no driver.
+Warning: Wire async_fifo.\rdata [3] is used but has no driver.
+Warning: Wire async_fifo.\rdata [2] is used but has no driver.
+Warning: Wire async_fifo.\rdata [1] is used but has no driver.
+Warning: Wire async_fifo.\rdata [0] is used but has no driver.
+Warning: Wire async_fifo.\rempty is used but has no driver.
+Warning: Wire async_fifo.\arempty is used but has no driver.
+Found and reported 12 problems.

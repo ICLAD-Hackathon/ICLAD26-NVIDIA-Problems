@@ -1,0 +1,20 @@
+
+164. Executing CHECK pass (checking for obvious problems).
+Checking module prim_flop_2sync...
+Warning: Wire prim_flop_2sync.\q_o [15] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [14] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [13] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [12] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [11] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [10] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [9] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [8] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [7] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [6] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [5] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [4] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [3] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [2] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [1] is used but has no driver.
+Warning: Wire prim_flop_2sync.\q_o [0] is used but has no driver.
+Found and reported 16 problems.

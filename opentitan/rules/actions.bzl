@@ -1,0 +1,6 @@
+# Copyright lowRISC contributors (OpenTitan project).
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+
+OT_ACTION_OBJDUMP = "objdump"
+OT_ACTION_LLVM_PROFDATA = "llvm-profdata"

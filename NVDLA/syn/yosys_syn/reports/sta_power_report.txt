@@ -1,0 +1,72 @@
+================================================================================
+                    OpenSTA POWER ANALYSIS REPORT
+================================================================================
+
+Design:     NV_nvdla
+Technology: ASAP7 RVT TT
+Date:       2026-04-24 02:43:40
+
+================================================================================
+                         POWER SUMMARY TABLE
+================================================================================
+
+Note: Power values are estimates based on liberty file characterization.
+      For accurate power, provide switching activity via VCD/SAIF files.
+
+--------------------------------------------------------------------------------
+                    DESIGN POWER REPORT
+--------------------------------------------------------------------------------
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.46e-03   2.09e-04   1.75e-05   4.68e-03  45.1%
+Combinational          2.96e-03   2.34e-03   6.00e-05   5.36e-03  51.6%
+Clock                  8.68e-06   3.31e-04   2.64e-08   3.40e-04   3.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.42e-03   2.88e-03   7.75e-05   1.04e-02 100.0%
+                          71.5%      27.8%       0.7%
+
+--------------------------------------------------------------------------------
+                    TOP POWER CONSUMING INSTANCES
+--------------------------------------------------------------------------------
+
+Top 20 Power Consuming Instances:
+
+Error running: report_power -instances -highest_power_instances 20
+
+================================================================================
+                    POWER BREAKDOWN BY CELL CATEGORY
+================================================================================
+
++----------------------+------------+---------------------+
+| Category             | Cell Count | Est. Power Contrib. |
++----------------------+------------+---------------------+
+| Sequential           |      87446 |              14.8% |
+| Combinational        |     503351 |              85.2% |
++----------------------+------------+---------------------+
+
+Note: Power contribution percentages are rough estimates based on cell count.
+      Actual power depends on switching activity and cell-specific power models.
+
+================================================================================
+                    CLOCK INFORMATION (Power Context)
+================================================================================
+
++------------------+------------+------------+
+| Clock Name       | Freq(MHz)  | Registers  |
++------------------+------------+------------+
+| dla_core_clk     |      33.33 |      87446 |
+| dla_csb_clk      |      16.67 |      87446 |
++------------------+------------+------------+
+
+Power Scaling Notes:
+  - Dynamic power scales linearly with frequency
+  - Dynamic power scales with V^2
+  - Leakage power is frequency-independent
+
+================================================================================
+                    END OF POWER REPORT
+================================================================================

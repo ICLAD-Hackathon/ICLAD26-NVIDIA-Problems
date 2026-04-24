@@ -1,0 +1,12 @@
+
+VLOGAN	= vlogan
+VLOGAN_OPT	= -sverilog -full64 -q -work DEFAULT -full64
+
+all :		_VCSgd_MB6Gic_1.db \
+
+
+
+_VCSgd_MB6Gic_1.db :	/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/nvdla_top_sc_adapter/nvdla_top_sc_adapter.v 
+		${VLOGAN}  ${VLOGAN_OPT} /home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/nvdla_top_sc_adapter/nvdla_top_sc_adapter.v
+
+

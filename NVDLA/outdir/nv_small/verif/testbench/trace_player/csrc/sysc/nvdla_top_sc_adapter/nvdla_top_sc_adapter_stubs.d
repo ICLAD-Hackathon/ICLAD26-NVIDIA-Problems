@@ -1,0 +1,1 @@
+nvdla_top_sc_adapter_stubs.o: nvdla_top_sc_adapter_stubs.c

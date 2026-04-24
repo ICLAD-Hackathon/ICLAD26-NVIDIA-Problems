@@ -1,0 +1,29 @@
+SYSC_MODULE = rm_convertor_dpi
+V = @
+CXX = /home/utils/gcc-9.5.0-binutils-2.33.1/bin/g++
+CXXFLAGS =  -I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/include -I/home/scratch.chiatungh_nvresearch/NVDLA/cmod/include -I/home/scratch.chiatungh_nvresearch/NVDLA/cmod/include/nvdla_ness_header -I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/spec/defs -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -DVCSSYSTEMC=1 -MMD -m64 -fPIC
+INCLUDES = \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/vip/reference_model/rm_nvdla_top \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/include \
+	-I/home/tools/vcs/2025.06/include/systemc233 \
+	-I/home/tools/vcs/2025.06/include/systemc233 \
+	-Iinclude \
+	-I$(VCS_HOME)/lib \
+	-I$(VCS_HOME)/include \
+	-I$(VCS_HOME)/include/cosim/bf \
+	-I$(SNPS_SIM_OVRD)/include \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player
+
+OBJS = rm_convertor_dpi.o
+
+module-rm_convertor_dpi:	$(OBJS)
+rm_convertor_dpi.o:
+	@rm -f rm_convertor_dpi.o
+	@$(MAKE) -f Makefile_shared clean
+	$(V) $(CXX) $(INCLUDES) $(CXXFLAGS) -c /home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/vip/reference_model/rm_nvdla_top/rm_convertor_dpi.cpp -o $@ 
+
+clean:
+	$(V) rm -f rm_convertor_dpi.o
+
+-include rm_convertor_dpi.d
+

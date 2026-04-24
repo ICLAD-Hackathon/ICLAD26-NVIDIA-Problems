@@ -1,0 +1,79 @@
+# ABC Speed-optimized script with buffering and sizing
+#
+# Timing is controlled via:
+#   1. Yosys abc command: -D <period_in_ps> (passed to ABC globally)
+#   2. abc.constr file: set_driving_cell, set_load (for buffering/sizing)
+#
+# The -D value from Yosys sets the global timing target for ABC.
+# Commands like buffer -c, upsize -c, dnsize -c use the constraint file.
+
+# Phase 1: AIG optimization and technology mapping
+# Note: &if uses the global -D delay target set by Yosys automatically
+&get -n
+&st
+&dch
+&nf
+&st
+&syn2
+&if -g -K 6
+&synch2
+&nf
+&st
+&syn2
+&if -g -K 6
+&synch2
+&nf
+&st
+&syn2
+&if -g -K 6
+&synch2
+&nf
+&st
+&syn2
+&if -g -K 6
+&synch2
+&nf
+&st
+&syn2
+&if -g -K 6
+&synch2
+&nf
+&put
+
+# Phase 2: Initial timing analysis
+topo
+stime -c
+
+# Phase 3: Buffer insertion for high-fanout nets
+# -c uses constraint file for timing-driven buffering
+# -p specifies max fanout before buffering (lower = more aggressive)
+buffer -c -p 20
+
+# Phase 4: Iterative gate sizing for timing improvement
+# upsize: increase cell sizes on critical paths to reduce delay
+# dnsize: decrease cell sizes on non-critical paths to save area
+# Multiple iterations help converge to better solution
+
+# Iteration 1
+stime -c
+upsize -c
+dnsize -c
+
+# Iteration 2
+stime -c
+upsize -c
+dnsize -c
+
+# Iteration 3
+stime -c
+upsize -c
+dnsize -c
+
+# Phase 5: Final buffer cleanup and optimization
+buffer -c -p 16
+stime -c
+upsize -c
+dnsize -c
+
+# Final timing report
+stime -c -p

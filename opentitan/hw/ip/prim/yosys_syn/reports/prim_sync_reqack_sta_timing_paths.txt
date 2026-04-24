@@ -1,0 +1,73 @@
+================================================================================
+                    OpenSTA DETAILED TIMING PATHS REPORT
+================================================================================
+
+Design:     prim_sync_reqack
+Technology: ASAP7 RVT TT
+Date:       2026-04-23 23:15:06
+
+================================================================================
+                    SETUP TIMING PATHS (MAX DELAY)
+================================================================================
+
+Top 10 Critical Setup Paths:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+================================================================================
+                    HOLD TIMING PATHS (MIN DELAY)
+================================================================================
+
+Top 10 Critical Hold Paths:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+================================================================================
+                    REGISTER-TO-REGISTER PATHS
+================================================================================
+
+Setup (Max Delay) - Register to Register:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+Hold (Min Delay) - Register to Register:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+================================================================================
+                    INPUT-TO-REGISTER PATHS
+================================================================================
+
+Setup (Max Delay) - Input to Register:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+================================================================================
+                    REGISTER-TO-OUTPUT PATHS
+================================================================================
+
+Setup (Max Delay) - Register to Output:
+--------------------------------------------------------------------------------
+Warning 502: run_sta.tcl line 1, report_checks -endpoint_count is deprecated. Use -endpoint_path_count instead.
+No paths found.
+
+================================================================================
+                    UNCONSTRAINED ENDPOINTS
+================================================================================
+
+max_delay/setup group unconstrained
+
+                                      Required    Actual
+Endpoint                                 Delay     Delay     Slack
+------------------------------------------------------------------
+_30_/D (DFFASRHQNx1_ASAP7_75t_R)           INF 1630.3889       INF (MET)
+
+
+================================================================================
+                    END OF TIMING PATHS REPORT
+================================================================================

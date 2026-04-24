@@ -1,0 +1,142 @@
+================================================================================
+                    SYNTHESIS FINAL REPORT
+================================================================================
+
+Design:          async_fifo
+Date:            2026-04-24 03:31:35
+Technology:      ASAP7 RVT TT
+Optimization:    Speed
+Flatten:         Yes
+
+--------------------------------------------------------------------------------
+                           RTL INPUT FILES
+--------------------------------------------------------------------------------
+RTL Directory:           ../rtl
+Number of Files:         6
+
+  - ../rtl/async_fifo.v
+  - ../rtl/fifomem.v
+  - ../rtl/rptr_empty.v
+  - ../rtl/sync_r2w.v
+  - ../rtl/sync_w2r.v
+  - ../rtl/wptr_full.v
+
+--------------------------------------------------------------------------------
+                         TIMING CONFIGURATION
+--------------------------------------------------------------------------------
+SDC File:                /workspace/async_fifo/yosys_syn/constraint.sdc
+Target Clock Period:     300 ps (0.3 ns)
+Target Frequency:        3333.33 MHz
+ABC Driver Cell:         BUFx2_ASAP7_75t_R
+ABC Load:                3.898 fF
+
+--------------------------------------------------------------------------------
+                              AREA SUMMARY
+--------------------------------------------------------------------------------
+Total Cell Count:        918
+Total Area:              120.372 (liberty units)
+Sequential Area:         53.246 (44.23%)
+Combinational Area:      67.126 (55.77%)
+
+--------------------------------------------------------------------------------
+                            CELL BREAKDOWN
+--------------------------------------------------------------------------------
+Flip-Flops:              170
+Buffers:                 71
+Inverters:               99
+Logic Gates:             578
+
+--------------------------------------------------------------------------------
+                          TIMING ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual WNS/TNS requires STA with OpenSTA or OpenROAD
+
+ABC Timing Target:       300 ps
+ABC Optimization:        Timing-focused
+
+For accurate timing, run:
+  sta constraint.sdc results/async_fifo_syn.v
+
+--------------------------------------------------------------------------------
+                          POWER ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual power requires simulation + power analysis tools
+
+Estimated Total Cells:   918
+Rough Power Estimate:    ~642.6 uW @ 3333.3333333333335 MHz (rough estimate)
+                         (Actual power depends on activity factor, VDD, etc.)
+
+For accurate power, run OpenROAD flow with:
+  report_power
+
+--------------------------------------------------------------------------------
+                           OUTPUT FILES
+--------------------------------------------------------------------------------
+Synthesized Netlist:     /workspace/async_fifo/yosys_syn/syn_results/async_fifo_syn.v
+Synthesis Stats:         /workspace/async_fifo/yosys_syn/syn_results/synth_stat.txt
+Synthesis Check:         /workspace/async_fifo/yosys_syn/syn_results/synth_check.txt
+This Report:             /workspace/async_fifo/yosys_syn/syn_results/synth_final_report.txt
+
+--------------------------------------------------------------------------------
+                         DETAILED CELL LIST
+--------------------------------------------------------------------------------
+
+
+28. Printing statistics.
+
+=== async_fifo ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      918        - wires
+      932        - wire bits
+       54        - public wires
+       68        - public wire bits
+       12        - ports
+       26        - port bits
+      918  120.372 cells
+        9    0.787   AND2x2_ASAP7_75t_R
+        1    0.146   AND2x4_ASAP7_75t_R
+       32    2.799   AND3x1_ASAP7_75t_R
+        1    0.204   AND3x4_ASAP7_75t_R
+        3    0.306   AND4x1_ASAP7_75t_R
+        1    0.117   AND4x2_ASAP7_75t_R
+      144   12.597   AO21x1_ASAP7_75t_R
+        1    0.102   AO21x2_ASAP7_75t_R
+        2    0.292   AO221x1_ASAP7_75t_R
+        1    0.117   AOI21x1_ASAP7_75t_R
+       53    3.864   BUFx2_ASAP7_75t_R
+       14    1.225   BUFx3_ASAP7_75t_R
+        1    0.117   BUFx4f_ASAP7_75t_R
+        3    0.437   BUFx6f_ASAP7_75t_R
+       42   15.921   DFFASRHQNx1_ASAP7_75t_R
+      128   37.325   DFFHQNx1_ASAP7_75t_R
+       97    4.243   INVx1_ASAP7_75t_R
+        1    0.058   INVx2_ASAP7_75t_R
+        1    0.102   INVx5_ASAP7_75t_R
+       89    7.786   NAND2x1_ASAP7_75t_R
+        2    0.292   NAND2x2_ASAP7_75t_R
+       96    8.398   NOR2x1_ASAP7_75t_R
+        6    0.962   NOR3x1_ASAP7_75t_R
+       60    6.998   OA211x2_ASAP7_75t_R
+       57    5.817   OA21x2_ASAP7_75t_R
+        2    0.437   OA31x2_ASAP7_75t_R
+        1    0.117   OAI21x1_ASAP7_75t_R
+        4     0.35   OR2x2_ASAP7_75t_R
+       24      2.1   OR3x1_ASAP7_75t_R
+        1    0.102   OR3x2_ASAP7_75t_R
+        4    0.408   OR4x1_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+        2     0.35   XNOR2x1_ASAP7_75t_R
+       27     4.33   XNOR2x2_ASAP7_75t_R
+        7    1.123   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\async_fifo': 120.372480
+     of which used for sequential elements: 53.246160 (44.23%)
+
+
+
+================================================================================
+                         END OF REPORT
+================================================================================

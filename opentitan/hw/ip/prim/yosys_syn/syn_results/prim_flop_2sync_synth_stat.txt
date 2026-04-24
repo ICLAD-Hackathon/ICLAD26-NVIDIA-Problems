@@ -1,0 +1,22 @@
+
+165. Printing statistics.
+
+=== prim_flop_2sync ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       53        - wires
+       83        - wire bits
+       20        - public wires
+       50        - public wire bits
+        4        - ports
+       34        - port bits
+       65   14.507 cells
+       32   12.131   DFFASRHQNx1_ASAP7_75t_R
+       32    2.333   INVx3_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+
+   Chip area for module '\prim_flop_2sync': 14.507100
+     of which used for sequential elements: 12.130560 (83.62%)
+

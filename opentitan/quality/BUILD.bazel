@@ -1,0 +1,218 @@
+# Copyright lowRISC contributors (OpenTitan project).
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+
+load("@aspect_rules_lint//format:defs.bzl", "format_multirun", "format_test")
+load("@lowrisc_misc_linters//rules:rules.bzl", "licence_test")
+load("//rules:quality.bzl", "clang_tidy_rv_test", "clang_tidy_test", "html_coverage_report")
+
+package(default_visibility = ["//visibility:public"])
+
+licence_test(
+    name = "license_check",
+    exclude_patterns = [
+        # Exclude anything in vendored directories
+        "third_party/**",
+        "*/vendor/*/*",
+        "util/lowrisc_misc-linters/*",
+
+        ## Hardware Exclusions
+
+        # DV Vendored test vectors
+        "hw/dv/sv/test_vectors",
+        # Vendored CRC model
+        "hw/dv/dpi/usbdpi/usb_crc.c",
+        # Vendored HMAC model
+        "hw/ip/hmac/dv/cryptoc_dpi/*",
+        # PRINCE C++ reference model from Sebastien Riou
+        "hw/ip/prim/dv/prim_prince/crypto_dpi_prince/prince_ref.h",
+        # PRESENT C reference model from Thomas Siebert
+        "hw/ip/prim/dv/prim_present/crypto_dpi_present/boxes.inc",
+        "hw/ip/prim/dv/prim_present/crypto_dpi_present/comline.inc",
+        "hw/ip/prim/dv/prim_present/crypto_dpi_present/present.inc",
+        "hw/ip/prim/dv/prim_present/crypto_dpi_present/verbose.inc",
+        # PRESENT Python reference model
+        "util/design/lib/Present.py",
+        # Vendored FPGA information
+        "hw/top_earlgrey/data/*.xdc",
+        "util/fpga/bram_load.mmi",
+        # Manually checked, files contain additional copyright header lines
+        "hw/ip/usb_fs_nb_pe/rtl/*",
+        "hw/ip/usbdev/rtl/usbdev_iomux.sv",
+        # rv_core_ibex uses waiver file from Ibex, which is not compliant
+        "hw/top_earlgrey/ip_autogen/rv_core_ibex/lint/rv_core_ibex.vlt",
+        "hw/top_englishbreakfast/ip_autogen/rv_core_ibex/lint/rv_core_ibex.vlt",
+        "hw/top_darjeeling/ip_autogen/rv_core_ibex/lint/rv_core_ibex.vlt",
+
+        ## Software Exclusions
+
+        # Coremark Vendored Files
+        "sw/device/benchmarks/coremark/top_earlgrey/*",
+
+        ## Other Exclusions
+
+        # Other Licences,
+        "util/wavegen/LICENSE.wavedrom",
+        "sw/otbn/crypto/LICENSE.tiny_sha3",
+        # Site Assets
+        "site/**/assets/scss/**",
+        "site/landing/static/js/tiny-slider.js",
+        # MdBook assets (MPL licensed)
+        "site/book-theme/*",
+        # Code taken from Chromium, so covered by the BSD licence
+        "sw/otbn/crypto/modexp.s",
+        "sw/otbn/crypto/montmul.s",
+        "sw/otbn/crypto/p256.s",
+        "sw/otbn/crypto/rsa_verify.s",
+        "sw/otbn/crypto/handwritten/rsa_verify_3072.s",
+        "sw/otbn/crypto/sha512.s",
+        # Code based on tiny_sha3
+        "sw/otbn/crypto/sha3_shake.s",
+        # Mersenne Twister PRNG
+        "sw/device/sca/lib/prng.c",
+        # SPHINCS+ known-answer test data
+        "sw/device/tests/crypto/testvectors/sphincsplus_kat/*.hjson",
+        # Alma testbench files
+        "hw/ip/aes/pre_sca/alma/cpp/testbench.h",
+        "hw/ip/aes/pre_sca/alma/cpp/verilator_tb_aes_ghash_wrap.cpp",
+        "hw/ip/aes/pre_sca/alma/cpp/verilator_tb_aes_sbox.cpp",
+        "hw/ip/aes/pre_sca/alma/cpp/verilator_tb_aes_sub_bytes.cpp",
+        "hw/ip/kmac/pre_sca/alma/cpp/verilator_tb_keccak_2share.cpp",
+    ],
+    licence = """
+    Copyright lowRISC contributors (OpenTitan project).
+    Licensed under the Apache License, Version 2.0, see LICENSE for details.
+    SPDX-License-Identifier: Apache-2.0
+    """,
+    workspace = "//:MODULE.bazel",
+)
+
+alias(
+    name = "clang-format",
+    actual = "@lowrisc_rv32imcb_toolchain//:bin/clang-format",
+)
+
+alias(
+    name = "rustfmt",
+    actual = "@rules_rust//tools/upstream_wrapper:rustfmt",
+)
+
+alias(
+    name = "buildifier",
+    actual = "@buildifier_prebuilt//:buildifier",
+)
+
+# Run all formatters.
+format_multirun(
+    name = "format",
+    c = ":clang-format",
+    cc = ":clang-format",
+    rust = ":rustfmt",
+    starlark = ":buildifier",
+)
+
+# Check all formatting.
+format_test(
+    name = "format_check",
+    c = ":clang-format",
+    cc = ":clang-format",
+    no_sandbox = True,
+    rust = ":rustfmt",
+    starlark = ":buildifier",
+    workspace = "//:MODULE.bazel",
+)
+
+# Run all clang formatters (C and C++).
+format_multirun(
+    name = "clang_format_fix",
+    c = ":clang-format",
+    cc = ":clang-format",
+)
+
+# Check all clang formatting (C and C++).
+# This is a test suite so it can share cache with `:format_check`.
+test_suite(
+    name = "clang_format_check",
+    tests = [
+        ":format_check_C++_with_clang-format",
+        ":format_check_C_with_clang-format",
+    ],
+)
+
+# Run `rustfmt` on all Rust code.
+alias(
+    name = "rustfmt_fix",
+    actual = ":format_Rust_with_rustfmt",
+)
+
+# Check formatting on all Rust code.
+test_suite(
+    name = "rustfmt_check",
+    tests = [":format_check_Rust_with_rustfmt"],
+)
+
+# Format all `BUILD` and `.bzl` files in the project.
+# See `.gitmodules` > `rules-lint-ignored` for ignoring files.
+alias(
+    name = "buildifier_fix",
+    actual = ":format_Starlark_with_buildifier",
+)
+
+# Check formatting for all Bazel `BUILD` and `.bzl` files.
+test_suite(
+    name = "buildifier_check",
+    tests = [":format_check_Starlark_with_buildifier"],
+)
+
+# TODO(dmcardle) Add more targets that should be automatically checked with
+# clang-tidy. Find a way to automate this.
+clang_tidy_rv_test(
+    name = "clang_tidy_check_rv",
+    deps = [
+        "//sw/device/lib/base:memory",
+        "//sw/device/lib/base:memory_perftest",
+        "//sw/device/silicon_creator/rom:boot_policy",
+        "//sw/device/silicon_creator/rom:bootstrap",
+        "//sw/device/silicon_creator/rom:mask_rom_lib",
+        "//sw/device/silicon_creator/rom:rom_common",
+        "//sw/device/silicon_creator/rom:rom_epmp",
+        "//sw/device/silicon_creator/rom:sigverify_keys_spx",
+    ],
+)
+
+clang_tidy_test(
+    name = "clang_tidy_check_host",
+    deps = [
+        "//sw/device/silicon_creator/rom:boot_policy_unittest",
+        "//sw/device/silicon_creator/rom:bootstrap_unittest",
+    ],
+)
+
+test_suite(
+    name = "clang_tidy_check",
+    tests = [
+        ":clang_tidy_check_host",
+        ":clang_tidy_check_rv",
+    ],
+)
+
+html_coverage_report(
+    name = "html_coverage_report",
+)
+
+sh_test(
+    name = "shellcheck_check",
+    srcs = ["//util/sh/scripts:run-shellcheck.sh"],
+    data = [
+        "//:MODULE.bazel",
+        "@shellcheck",
+    ],
+    env = {
+        "SHELLCHECK": "$(location @shellcheck//:shellcheck)",
+    },
+    tags = [
+        "external",
+        "no-cache",
+        "no-sandbox",
+    ],
+)

@@ -1,0 +1,109 @@
+*~
+*.pyc
+*.swp
+*.raw2
+*.log
+./NVDLA/*txn.raw
+./NVDLA/out.txt
+./NVDLA/vmod/dw_components/
+./NVDLA/outdir/
+./NVDLA/.nvprojectname
+./NVDLA/.cleaned
+
+*.bak
+*.swo
+./opentitan/tags
+./opentitan/.vscode
+./opentitan/opentitan-docs
+
+# Python
+./opentitan/__pycache__
+./opentitan/.venv/
+
+# fusesoc result
+./opentitan/build/
+
+# build directories with special suffixes
+./opentitan/build*/
+
+# Generated register headers
+./opentitan/hw/ip/*/sw
+
+# JasperGold FPV Result
+./opentitan/jgproject/
+
+# CDC result
+./opentitan/._dbname
+./opentitan/._idebug_exit_script
+./opentitan/idebugcfg.db
+./opentitan/idebugcfg.db-journal
+./opentitan/ivision.ws
+./opentitan/meridian_project/
+./opentitan/mrdc.his
+
+# FPGA splice intermediate files
+*.jou
+
+# Simulation Results
+./opentitan/vdCovLog/
+./opentitan/INCA_libs/
+*.shm/
+./opentitan/.simvision/
+*.history
+./opentitan/irun.key
+*.svcf
+*.fsdb
+*.rc
+./opentitan/out/
+./opentitan/scratch/
+./opentitan/ucli.key
+./opentitan/novas.conf
+./opentitan/verdiLog/
+./opentitan/ascent_project/
+./opentitan/ascentlint.rpt
+./opentitan/.idebugrc
+./opentitan/idebugFiles/
+
+# verilator/gtkwave waveforms and wave lists
+*.fst
+*.gtkw
+
+# Foundry library
+./opentitan/hw/foundry/
+
+# ROM_EXT signer vendored in dependencies
+./opentitan/sw/host/rom_ext_image_signer/vendored_dependencies
+
+# Rust Cargo build system files.
+./opentitan/sw/host/**/target
+./opentitan/rust-project.json
+
+# Bazel-related cache and output directories
+./opentitan/bazel-*
+
+# Site-specific bazel configuration
+./opentitan/.bazelrc-site
+
+# Compilation database generated from build system
+./opentitan/compile_commands.json
+
+# Local binaries that should not be committed to the codebase
+./opentitan/.bin/
+
+# Clangd index directory.
+./opentitan/.cache/clangd/
+
+# mdbook builds into `./book` directories, let's ignore them
+./opentitan/book
+
+# Hugo Lock
+./opentitan/.hugo_build.lock
+
+# Custom Ruff config overrides
+./opentitan/.ruff.toml
+
+# Synopsys Z01X configuration files
+*.sff
+./opentitan/hw/dv/tools/fi_sim.tcl
+./opentitan/hw/dv/tools/dvsim/z01x.hjson
+

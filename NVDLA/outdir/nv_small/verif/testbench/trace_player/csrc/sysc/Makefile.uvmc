@@ -1,0 +1,33 @@
+SYSC_MODULE = uvmc
+V = @
+CXX = /home/utils/gcc-9.5.0-binutils-2.33.1/bin/g++
+CXXFLAGS =  -D__STDC_FORMAT_MACROS -DNVDLA_REFERENCE_MODEL_ENABLE -DUVMC_MAX_WORDS=2048 -DVCS -I/home/scratch.chiatungh_nvresearch/NVDLA/third_party_tools/uvmc-2.3.0/src/connect/sc -I/home/tools/vcs/2025.06/include/systemc233 -I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/vip/reference_model/nvdla_cmod_wrap/release/include -I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/vip/reference_model/nvdla_scsv/sc -I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/vip/reference_model/nvdla_top_scsv_adapter/sc -DVCSSYSTEMC=1 -MMD -m64 -fPIC
+INCLUDES = \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/third_party_tools/uvmc-2.3.0/src/connect/sc \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/include \
+	-I/home/tools/vcs/2025.06/include/systemc233 \
+	-I/home/tools/vcs/2025.06/include/systemc233 \
+	-I/home/tools/vcs/2025.06/include/systemc233/include/tlm \
+	-I/home/tools/vcs/2025.06/etc/systemc/tlm/tli \
+	-I/home/tools/vcs/2025.06/include/systemc233/examples/tlm/common/include \
+	-Iinclude \
+	-I$(VCS_HOME)/lib \
+	-I$(VCS_HOME)/include \
+	-I$(VCS_HOME)/include/cosim/bf \
+	-I$(SNPS_SIM_OVRD)/include \
+	-I/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player
+
+OBJS = uvmc.o
+
+module-uvmc:	$(OBJS)
+uvmc.o:
+	@echo "Compiling /home/scratch.chiatungh_nvresearch/NVDLA/third_party_tools/uvmc-2.3.0/src/connect/sc/uvmc.cpp"
+	@rm -f uvmc.o
+	@$(MAKE) -f Makefile_shared clean
+	$(V) $(CXX) $(INCLUDES) $(CXXFLAGS) -c /home/scratch.chiatungh_nvresearch/NVDLA/third_party_tools/uvmc-2.3.0/src/connect/sc/uvmc.cpp -o $@ 
+
+clean:
+	$(V) rm -f uvmc.o
+
+-include uvmc.d
+

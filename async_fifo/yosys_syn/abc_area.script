@@ -1,0 +1,13 @@
+# ABC Area-optimized script
+#
+# Uses map -B 0.9 for area-focused technology mapping
+# Then applies buffering and sizing with area recovery
+
+strash
+dch
+map -B 0.9
+topo
+stime -c
+buffer -c
+upsize -c
+dnsize -c

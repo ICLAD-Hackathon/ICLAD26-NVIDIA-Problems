@@ -1,0 +1,150 @@
+================================================================================
+                    SYNTHESIS FINAL REPORT
+================================================================================
+
+Design:          kmac
+Date:            2026-04-23 22:16:32
+Technology:      ASAP7 RVT TT
+Optimization:    Area
+Flatten:         Yes
+
+--------------------------------------------------------------------------------
+                           RTL INPUT FILES
+--------------------------------------------------------------------------------
+Original SV Files:       99
+Converted V Files:       65
+Generated Directory:     /workspace/opentitan/hw/ip/kmac/yosys_syn/generated
+
+--------------------------------------------------------------------------------
+                         TIMING CONFIGURATION
+--------------------------------------------------------------------------------
+SDC File:                /workspace/opentitan/hw/ip/kmac/yosys_syn/constraint.sdc
+Target Clock Period:     8000 ps (8.0 ns)
+Target Frequency:        125.00 MHz
+ABC Driver Cell:         BUFx2_ASAP7_75t_R
+ABC Load:                3.898 fF
+
+--------------------------------------------------------------------------------
+                              AREA SUMMARY
+--------------------------------------------------------------------------------
+Total Cell Count:        116671
+Total Area:              14763.110 (liberty units)
+Sequential Area:         3911.406 (26.49%)
+Combinational Area:      10851.704 (73.51%)
+
+--------------------------------------------------------------------------------
+                            CELL BREAKDOWN
+--------------------------------------------------------------------------------
+Flip-Flops:              788
+Buffers:                 9677
+Inverters:               9488
+Logic Gates:             96718
+
+--------------------------------------------------------------------------------
+                          TIMING ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual WNS/TNS requires STA with OpenSTA or OpenROAD
+
+ABC Timing Target:       8000 ps
+ABC Optimization:        Area-focused (may not meet timing)
+
+For accurate timing, run:
+  sta run_sta.tcl
+
+--------------------------------------------------------------------------------
+                          POWER ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual power requires simulation + power analysis tools
+
+Estimated Total Cells:   116671
+Rough Power Estimate:    ~81669.7 uW @ 125.0 MHz (rough estimate)
+
+--------------------------------------------------------------------------------
+                           OUTPUT FILES
+--------------------------------------------------------------------------------
+Synthesized Netlist:     /workspace/opentitan/hw/ip/kmac/yosys_syn/syn_results/kmac_syn.v
+Synthesis Stats:         /workspace/opentitan/hw/ip/kmac/yosys_syn/syn_results/kmac_synth_stat.txt
+Synthesis Check:         /workspace/opentitan/hw/ip/kmac/yosys_syn/syn_results/kmac_synth_check.txt
+This Report:             /workspace/opentitan/hw/ip/kmac/yosys_syn/syn_results/kmac_synth_final_report.txt
+
+--------------------------------------------------------------------------------
+                         DETAILED CELL LIST
+--------------------------------------------------------------------------------
+
+
+87. Printing statistics.
+
+=== kmac ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+   114311        - wires
+   117578        - wire bits
+     1910        - public wires
+     5177        - public wire bits
+       20        - ports
+     3287        - port bits
+   116671 1.48E+04 cells
+     4298  375.989   AND2x2_ASAP7_75t_R
+     3835  335.486   AND3x1_ASAP7_75t_R
+      176   17.963   AND4x1_ASAP7_75t_R
+       89   10.381   AND5x1_ASAP7_75t_R
+        1    0.233   AO211x2_ASAP7_75t_R
+    18022 1.58E+03   AO21x1_ASAP7_75t_R
+        2    0.204   AO21x2_ASAP7_75t_R
+      727  105.997   AO221x1_ASAP7_75t_R
+      238    31.23   AO22x1_ASAP7_75t_R
+        7    1.633   AO31x2_ASAP7_75t_R
+     2557  298.248   AO32x1_ASAP7_75t_R
+       43    7.523   AOI211x1_ASAP7_75t_R
+     2289  266.989   AOI21x1_ASAP7_75t_R
+       71   14.493   AOI221x1_ASAP7_75t_R
+     3082  449.356   AOI22x1_ASAP7_75t_R
+        1    0.262   BUFx12f_ASAP7_75t_R
+     9469   690.29   BUFx2_ASAP7_75t_R
+       76    6.648   BUFx3_ASAP7_75t_R
+       21    2.143   BUFx4_ASAP7_75t_R
+       31    3.616   BUFx4f_ASAP7_75t_R
+       38    4.432   BUFx5_ASAP7_75t_R
+       41    5.978   BUFx6f_ASAP7_75t_R
+     9712 3.68E+03   DFFASRHQNx1_ASAP7_75t_R
+      788  229.781   DFFHQNx1_ASAP7_75t_R
+     9388  410.631   INVx1_ASAP7_75t_R
+       87    5.074   INVx2_ASAP7_75t_R
+       10    0.729   INVx3_ASAP7_75t_R
+        3    0.262   INVx4_ASAP7_75t_R
+       15    1.968   MAJx2_ASAP7_75t_R
+     4535  396.722   NAND2x1_ASAP7_75t_R
+      101   14.726   NAND2x2_ASAP7_75t_R
+      706  113.228   NAND3x1_ASAP7_75t_R
+        2    0.583   NAND3x2_ASAP7_75t_R
+    16393  1434.06   NOR2x1_ASAP7_75t_R
+       45    6.561   NOR2x2_ASAP7_75t_R
+      260   41.699   NOR3x1_ASAP7_75t_R
+      665   77.566   OA211x2_ASAP7_75t_R
+     2798  285.564   OA21x2_ASAP7_75t_R
+        1    0.233   OA221x2_ASAP7_75t_R
+     2312   337.09   OA22x2_ASAP7_75t_R
+        1    0.219   OA31x2_ASAP7_75t_R
+     3347  390.394   OAI21x1_ASAP7_75t_R
+     1936  282.269   OAI22x1_ASAP7_75t_R
+       90    7.873   OR2x2_ASAP7_75t_R
+     1388  121.422   OR3x1_ASAP7_75t_R
+       56    5.715   OR4x1_ASAP7_75t_R
+       57    6.648   OR5x1_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+        1    0.044   TIELOx1_ASAP7_75t_R
+        5    0.875   XNOR2x1_ASAP7_75t_R
+     1910  306.326   XNOR2x2_ASAP7_75t_R
+       55    9.623   XOR2x1_ASAP7_75t_R
+    14889 2.39E+03   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\kmac': 14763.110220
+     of which used for sequential elements: 3911.405760 (26.49%)
+
+
+
+================================================================================
+                         END OF REPORT
+================================================================================

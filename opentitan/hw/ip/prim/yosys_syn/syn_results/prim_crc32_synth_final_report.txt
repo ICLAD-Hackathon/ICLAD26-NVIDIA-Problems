@@ -1,0 +1,116 @@
+================================================================================
+                    SYNTHESIS FINAL REPORT
+================================================================================
+
+Design:          prim_crc32
+Date:            2026-04-23 23:10:20
+Technology:      ASAP7 RVT TT
+Optimization:    Speed
+Flatten:         Yes
+
+--------------------------------------------------------------------------------
+                           RTL INPUT FILES
+--------------------------------------------------------------------------------
+Original SV Files:       186
+Converted V Files:       147
+Generated Directory:     /workspace/opentitan/hw/ip/prim/yosys_syn/generated
+
+--------------------------------------------------------------------------------
+                         TIMING CONFIGURATION
+--------------------------------------------------------------------------------
+SDC File:                /workspace/opentitan/hw/ip/prim/yosys_syn/prim_crc32_constraint.sdc
+Target Clock Period:     8000 ps (8.0 ns)
+Target Frequency:        125.00 MHz
+ABC Driver Cell:         BUFx2_ASAP7_75t_R
+ABC Load:                3.898 fF
+
+--------------------------------------------------------------------------------
+                              AREA SUMMARY
+--------------------------------------------------------------------------------
+Total Cell Count:        435
+Total Area:              69.969 (liberty units)
+Sequential Area:         12.131 (17.34%)
+Combinational Area:      57.839 (82.66%)
+
+--------------------------------------------------------------------------------
+                            CELL BREAKDOWN
+--------------------------------------------------------------------------------
+Flip-Flops:              32
+Buffers:                 13
+Inverters:               3
+Logic Gates:             387
+
+--------------------------------------------------------------------------------
+                          TIMING ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual WNS/TNS requires STA with OpenSTA or OpenROAD
+
+ABC Timing Target:       8000 ps
+ABC Optimization:        Timing-focused
+
+For accurate timing, run:
+  sta run_sta.tcl
+
+--------------------------------------------------------------------------------
+                          POWER ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual power requires simulation + power analysis tools
+
+Estimated Total Cells:   435
+Rough Power Estimate:    ~304.5 uW @ 125.0 MHz (rough estimate)
+
+--------------------------------------------------------------------------------
+                           OUTPUT FILES
+--------------------------------------------------------------------------------
+Synthesized Netlist:     /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_crc32_syn.v
+Synthesis Stats:         /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_crc32_synth_stat.txt
+Synthesis Check:         /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_crc32_synth_check.txt
+This Report:             /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_crc32_synth_final_report.txt
+
+--------------------------------------------------------------------------------
+                         DETAILED CELL LIST
+--------------------------------------------------------------------------------
+
+
+169. Printing statistics.
+
+=== prim_crc32 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      410        - wires
+      503        - wire bits
+        7        - public wires
+      100        - public wire bits
+        7        - ports
+      100        - port bits
+      435   69.969 cells
+        3    0.262   AND3x1_ASAP7_75t_R
+       19    1.662   AO21x1_ASAP7_75t_R
+       13    1.516   AOI21x1_ASAP7_75t_R
+        6    0.875   AOI22x1_ASAP7_75t_R
+       11    0.802   BUFx2_ASAP7_75t_R
+        1    0.087   BUFx3_ASAP7_75t_R
+        1    0.117   BUFx5_ASAP7_75t_R
+       32   12.131   DFFASRHQNx1_ASAP7_75t_R
+        3    0.131   INVx1_ASAP7_75t_R
+       17    1.487   NAND2x1_ASAP7_75t_R
+        8    0.933   OA211x2_ASAP7_75t_R
+       21    2.143   OA21x2_ASAP7_75t_R
+        9     1.05   OAI21x1_ASAP7_75t_R
+        4     0.35   OR2x2_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+       33    5.774   XNOR2x1_ASAP7_75t_R
+      208   33.359   XNOR2x2_ASAP7_75t_R
+        2     0.35   XOR2x1_ASAP7_75t_R
+       43    6.896   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\prim_crc32': 69.969420
+     of which used for sequential elements: 12.130560 (17.34%)
+
+
+
+================================================================================
+                         END OF REPORT
+================================================================================

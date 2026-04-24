@@ -1,0 +1,241 @@
+// Copyright lowRISC contributors (OpenTitan project).
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+
+#include "sw/device/lib/crypto/include/drbg.h"
+
+#include "sw/device/lib/base/hardened_memory.h"
+#include "sw/device/lib/base/math.h"
+#include "sw/device/lib/base/memory.h"
+#include "sw/device/lib/crypto/drivers/entropy.h"
+#include "sw/device/lib/crypto/impl/status.h"
+#include "sw/device/lib/crypto/include/datatypes.h"
+#include "sw/device/lib/crypto/include/integrity.h"
+
+// Module ID for status codes.
+#define MODULE_ID MAKE_MODULE_ID('r', 'b', 'g')
+
+/**
+ * Construct seed material for the CSRNG.
+ *
+ * Returns `OTCRYPTO_BAD_ARGS` if the provided value is longer than the entropy
+ * complex can absorb. If the value is shorter, it will be padded with zeroes.
+ *
+ * This operation is not constant-time relative to `value.len`.
+ *
+ * @param value Seed data.
+ * @param[out] seed_material Resulting entropy complex seed.
+ * @return OK or error.
+ */
+static status_t seed_material_construct(
+    otcrypto_const_byte_buf_t *value, entropy_seed_material_t *seed_material) {
+  if (value->len > kEntropySeedBytes) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  size_t nwords = ceil_div(value->len, sizeof(uint32_t));
+  seed_material->len = nwords;
+
+  // Copy seed data.
+  if (misalignment32_of((uintptr_t)&value->data) == 0 &&
+      value->len % sizeof(uint32_t)) {
+    // The data buffer is word-aligned and the data length is a multiple of the
+    // word size. We can use the SCA hardened memcpy.
+    HARDENED_TRY(hardened_memcpy(seed_material->data,
+                                 (const uint32_t *)value->data,
+                                 seed_material->len));
+  } else {
+    // The data buffer is not word-aligned. We need to use randomized_bytecopy
+    // that also implements randomization to reduce SCA leakage.
+    HARDENED_TRY(
+        randomized_bytecopy(seed_material->data, value->data, value->len));
+    // Check whether a FI tampered copying the bytes.
+    HARDENED_CHECK_EQ(
+        consttime_memeq_byte(value->data, seed_material->data, value->len),
+        kHardenedBoolTrue);
+  }
+
+  // Set any unset bytes to zero.
+  size_t unset_bytes = nwords * sizeof(uint32_t) - value->len;
+  memset(((unsigned char *)seed_material->data) + value->len, 0, unset_bytes);
+
+  HARDENED_CHECK_EQ(kHardenedBoolTrue, OTCRYPTO_CHECK_BUF(value));
+
+  return OTCRYPTO_OK;
+}
+
+/**
+ * XOR the entropy seed with another value.
+ *
+ * Returns `OTCRYPTO_BAD_ARGS` if the provided value is longer than the seed.
+ * If the value is shorter, only the prefix will be XOR'ed.
+ *
+ * This operation is not constant-time relative to `value.len`.
+ *
+ * @param value Value to XOR with seed data.
+ * @param seed_material Entropy complex seed, modified in-place.
+ * @return OK or error.
+ */
+static otcrypto_status_t seed_material_xor(
+    otcrypto_const_byte_buf_t *value, entropy_seed_material_t *seed_material) {
+  if (value->len > kEntropySeedBytes) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+  if (value->len == 0) {
+    return OTCRYPTO_OK;
+  }
+
+  // Copy into a word-aligned buffer. This allows us to use a XOR that is more
+  // resilient against SCA leakage.
+  size_t nwords = ceil_div(value->len, sizeof(uint32_t));
+  uint32_t value_words[nwords];
+  value_words[nwords - 1] = 0;
+  HARDENED_TRY(randomized_bytecopy(value_words, value->data, value->len));
+  // Check whether a FI tampered copying the bytes.
+  HARDENED_CHECK_EQ(consttime_memeq_byte(value->data, value_words, value->len),
+                    kHardenedBoolTrue);
+
+  // XOR with seed value.
+  HARDENED_TRY(hardened_xor_in_place(seed_material->data, value_words, nwords));
+
+  HARDENED_CHECK_EQ(kHardenedBoolTrue, OTCRYPTO_CHECK_BUF(value));
+
+  return OTCRYPTO_OK;
+}
+
+otcrypto_status_t otcrypto_drbg_instantiate(
+    otcrypto_const_byte_buf_t *perso_string) {
+  // Check for NULL pointers or bad length.
+  if (perso_string->len != 0 && perso_string->data == NULL) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  // Ensure the entropy complex is initialized.
+  HARDENED_TRY(entropy_complex_check());
+
+  entropy_seed_material_t seed_material;
+  HARDENED_TRY(
+      hardened_memshred(seed_material.data, ARRAYSIZE(seed_material.data)));
+  seed_material_construct(perso_string, &seed_material);
+
+  HARDENED_TRY(entropy_csrng_uninstantiate());
+  return entropy_csrng_instantiate(/*disable_trng_input=*/kHardenedBoolFalse,
+                                   &seed_material);
+}
+
+otcrypto_status_t otcrypto_drbg_reseed(
+    otcrypto_const_byte_buf_t *additional_input) {
+  // Check for NULL pointers or bad length.
+  if (additional_input->len != 0 && additional_input->data == NULL) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  // Ensure the entropy complex is initialized.
+  HARDENED_TRY(entropy_complex_check());
+
+  entropy_seed_material_t seed_material;
+  HARDENED_TRY(
+      hardened_memshred(seed_material.data, ARRAYSIZE(seed_material.data)));
+  seed_material_construct(additional_input, &seed_material);
+
+  return entropy_csrng_reseed(/*disable_trng_input=*/kHardenedBoolFalse,
+                              &seed_material);
+}
+
+otcrypto_status_t otcrypto_drbg_manual_instantiate(
+    otcrypto_const_byte_buf_t *entropy,
+    otcrypto_const_byte_buf_t *perso_string) {
+  // Check for NULL pointers or bad length.
+  if (perso_string->len != 0 && perso_string->data == NULL) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+  if (entropy->data == NULL || entropy->len != kEntropySeedBytes) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  entropy_seed_material_t seed_material;
+  seed_material_construct(entropy, &seed_material);
+  seed_material_xor(perso_string, &seed_material);
+
+  HARDENED_CHECK_EQ(seed_material.len, kEntropySeedWords);
+
+  return entropy_csrng_instantiate(/*disable_trng_input=*/kHardenedBoolTrue,
+                                   &seed_material);
+}
+
+otcrypto_status_t otcrypto_drbg_manual_reseed(
+    otcrypto_const_byte_buf_t *entropy,
+    otcrypto_const_byte_buf_t *additional_input) {
+  // Check for NULL pointers or bad length.
+  if (additional_input->len != 0 && additional_input->data == NULL) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+  if (entropy->data == NULL || entropy->len != kEntropySeedBytes) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  entropy_seed_material_t seed_material;
+  seed_material_construct(entropy, &seed_material);
+  seed_material_xor(additional_input, &seed_material);
+
+  HARDENED_CHECK_EQ(seed_material.len, kEntropySeedWords);
+
+  return entropy_csrng_reseed(/*disable_trng_input=*/kHardenedBoolTrue,
+                              &seed_material);
+}
+
+/**
+ * Common function for random-bit generation.
+ *
+ * Used for both `otcrypto_drbg_generate` and `otcrypto_drbg_manual_generate`,
+ * which have the same implementation except for one flag that determines
+ * whether we check that the flag for FIPS compatibility is true.
+ *
+ * @param additional_input Additional input to DRBG
+ * @param fips_check Whether to check FIPS hardware flags
+ * @param[out] drbg_output Buffer for output
+ * @return Result status; OK or error
+ */
+static otcrypto_status_t generate(hardened_bool_t fips_check,
+                                  otcrypto_const_byte_buf_t *additional_input,
+                                  otcrypto_word32_buf_t *drbg_output) {
+  if (drbg_output->len == 0) {
+    // Nothing to do.
+    return OTCRYPTO_OK;
+  }
+  if ((additional_input->len != 0 && additional_input->data == NULL) ||
+      drbg_output->data == NULL) {
+    return OTCRYPTO_BAD_ARGS;
+  }
+
+  entropy_seed_material_t seed_material;
+  seed_material_construct(additional_input, &seed_material);
+  HARDENED_TRY(entropy_csrng_generate(&seed_material, drbg_output->data,
+                                      drbg_output->len, fips_check));
+
+  return OTCRYPTO_OK;
+}
+
+otcrypto_status_t otcrypto_drbg_generate(
+    otcrypto_const_byte_buf_t *additional_input,
+    otcrypto_word32_buf_t *drbg_output) {
+  // Ensure the entropy complex is initialized.
+  HARDENED_TRY(entropy_complex_check());
+
+  // Randomize destination buffer.
+  HARDENED_TRY(hardened_memshred(drbg_output->data, drbg_output->len));
+
+  return generate(/*fips_check=*/kHardenedBoolTrue, additional_input,
+                  drbg_output);
+}
+
+otcrypto_status_t otcrypto_drbg_manual_generate(
+    otcrypto_const_byte_buf_t *additional_input,
+    otcrypto_word32_buf_t *drbg_output) {
+  return generate(/*fips_check=*/kHardenedBoolFalse, additional_input,
+                  drbg_output);
+}
+
+otcrypto_status_t otcrypto_drbg_uninstantiate(void) {
+  return entropy_csrng_uninstantiate();
+}

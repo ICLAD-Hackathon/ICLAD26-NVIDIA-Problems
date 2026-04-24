@@ -1,0 +1,71 @@
+
+164. Executing CHECK pass (checking for obvious problems).
+Checking module prim_trivium...
+Warning: Wire prim_trivium.\seed_done_o is used but has no driver.
+Warning: Wire prim_trivium.\seed_req_o is used but has no driver.
+Warning: Wire prim_trivium.\key_o [63] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [62] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [61] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [60] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [59] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [58] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [57] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [56] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [55] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [54] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [53] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [52] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [51] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [50] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [49] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [48] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [47] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [46] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [45] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [44] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [43] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [42] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [41] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [40] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [39] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [38] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [37] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [36] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [35] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [34] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [33] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [32] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [31] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [30] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [29] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [28] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [27] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [26] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [25] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [24] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [23] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [22] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [21] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [20] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [19] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [18] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [17] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [16] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [15] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [14] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [13] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [12] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [11] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [10] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [9] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [8] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [7] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [6] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [5] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [4] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [3] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [2] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [1] is used but has no driver.
+Warning: Wire prim_trivium.\key_o [0] is used but has no driver.
+Warning: Wire prim_trivium.\err_o is used but has no driver.
+Found and reported 67 problems.

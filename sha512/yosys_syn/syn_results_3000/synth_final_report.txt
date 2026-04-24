@@ -1,0 +1,153 @@
+================================================================================
+                    SYNTHESIS FINAL REPORT
+================================================================================
+
+Design:          sha512
+Date:            2026-04-23 18:27:49
+Technology:      ASAP7 RVT TT
+Optimization:    Speed
+Flatten:         Yes
+
+--------------------------------------------------------------------------------
+                           RTL INPUT FILES
+--------------------------------------------------------------------------------
+RTL Directory:           ../src/rtl
+Number of Files:         5
+
+  - ../src/rtl/sha512.v
+  - ../src/rtl/sha512_core.v
+  - ../src/rtl/sha512_w_mem.v
+  - ../src/rtl/sha512_k_constants.v
+  - ../src/rtl/sha512_h_constants.v
+
+--------------------------------------------------------------------------------
+                         TIMING CONFIGURATION
+--------------------------------------------------------------------------------
+SDC File:                constraint.sdc
+Target Clock Period:     3000 ps (3.0 ns)
+Target Frequency:        333.33 MHz
+ABC Driver Cell:         BUFx2_ASAP7_75t_R
+ABC Load:                3.898 fF
+
+--------------------------------------------------------------------------------
+                              AREA SUMMARY
+--------------------------------------------------------------------------------
+Total Cell Count:        28769
+Total Area:              3932.182 (liberty units)
+Sequential Area:         1392.740 (35.42%)
+Combinational Area:      2539.442 (64.58%)
+
+--------------------------------------------------------------------------------
+                            CELL BREAKDOWN
+--------------------------------------------------------------------------------
+Flip-Flops:              3674
+Buffers:                 2463
+Inverters:               1985
+Logic Gates:             20647
+
+--------------------------------------------------------------------------------
+                          TIMING ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual WNS/TNS requires STA with OpenSTA or OpenROAD
+
+ABC Timing Target:       3000 ps
+ABC Optimization:        Timing-focused
+
+For accurate timing, run:
+  sta constraint.sdc results/sha512_syn.v
+
+--------------------------------------------------------------------------------
+                          POWER ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual power requires simulation + power analysis tools
+
+Estimated Total Cells:   28769
+Rough Power Estimate:    ~20138.3 uW @ 333.3333333333333 MHz (rough estimate)
+                         (Actual power depends on activity factor, VDD, etc.)
+
+For accurate power, run OpenROAD flow with:
+  report_power
+
+--------------------------------------------------------------------------------
+                           OUTPUT FILES
+--------------------------------------------------------------------------------
+Synthesized Netlist:     /workspace/sha512/yosys_syn/syn_results/sha512_syn.v
+Synthesis Stats:         /workspace/sha512/yosys_syn/syn_results/synth_stat.txt
+Synthesis Check:         /workspace/sha512/yosys_syn/syn_results/synth_check.txt
+This Report:             /workspace/sha512/yosys_syn/syn_results/synth_final_report.txt
+
+--------------------------------------------------------------------------------
+                         DETAILED CELL LIST
+--------------------------------------------------------------------------------
+
+
+27. Printing statistics.
+
+=== sha512 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+    28744        - wires
+    28813        - wire bits
+       12        - public wires
+       81        - public wire bits
+        8        - ports
+       77        - port bits
+    28769 3.93E+03 cells
+     1048   91.679   AND2x2_ASAP7_75t_R
+      561   49.076   AND3x1_ASAP7_75t_R
+      305   31.128   AND4x1_ASAP7_75t_R
+       43    5.016   AND5x1_ASAP7_75t_R
+       45   10.498   AO211x2_ASAP7_75t_R
+     3798  332.249   AO21x1_ASAP7_75t_R
+        3    0.306   AO21x2_ASAP7_75t_R
+      193   28.139   AO221x1_ASAP7_75t_R
+       16    2.799   AO222x2_ASAP7_75t_R
+       65    8.529   AO22x1_ASAP7_75t_R
+        1    0.146   AO22x2_ASAP7_75t_R
+       49   11.431   AO31x2_ASAP7_75t_R
+      126   14.697   AO32x1_ASAP7_75t_R
+        6    0.875   AO33x2_ASAP7_75t_R
+       76   13.297   AOI211x1_ASAP7_75t_R
+      968  112.908   AOI21x1_ASAP7_75t_R
+       39    7.961   AOI221x1_ASAP7_75t_R
+       67    9.769   AOI22x1_ASAP7_75t_R
+     2442  178.022   BUFx2_ASAP7_75t_R
+       17    1.487   BUFx3_ASAP7_75t_R
+        4    0.583   BUFx6f_ASAP7_75t_R
+     3674  1392.74   DFFASRHQNx1_ASAP7_75t_R
+     1984    86.78   INVx1_ASAP7_75t_R
+        1    0.058   INVx2_ASAP7_75t_R
+     1027  134.763   MAJx2_ASAP7_75t_R
+     2181  190.794   NAND2x1_ASAP7_75t_R
+        1    0.146   NAND2x2_ASAP7_75t_R
+       41    6.576   NAND3x1_ASAP7_75t_R
+     1558  136.294   NOR2x1_ASAP7_75t_R
+       32    5.132   NOR3x1_ASAP7_75t_R
+     2307  269.088   OA211x2_ASAP7_75t_R
+      941   96.038   OA21x2_ASAP7_75t_R
+        7    1.633   OA221x2_ASAP7_75t_R
+       40    6.998   OA222x2_ASAP7_75t_R
+      707  103.081   OA22x2_ASAP7_75t_R
+       52   11.372   OA31x2_ASAP7_75t_R
+      134   19.537   OA33x2_ASAP7_75t_R
+      226   26.361   OAI21x1_ASAP7_75t_R
+       56    8.165   OAI22x1_ASAP7_75t_R
+      538   47.064   OR2x2_ASAP7_75t_R
+      773   67.622   OR3x1_ASAP7_75t_R
+      120   12.247   OR4x1_ASAP7_75t_R
+       36    4.199   OR5x1_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+       22    3.849   XNOR2x1_ASAP7_75t_R
+     2022  324.288   XNOR2x2_ASAP7_75t_R
+      416   66.718   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\sha512': 3932.182260
+     of which used for sequential elements: 1392.739920 (35.42%)
+
+
+
+================================================================================
+                         END OF REPORT
+================================================================================

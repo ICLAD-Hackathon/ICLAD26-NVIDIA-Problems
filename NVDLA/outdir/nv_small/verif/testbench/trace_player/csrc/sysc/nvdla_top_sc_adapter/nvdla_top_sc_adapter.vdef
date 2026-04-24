@@ -1,0 +1,39 @@
+.NAME
+ nvdla_top_sc_adapter
+
+.SHORT_DESCRIPTION
+ SystemC-HDL co-simulation
+
+.DESCRIPTION
+ SystemC-HDL Simulator Interface
+
+.IMPLEMENTATIONS
+ 1  VCS VERILOG Export nvdla_top_sc_adapter (nvdla_top_sc_adapter)
+
+.CLASSES
+ 1 None
+
+.OUTPUT_PORTS
+ 1 nvdla_top_sc2sv_nvdla_intr  (BIT)  bool (nvdla_top_sc2sv_nvdla_intr) BC
+
+.END
+
+.ANALYZE
+
+.HDLFILE
+/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/nvdla_top_sc_adapter/nvdla_top_sc_adapter.v
+
+.OBJECTFILE
+/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/nvdla_top_sc_adapter/nvdla_top_sc_adapter.o
+
+.DEPENDENT_FILES
+
+.HDL_OUTPUT
+/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/nvdla_top_sc_adapter
+
+.MODULE
+nvdla_top_sc_adapter
+
+.MODE
+DPI_IF
+

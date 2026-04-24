@@ -1,0 +1,1837 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x5606466458f0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x560646641020 .scope autofunction.str, "create_msg" "create_msg" 3 112, 3 112 0, S_0x5606466458f0;
+ .timescale 0 0;
+v0x5606466461b0_0 .var/str "assertion";
+; Variable create_msg is string return value of scope S_0x560646641020
+v0x560646646ab0_0 .var/str "message";
+TD_$unit.create_msg ;
+    %load/str v0x560646646ab0_0;
+    %pushi/str "";
+    %cmp/str;
+    %flag_inv 4;
+    %flag_get/vec4 4;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/str v0x560646646ab0_0;
+    %concati/str " (";
+    %load/str v0x5606466461b0_0;
+    %concat/str;
+    %concati/str ")";
+    %ret/str 0; Assign to create_msg
+    %jmp T_0.1;
+T_0.0 ;
+    %load/str v0x5606466461b0_0;
+    %ret/str 0; Assign to create_msg
+T_0.1 ;
+    %end;
+S_0x5606466445d0 .scope module, "async_fifo_unit_test" "async_fifo_unit_test" 4 4;
+ .timescale -9 -12;
+P_0x56064664fe90 .param/l "ASIZE" 0 4 21, +C4<00000000000000000000000000000100>;
+P_0x56064664fed0 .param/l "DSIZE" 0 4 20, +C4<00000000000000000000000000100000>;
+P_0x56064664ff10 .param/str "FALLTHROUGH" 0 4 22, "TRUE";
+P_0x56064664ff50 .param/l "MAX_TRAFFIC" 0 4 23, +C4<00000000000000000000000000001010>;
+v0x560646676b50_0 .net "arempty", 0 0, v0x56064666f690_0;  1 drivers
+v0x560646676c60_0 .net "awfull", 0 0, v0x560646672e00_0;  1 drivers
+v0x560646676d70_0 .var "rclk", 0 0;
+v0x560646676e10_0 .net "rdata", 31 0, L_0x5606466517d0;  1 drivers
+v0x560646676eb0_0 .net "rempty", 0 0, v0x56064666fc50_0;  1 drivers
+v0x560646676ff0_0 .var "rinc", 0 0;
+v0x560646677090_0 .var "rrst_n", 0 0;
+v0x560646677130_0 .var/i "svut_critical", 31 0;
+v0x5606466771f0_0 .var/i "svut_error", 31 0;
+v0x560646677360_0 .var/i "svut_error_total", 31 0;
+v0x560646677440_0 .var/str "svut_fail_list";
+v0x560646677500_0 .var/str "svut_msg";
+v0x5606466775c0_0 .var/i "svut_nb_test", 31 0;
+v0x5606466776a0_0 .var/i "svut_nb_test_success", 31 0;
+v0x560646677780_0 .var/i "svut_status", 31 0;
+v0x560646677860_0 .var/str "svut_suite_name";
+v0x560646677920_0 .var/str "svut_test_name";
+v0x560646677af0_0 .var/i "svut_test_number", 31 0;
+v0x560646677bd0_0 .var/i "svut_warning", 31 0;
+v0x560646677cb0_0 .var/str "testnum";
+v0x560646677d70_0 .var/i "timeout", 31 0;
+v0x560646677e50_0 .var "wclk", 0 0;
+v0x560646677ef0_0 .var "wdata", 31 0;
+v0x560646677fb0_0 .net "wfull", 0 0, v0x560646673280_0;  1 drivers
+v0x560646678050_0 .var "winc", 0 0;
+v0x5606466780f0_0 .var "wrst_n", 0 0;
+S_0x56064666d000 .scope module, "dut" "async_fifo" 4 46, 5 7 0, S_0x5606466445d0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "wclk";
+    .port_info 1 /INPUT 1 "wrst_n";
+    .port_info 2 /INPUT 1 "winc";
+    .port_info 3 /INPUT 32 "wdata";
+    .port_info 4 /OUTPUT 1 "wfull";
+    .port_info 5 /OUTPUT 1 "awfull";
+    .port_info 6 /INPUT 1 "rclk";
+    .port_info 7 /INPUT 1 "rrst_n";
+    .port_info 8 /INPUT 1 "rinc";
+    .port_info 9 /OUTPUT 32 "rdata";
+    .port_info 10 /OUTPUT 1 "rempty";
+    .port_info 11 /OUTPUT 1 "arempty";
+P_0x56064666d1b0 .param/l "ASIZE" 0 5 11, +C4<00000000000000000000000000000100>;
+P_0x56064666d1f0 .param/l "DSIZE" 0 5 10, +C4<00000000000000000000000000100000>;
+P_0x56064666d230 .param/str "FALLTHROUGH" 0 5 12, "TRUE";
+v0x5606466739d0_0 .net "arempty", 0 0, v0x56064666f690_0;  alias, 1 drivers
+v0x560646673ac0_0 .net "awfull", 0 0, v0x560646672e00_0;  alias, 1 drivers
+v0x560646673b90_0 .net "raddr", 3 0, L_0x560646679a70;  1 drivers
+v0x560646673c60_0 .net "rclk", 0 0, v0x560646676d70_0;  1 drivers
+v0x560646673d00_0 .net "rdata", 31 0, L_0x5606466517d0;  alias, 1 drivers
+v0x560646673df0_0 .net "rempty", 0 0, v0x56064666fc50_0;  alias, 1 drivers
+v0x560646673e90_0 .net "rinc", 0 0, v0x560646676ff0_0;  1 drivers
+v0x560646673f80_0 .net "rptr", 4 0, v0x560646670040_0;  1 drivers
+v0x560646674070_0 .net "rq2_wptr", 4 0, v0x5606466710b0_0;  1 drivers
+v0x560646674110_0 .net "rrst_n", 0 0, v0x560646677090_0;  1 drivers
+v0x560646674200_0 .net "waddr", 3 0, L_0x560646678190;  1 drivers
+v0x5606466742f0_0 .net "wclk", 0 0, v0x560646677e50_0;  1 drivers
+v0x560646674390_0 .net "wdata", 31 0, v0x560646677ef0_0;  1 drivers
+v0x560646674450_0 .net "wfull", 0 0, v0x560646673280_0;  alias, 1 drivers
+v0x560646674540_0 .net "winc", 0 0, v0x560646678050_0;  1 drivers
+v0x560646674630_0 .net "wptr", 4 0, v0x560646673650_0;  1 drivers
+v0x560646674720_0 .net "wq2_rptr", 4 0, v0x560646670930_0;  1 drivers
+v0x560646674830_0 .net "wrst_n", 0 0, v0x5606466780f0_0;  1 drivers
+S_0x56064666d550 .scope module, "fifomem" "fifomem" 5 70, 6 7 0, S_0x56064666d000;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "wclk";
+    .port_info 1 /INPUT 1 "wclken";
+    .port_info 2 /INPUT 4 "waddr";
+    .port_info 3 /INPUT 32 "wdata";
+    .port_info 4 /INPUT 1 "wfull";
+    .port_info 5 /INPUT 1 "rclk";
+    .port_info 6 /INPUT 1 "rclken";
+    .port_info 7 /INPUT 4 "raddr";
+    .port_info 8 /OUTPUT 32 "rdata";
+P_0x56064664ffa0 .param/l "ADDRSIZE" 0 6 11, +C4<00000000000000000000000000000100>;
+P_0x56064664ffe0 .param/l "DATASIZE" 0 6 10, +C4<00000000000000000000000000100000>;
+P_0x560646650020 .param/l "DEPTH" 1 6 25, +C4<000000000000000000000000000000010000>;
+P_0x560646650060 .param/str "FALLTHROUGH" 0 6 12, "TRUE";
+v0x56064664db80 .array "mem", 15 0, 31 0;
+v0x56064666dc60_0 .net "raddr", 3 0, L_0x560646679a70;  alias, 1 drivers
+v0x56064666dd40_0 .net "rclk", 0 0, v0x560646676d70_0;  alias, 1 drivers
+v0x56064666de10_0 .net "rclken", 0 0, v0x560646676ff0_0;  alias, 1 drivers
+v0x56064666ded0_0 .net "rdata", 31 0, L_0x5606466517d0;  alias, 1 drivers
+v0x56064666e000_0 .net "waddr", 3 0, L_0x560646678190;  alias, 1 drivers
+v0x56064666e0e0_0 .net "wclk", 0 0, v0x560646677e50_0;  alias, 1 drivers
+v0x56064666e1a0_0 .net "wclken", 0 0, v0x560646678050_0;  alias, 1 drivers
+v0x56064666e260_0 .net "wdata", 31 0, v0x560646677ef0_0;  alias, 1 drivers
+v0x56064666e340_0 .net "wfull", 0 0, v0x560646673280_0;  alias, 1 drivers
+E_0x560646588030 .event posedge, v0x56064666e0e0_0;
+S_0x56064666d930 .scope generate, "fallthrough" "fallthrough" 6 36, 6 36 0, S_0x56064666d550;
+ .timescale -9 -12;
+L_0x5606466517d0 .functor BUFZ 32, L_0x560646679840, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v0x56064663e4e0_0 .net *"_ivl_0", 31 0, L_0x560646679840;  1 drivers
+v0x56064663e5b0_0 .net *"_ivl_2", 5 0, L_0x5606466798e0;  1 drivers
+L_0x7f7a07eec1c8 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x56064664dab0_0 .net *"_ivl_5", 1 0, L_0x7f7a07eec1c8;  1 drivers
+L_0x560646679840 .array/port v0x56064664db80, L_0x5606466798e0;
+L_0x5606466798e0 .concat [ 4 2 0 0], L_0x560646679a70, L_0x7f7a07eec1c8;
+S_0x56064666e520 .scope module, "rptr_empty" "rptr_empty" 5 85, 7 7 0, S_0x56064666d000;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "rclk";
+    .port_info 1 /INPUT 1 "rrst_n";
+    .port_info 2 /INPUT 1 "rinc";
+    .port_info 3 /INPUT 5 "rq2_wptr";
+    .port_info 4 /OUTPUT 1 "rempty";
+    .port_info 5 /OUTPUT 1 "arempty";
+    .port_info 6 /OUTPUT 4 "raddr";
+    .port_info 7 /OUTPUT 5 "rptr";
+P_0x56064666e6d0 .param/l "ADDRSIZE" 0 7 10, +C4<00000000000000000000000000000100>;
+L_0x560646679ba0 .functor NOT 1, v0x56064666fc50_0, C4<0>, C4<0>, C4<0>;
+L_0x560646679c10 .functor AND 1, v0x560646676ff0_0, L_0x560646679ba0, C4<1>, C4<1>;
+L_0x560646679f30 .functor XOR 5, L_0x56064667a130, L_0x560646679e90, C4<00000>, C4<00000>;
+L_0x56064667a360 .functor XOR 5, L_0x56064667a590, L_0x56064667a720, C4<00000>, C4<00000>;
+v0x56064666e8f0_0 .net *"_ivl_10", 4 0, L_0x560646679da0;  1 drivers
+v0x56064666e9f0_0 .net *"_ivl_14", 4 0, L_0x56064667a130;  1 drivers
+v0x56064666ead0_0 .net *"_ivl_16", 3 0, L_0x56064667a040;  1 drivers
+L_0x7f7a07eec2a0 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x56064666ebc0_0 .net *"_ivl_18", 0 0, L_0x7f7a07eec2a0;  1 drivers
+v0x56064666eca0_0 .net *"_ivl_2", 0 0, L_0x560646679ba0;  1 drivers
+L_0x7f7a07eec2e8 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x56064666edd0_0 .net/2u *"_ivl_22", 4 0, L_0x7f7a07eec2e8;  1 drivers
+v0x56064666eeb0_0 .net *"_ivl_24", 4 0, L_0x56064667a2c0;  1 drivers
+v0x56064666ef90_0 .net *"_ivl_26", 4 0, L_0x56064667a590;  1 drivers
+v0x56064666f070_0 .net *"_ivl_28", 3 0, L_0x56064667a4a0;  1 drivers
+L_0x7f7a07eec330 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x56064666f150_0 .net *"_ivl_30", 0 0, L_0x7f7a07eec330;  1 drivers
+L_0x7f7a07eec378 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x56064666f230_0 .net/2u *"_ivl_32", 4 0, L_0x7f7a07eec378;  1 drivers
+v0x56064666f310_0 .net *"_ivl_34", 4 0, L_0x56064667a720;  1 drivers
+v0x56064666f3f0_0 .net *"_ivl_4", 0 0, L_0x560646679c10;  1 drivers
+L_0x7f7a07eec210 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x56064666f4d0_0 .net/2u *"_ivl_6", 4 0, L_0x7f7a07eec210;  1 drivers
+L_0x7f7a07eec258 .functor BUFT 1, C4<00000>, C4<0>, C4<0>, C4<0>;
+v0x56064666f5b0_0 .net/2u *"_ivl_8", 4 0, L_0x7f7a07eec258;  1 drivers
+v0x56064666f690_0 .var "arempty", 0 0;
+v0x56064666f750_0 .net "arempty_val", 0 0, L_0x56064667aa00;  1 drivers
+v0x56064666f920_0 .net "raddr", 3 0, L_0x560646679a70;  alias, 1 drivers
+v0x56064666f9e0_0 .var "rbin", 4 0;
+v0x56064666faa0_0 .net "rbinnext", 4 0, L_0x560646679e90;  1 drivers
+v0x56064666fb80_0 .net "rclk", 0 0, v0x560646676d70_0;  alias, 1 drivers
+v0x56064666fc50_0 .var "rempty", 0 0;
+v0x56064666fcf0_0 .net "rempty_val", 0 0, L_0x56064667a8b0;  1 drivers
+v0x56064666fdb0_0 .net "rgraynext", 4 0, L_0x560646679f30;  1 drivers
+v0x56064666fe90_0 .net "rgraynextm1", 4 0, L_0x56064667a360;  1 drivers
+v0x56064666ff70_0 .net "rinc", 0 0, v0x560646676ff0_0;  alias, 1 drivers
+v0x560646670040_0 .var "rptr", 4 0;
+v0x560646670100_0 .net "rq2_wptr", 4 0, v0x5606466710b0_0;  alias, 1 drivers
+v0x5606466701e0_0 .net "rrst_n", 0 0, v0x560646677090_0;  alias, 1 drivers
+E_0x56064658a340/0 .event negedge, v0x5606466701e0_0;
+E_0x56064658a340/1 .event posedge, v0x56064666dd40_0;
+E_0x56064658a340 .event/or E_0x56064658a340/0, E_0x56064658a340/1;
+L_0x560646679a70 .part v0x56064666f9e0_0, 0, 4;
+L_0x560646679da0 .functor MUXZ 5, L_0x7f7a07eec258, L_0x7f7a07eec210, L_0x560646679c10, C4<>;
+L_0x560646679e90 .arith/sum 5, v0x56064666f9e0_0, L_0x560646679da0;
+L_0x56064667a040 .part L_0x560646679e90, 1, 4;
+L_0x56064667a130 .concat [ 4 1 0 0], L_0x56064667a040, L_0x7f7a07eec2a0;
+L_0x56064667a2c0 .arith/sum 5, L_0x560646679e90, L_0x7f7a07eec2e8;
+L_0x56064667a4a0 .part L_0x56064667a2c0, 1, 4;
+L_0x56064667a590 .concat [ 4 1 0 0], L_0x56064667a4a0, L_0x7f7a07eec330;
+L_0x56064667a720 .arith/sum 5, L_0x560646679e90, L_0x7f7a07eec378;
+L_0x56064667a8b0 .cmp/eq 5, L_0x560646679f30, v0x5606466710b0_0;
+L_0x56064667aa00 .cmp/eq 5, L_0x56064667a360, v0x5606466710b0_0;
+S_0x5606466703a0 .scope module, "sync_r2w" "sync_r2w" 5 35, 8 7 0, S_0x56064666d000;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "wclk";
+    .port_info 1 /INPUT 1 "wrst_n";
+    .port_info 2 /INPUT 5 "rptr";
+    .port_info 3 /OUTPUT 5 "wq2_rptr";
+P_0x560646670560 .param/l "ASIZE" 0 8 10, +C4<00000000000000000000000000000100>;
+v0x560646670680_0 .net "rptr", 4 0, v0x560646670040_0;  alias, 1 drivers
+v0x560646670790_0 .net "wclk", 0 0, v0x560646677e50_0;  alias, 1 drivers
+v0x560646670860_0 .var "wq1_rptr", 4 0;
+v0x560646670930_0 .var "wq2_rptr", 4 0;
+v0x5606466709f0_0 .net "wrst_n", 0 0, v0x5606466780f0_0;  alias, 1 drivers
+E_0x56064658a640/0 .event negedge, v0x5606466709f0_0;
+E_0x56064658a640/1 .event posedge, v0x56064666e0e0_0;
+E_0x56064658a640 .event/or E_0x56064658a640/0, E_0x56064658a640/1;
+S_0x560646670b80 .scope module, "sync_w2r" "sync_w2r" 5 46, 9 7 0, S_0x56064666d000;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "rclk";
+    .port_info 1 /INPUT 1 "rrst_n";
+    .port_info 2 /OUTPUT 5 "rq2_wptr";
+    .port_info 3 /INPUT 5 "wptr";
+P_0x560646670d60 .param/l "ASIZE" 0 9 10, +C4<00000000000000000000000000000100>;
+v0x560646670ec0_0 .net "rclk", 0 0, v0x560646676d70_0;  alias, 1 drivers
+v0x560646670fd0_0 .var "rq1_wptr", 4 0;
+v0x5606466710b0_0 .var "rq2_wptr", 4 0;
+v0x560646671180_0 .net "rrst_n", 0 0, v0x560646677090_0;  alias, 1 drivers
+v0x560646671250_0 .net "wptr", 4 0, v0x560646673650_0;  alias, 1 drivers
+S_0x5606466713c0 .scope module, "wptr_full" "wptr_full" 5 56, 10 7 0, S_0x56064666d000;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "wclk";
+    .port_info 1 /INPUT 1 "wrst_n";
+    .port_info 2 /INPUT 1 "winc";
+    .port_info 3 /INPUT 5 "wq2_rptr";
+    .port_info 4 /OUTPUT 1 "wfull";
+    .port_info 5 /OUTPUT 1 "awfull";
+    .port_info 6 /OUTPUT 4 "waddr";
+    .port_info 7 /OUTPUT 5 "wptr";
+P_0x5606466715f0 .param/l "ADDRSIZE" 0 10 10, +C4<00000000000000000000000000000100>;
+L_0x560646645fd0 .functor NOT 1, v0x560646673280_0, C4<0>, C4<0>, C4<0>;
+L_0x56064663e3d0 .functor AND 1, v0x560646678050_0, L_0x560646645fd0, C4<1>, C4<1>;
+L_0x56064664d9a0 .functor XOR 5, L_0x5606466786b0, L_0x560646678480, C4<00000>, C4<00000>;
+L_0x5606465505a0 .functor XOR 5, L_0x560646678af0, L_0x560646678c80, C4<00000>, C4<00000>;
+L_0x56064663b210 .functor NOT 2, L_0x560646678e10, C4<00>, C4<00>, C4<00>;
+L_0x560646679130 .functor NOT 2, L_0x5606466792e0, C4<00>, C4<00>, C4<00>;
+v0x560646671880_0 .net *"_ivl_10", 4 0, L_0x560646678390;  1 drivers
+v0x560646671980_0 .net *"_ivl_14", 4 0, L_0x5606466786b0;  1 drivers
+v0x560646671a60_0 .net *"_ivl_16", 3 0, L_0x5606466785c0;  1 drivers
+L_0x7f7a07eec0a8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x560646671b20_0 .net *"_ivl_18", 0 0, L_0x7f7a07eec0a8;  1 drivers
+v0x560646671c00_0 .net *"_ivl_2", 0 0, L_0x560646645fd0;  1 drivers
+L_0x7f7a07eec0f0 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x560646671d30_0 .net/2u *"_ivl_22", 4 0, L_0x7f7a07eec0f0;  1 drivers
+v0x560646671e10_0 .net *"_ivl_24", 4 0, L_0x560646678840;  1 drivers
+v0x560646671ef0_0 .net *"_ivl_26", 4 0, L_0x560646678af0;  1 drivers
+v0x560646671fd0_0 .net *"_ivl_28", 3 0, L_0x5606466789b0;  1 drivers
+L_0x7f7a07eec138 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x5606466720b0_0 .net *"_ivl_30", 0 0, L_0x7f7a07eec138;  1 drivers
+L_0x7f7a07eec180 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x560646672190_0 .net/2u *"_ivl_32", 4 0, L_0x7f7a07eec180;  1 drivers
+v0x560646672270_0 .net *"_ivl_34", 4 0, L_0x560646678c80;  1 drivers
+v0x560646672350_0 .net *"_ivl_39", 1 0, L_0x560646678e10;  1 drivers
+v0x560646672430_0 .net *"_ivl_4", 0 0, L_0x56064663e3d0;  1 drivers
+v0x560646672510_0 .net *"_ivl_40", 1 0, L_0x56064663b210;  1 drivers
+v0x5606466725f0_0 .net *"_ivl_43", 2 0, L_0x560646678f10;  1 drivers
+v0x5606466726d0_0 .net *"_ivl_44", 4 0, L_0x560646679040;  1 drivers
+v0x5606466728c0_0 .net *"_ivl_49", 1 0, L_0x5606466792e0;  1 drivers
+v0x5606466729a0_0 .net *"_ivl_50", 1 0, L_0x560646679130;  1 drivers
+v0x560646672a80_0 .net *"_ivl_53", 2 0, L_0x560646679490;  1 drivers
+v0x560646672b60_0 .net *"_ivl_54", 4 0, L_0x560646679530;  1 drivers
+L_0x7f7a07eec018 .functor BUFT 1, C4<00001>, C4<0>, C4<0>, C4<0>;
+v0x560646672c40_0 .net/2u *"_ivl_6", 4 0, L_0x7f7a07eec018;  1 drivers
+L_0x7f7a07eec060 .functor BUFT 1, C4<00000>, C4<0>, C4<0>, C4<0>;
+v0x560646672d20_0 .net/2u *"_ivl_8", 4 0, L_0x7f7a07eec060;  1 drivers
+v0x560646672e00_0 .var "awfull", 0 0;
+v0x560646672ec0_0 .net "awfull_val", 0 0, L_0x560646679700;  1 drivers
+v0x560646672f80_0 .net "waddr", 3 0, L_0x560646678190;  alias, 1 drivers
+v0x560646673040_0 .var "wbin", 4 0;
+v0x560646673100_0 .net "wbinnext", 4 0, L_0x560646678480;  1 drivers
+v0x5606466731e0_0 .net "wclk", 0 0, v0x560646677e50_0;  alias, 1 drivers
+v0x560646673280_0 .var "wfull", 0 0;
+v0x560646673320_0 .net "wfull_val", 0 0, L_0x5606466791a0;  1 drivers
+v0x5606466733c0_0 .net "wgraynext", 4 0, L_0x56064664d9a0;  1 drivers
+v0x5606466734a0_0 .net "wgraynextp1", 4 0, L_0x5606465505a0;  1 drivers
+v0x560646673580_0 .net "winc", 0 0, v0x560646678050_0;  alias, 1 drivers
+v0x560646673650_0 .var "wptr", 4 0;
+v0x560646673720_0 .net "wq2_rptr", 4 0, v0x560646670930_0;  alias, 1 drivers
+v0x5606466737f0_0 .net "wrst_n", 0 0, v0x5606466780f0_0;  alias, 1 drivers
+L_0x560646678190 .part v0x560646673040_0, 0, 4;
+L_0x560646678390 .functor MUXZ 5, L_0x7f7a07eec060, L_0x7f7a07eec018, L_0x56064663e3d0, C4<>;
+L_0x560646678480 .arith/sum 5, v0x560646673040_0, L_0x560646678390;
+L_0x5606466785c0 .part L_0x560646678480, 1, 4;
+L_0x5606466786b0 .concat [ 4 1 0 0], L_0x5606466785c0, L_0x7f7a07eec0a8;
+L_0x560646678840 .arith/sum 5, L_0x560646678480, L_0x7f7a07eec0f0;
+L_0x5606466789b0 .part L_0x560646678840, 1, 4;
+L_0x560646678af0 .concat [ 4 1 0 0], L_0x5606466789b0, L_0x7f7a07eec138;
+L_0x560646678c80 .arith/sum 5, L_0x560646678480, L_0x7f7a07eec180;
+L_0x560646678e10 .part v0x560646670930_0, 3, 2;
+L_0x560646678f10 .part v0x560646670930_0, 0, 3;
+L_0x560646679040 .concat [ 3 2 0 0], L_0x560646678f10, L_0x56064663b210;
+L_0x5606466791a0 .cmp/eq 5, L_0x56064664d9a0, L_0x560646679040;
+L_0x5606466792e0 .part v0x560646670930_0, 3, 2;
+L_0x560646679490 .part v0x560646670930_0, 0, 3;
+L_0x560646679530 .concat [ 3 2 0 0], L_0x560646679490, L_0x560646679130;
+L_0x560646679700 .cmp/eq 5, L_0x5606465505a0, L_0x560646679530;
+S_0x560646674aa0 .scope task, "run" "run" 4 99, 4 99 0, S_0x5606466445d0;
+ .timescale -9 -12;
+v0x560646676510_0 .var "msg", 0 0;
+E_0x560646587e00 .event anyedge, v0x56064666fc50_0;
+TD_async_fifo_unit_test.run ;
+    %pushi/str "ASYNCFIFO";
+    %store/str v0x560646677860_0;
+    %vpi_call/w 4 102 "$display", "\000" {0 0 0};
+    %pushi/str "Start testsuite << ASYNCFIFO >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 105 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001100010 {0 0 0};
+    %vpi_call/w 4 102 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 103 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_IDLE";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 106 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001100100 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_IDLE";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646677fb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.2, 8;
+    %vpi_call/w 4 108 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001100110 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.2 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676eb0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.4, 8;
+    %vpi_call/w 4 109 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001100111 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.4 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.6, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 111 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001101001 {0 0 0};
+    %jmp T_1.7;
+T_1.6 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 116 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001101001 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.7 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 109 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 110 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_SINGLE_WRITE_THEN_READ";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 113 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001101011 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_SINGLE_WRITE_THEN_READ";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %wait E_0x560646588030;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %pushi/vec4 10, 0, 32;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+    %wait E_0x560646588030;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %wait E_0x560646652e30;
+T_1.8 ;
+    %load/vec4 v0x560646676eb0_0;
+    %pushi/vec4 0, 0, 1;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %cmpi/ne 1, 0, 1;
+    %jmp/0xz T_1.9, 6;
+    %wait E_0x560646587e00;
+    %jmp T_1.8;
+T_1.9 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646676ff0_0, 0, 1;
+    %wait E_0x560646676390;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676e10_0;
+    %cmpi/ne 10, 0, 32;
+    %jmp/0xz  T_1.10, 6;
+    %vpi_call/w 4 131 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001111101 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.10 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.12, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 133 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001111111 {0 0 0};
+    %jmp T_1.13;
+T_1.12 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 138 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000001111111 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.13 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 131 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 132 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_MULTIPLE_WRITE_THEN_READ";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 135 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010000001 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_MULTIPLE_WRITE_THEN_READ";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %fork t_1, S_0x560646674cc0;
+    %jmp t_0;
+    .scope S_0x560646674cc0;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646674f00_0, 0, 32;
+T_1.14 ; Top of for-loop
+    %load/vec4 v0x560646674f00_0;
+    %cmpi/s 10, 0, 32;
+	  %jmp/0xz T_1.15, 5;
+    %wait E_0x560646572f10;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %load/vec4 v0x560646674f00_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.16 ; for-loop step statement
+    %load/vec4 v0x560646674f00_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646674f00_0, 0, 32;
+    %jmp T_1.14;
+T_1.15 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_0 %join;
+    %wait E_0x560646572f10;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %delay 100000, 0;
+    %wait E_0x560646652e30;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646676ff0_0, 0, 1;
+    %fork t_3, S_0x560646675000;
+    %jmp t_2;
+    .scope S_0x560646675000;
+t_3 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646675220_0, 0, 32;
+T_1.17 ; Top of for-loop
+    %load/vec4 v0x560646675220_0;
+    %cmpi/s 10, 0, 32;
+	  %jmp/0xz T_1.18, 5;
+    %wait E_0x560646652e30;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676e10_0;
+    %load/vec4 v0x560646675220_0;
+    %cmp/ne;
+    %jmp/0xz  T_1.20, 6;
+    %vpi_call/w 4 152 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010010010 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.20 ;
+T_1.19 ; for-loop step statement
+    %load/vec4 v0x560646675220_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646675220_0, 0, 32;
+    %jmp T_1.17;
+T_1.18 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_2 %join;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.22, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 155 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010010101 {0 0 0};
+    %jmp T_1.23;
+T_1.22 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 160 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010010101 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.23 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 153 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 154 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_FULL_FLAG";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 157 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010010111 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_FULL_FLAG";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %fork t_5, S_0x560646675320;
+    %jmp t_4;
+    .scope S_0x560646675320;
+t_5 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646675500_0, 0, 32;
+T_1.24 ; Top of for-loop
+    %load/vec4 v0x560646675500_0;
+    %cmpi/s 16, 0, 32;
+	  %jmp/0xz T_1.25, 5;
+    %wait E_0x560646572f10;
+    %load/vec4 v0x560646675500_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.26 ; for-loop step statement
+    %load/vec4 v0x560646675500_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646675500_0, 0, 32;
+    %jmp T_1.24;
+T_1.25 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_4 %join;
+    %wait E_0x560646572f10;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %wait E_0x560646588030;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646677fb0_0;
+    %pad/u 32;
+    %cmpi/ne 1, 0, 32;
+    %jmp/0xz  T_1.27, 6;
+    %vpi_call/w 4 170 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010100100 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.27 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.29, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 172 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010100110 {0 0 0};
+    %jmp T_1.30;
+T_1.29 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 177 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010100110 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.30 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 170 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 171 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_EMPTY_FLAG";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 174 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010101000 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_EMPTY_FLAG";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676eb0_0;
+    %pad/u 32;
+    %cmpi/ne 1, 0, 32;
+    %jmp/0xz  T_1.31, 6;
+    %vpi_call/w 4 176 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010101010 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.31 ;
+    %fork t_7, S_0x5606466755e0;
+    %jmp t_6;
+    .scope S_0x5606466755e0;
+t_7 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466757c0_0, 0, 32;
+T_1.33 ; Top of for-loop
+    %load/vec4 v0x5606466757c0_0;
+    %cmpi/s 16, 0, 32;
+	  %jmp/0xz T_1.34, 5;
+    %wait E_0x560646588030;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %load/vec4 v0x5606466757c0_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.35 ; for-loop step statement
+    %load/vec4 v0x5606466757c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466757c0_0, 0, 32;
+    %jmp T_1.33;
+T_1.34 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_6 %join;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676eb0_0;
+    %pad/u 32;
+    %cmpi/ne 0, 0, 32;
+    %jmp/0xz  T_1.36, 6;
+    %vpi_call/w 4 184 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010110010 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.36 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.38, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 186 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010110100 {0 0 0};
+    %jmp T_1.39;
+T_1.38 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 191 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010110100 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.39 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 184 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 185 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_ALMOST_EMPTY_FLAG";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 188 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010110110 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_ALMOST_EMPTY_FLAG";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676b50_0;
+    %pad/u 32;
+    %cmpi/ne 0, 0, 32;
+    %jmp/0xz  T_1.40, 6;
+    %vpi_call/w 4 190 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000010111000 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.40 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %fork t_9, S_0x5606466758c0;
+    %jmp t_8;
+    .scope S_0x5606466758c0;
+t_9 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646675af0_0, 0, 32;
+T_1.42 ; Top of for-loop
+    %load/vec4 v0x560646675af0_0;
+    %cmpi/s 1, 0, 32;
+	  %jmp/0xz T_1.43, 5;
+    %wait E_0x560646572f10;
+    %load/vec4 v0x560646675af0_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.44 ; for-loop step statement
+    %load/vec4 v0x560646675af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646675af0_0, 0, 32;
+    %jmp T_1.42;
+T_1.43 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_8 %join;
+    %wait E_0x560646572f10;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %delay 100000, 0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676b50_0;
+    %pad/u 32;
+    %cmpi/ne 1, 0, 32;
+    %jmp/0xz  T_1.45, 6;
+    %vpi_call/w 4 204 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011000110 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.45 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.47, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 206 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011001000 {0 0 0};
+    %jmp T_1.48;
+T_1.47 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 211 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011001000 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.48 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 204 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 205 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_ALMOST_FULL_FLAG";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 208 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011001010 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_ALMOST_FULL_FLAG";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %fork t_11, S_0x560646675bf0;
+    %jmp t_10;
+    .scope S_0x560646675bf0;
+t_11 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646675dd0_0, 0, 32;
+T_1.49 ; Top of for-loop
+    %load/vec4 v0x560646675dd0_0;
+    %cmpi/s 15, 0, 32;
+	  %jmp/0xz T_1.50, 5;
+    %wait E_0x560646572f10;
+    %load/vec4 v0x560646675dd0_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.51 ; for-loop step statement
+    %load/vec4 v0x560646675dd0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646675dd0_0, 0, 32;
+    %jmp T_1.49;
+T_1.50 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_10 %join;
+    %wait E_0x560646572f10;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %wait E_0x560646588030;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676c60_0;
+    %pad/u 32;
+    %cmpi/ne 1, 0, 32;
+    %jmp/0xz  T_1.52, 6;
+    %vpi_call/w 4 222 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011011000 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.52 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.54, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 224 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011011010 {0 0 0};
+    %jmp T_1.55;
+T_1.54 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 229 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011011010 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.55 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %vpi_call/w 4 222 "$display", "\000" {0 0 0};
+    %vpi_call/w 4 223 "$sformat", v0x560646677cb0_0, "%0d", v0x560646677af0_0 {0 0 0};
+    %pushi/str "Starting << ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %concati/str "TEST_CONCURRENT_WRITE_READ";
+    %concati/str " >>";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 226 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011011100 {0 0 0};
+    %pushi/vec4 1399157877, 0, 32; draw_string_vec4
+    %pushi/vec4 1881175141, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1937007457, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 29541, 0, 16; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x5606466767d0_0, 0, 1;
+    %fork TD_async_fifo_unit_test.setup, S_0x5606466765f0;
+    %join;
+    %pushi/str "TEST_CONCURRENT_WRITE_READ";
+    %store/str v0x560646677920_0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %load/vec4 v0x5606466775c0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %fork t_13, S_0x560646674aa0;
+    %fork t_14, S_0x560646674aa0;
+    %join;
+    %join/detach 1;
+    %jmp t_12;
+t_13 ;
+    %fork t_16, S_0x560646674aa0;
+    %fork t_17, S_0x560646674aa0;
+    %join;
+    %join;
+    %jmp t_15;
+t_16 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %fork t_19, S_0x560646675ed0;
+    %jmp t_18;
+    .scope S_0x560646675ed0;
+t_19 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466760b0_0, 0, 32;
+T_1.56 ; Top of for-loop
+    %load/vec4 v0x5606466760b0_0;
+    %cmpi/s 10, 0, 32;
+	  %jmp/0xz T_1.57, 5;
+T_1.59 ;
+    %load/vec4 v0x560646677fb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz T_1.60, 8;
+    %wait E_0x560646572f10;
+    %jmp T_1.59;
+T_1.60 ;
+    %wait E_0x560646572f10;
+    %load/vec4 v0x5606466760b0_0;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+T_1.58 ; for-loop step statement
+    %load/vec4 v0x5606466760b0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466760b0_0, 0, 32;
+    %jmp T_1.56;
+T_1.57 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_18 %join;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %end;
+t_17 ;
+    %fork t_21, S_0x5606466761b0;
+    %jmp t_20;
+    .scope S_0x5606466761b0;
+t_21 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646676410_0, 0, 32;
+T_1.61 ; Top of for-loop
+    %load/vec4 v0x560646676410_0;
+    %cmpi/s 10, 0, 32;
+	  %jmp/0xz T_1.62, 5;
+T_1.64 ;
+    %load/vec4 v0x560646676eb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz T_1.65, 8;
+    %wait E_0x560646652e30;
+    %jmp T_1.64;
+T_1.65 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646676ff0_0, 0, 1;
+    %wait E_0x560646676390;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %alloc S_0x560646641020;
+    %pushi/str "FAIL_IF_NOT_EQUAL";
+    %pushi/str "";
+    %store/str v0x560646646ab0_0;
+    %store/str v0x5606466461b0_0;
+    %callf/str TD_$unit.create_msg, S_0x560646641020;
+    %free S_0x560646641020;
+    %store/str v0x560646677500_0;
+    %load/vec4 v0x560646676e10_0;
+    %load/vec4 v0x560646676410_0;
+    %cmp/ne;
+    %jmp/0xz  T_1.66, 6;
+    %vpi_call/w 4 250 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000011110100 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 1, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+T_1.66 ;
+T_1.63 ; for-loop step statement
+    %load/vec4 v0x560646676410_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646676410_0, 0, 32;
+    %jmp T_1.61;
+T_1.62 ; for-loop exit label
+    %end;
+    .scope S_0x560646674aa0;
+t_20 %join;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646676ff0_0, 0, 1;
+    %end;
+    .scope S_0x560646674aa0;
+t_15 ;
+    %end;
+t_14 ;
+T_1.68 ;
+    %load/vec4 v0x560646677d70_0;
+    %cmpi/s 10000, 0, 32;
+    %jmp/0xz T_1.69, 5;
+    %load/vec4 v0x560646677d70_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677d70_0, 0, 32;
+    %wait E_0x560646652e30;
+    %jmp T_1.68;
+T_1.69 ;
+    %vpi_call/w 4 258 "$display", "\033[1;31mERROR: %s (@ %0t) (%s:%0d)\033[0m", "Reached timeout!", $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000100000000 {0 0 0};
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x5606466771f0_0;
+    %pushi/vec4 1, 0, 32;
+    %add;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %end;
+    .scope S_0x560646674aa0;
+t_12 ;
+    %pushi/vec4 1415930226, 0, 32; draw_string_vec4
+    %pushi/vec4 1768843040, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 1685026670, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676a70_0, 0, 1;
+    %fork TD_async_fifo_unit_test.teardown, S_0x560646676890;
+    %join;
+    %load/vec4 v0x5606466771f0_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.70, 4;
+    %load/vec4 v0x5606466776a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " pass";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 266 "$display", "\033[0;32mSUCCESS: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000100000100 {0 0 0};
+    %jmp T_1.71;
+T_1.70 ;
+    %pushi/str "<< ";
+    %concati/str "Test ";
+    %load/str v0x560646677cb0_0;
+    %concat/str;
+    %concati/str ": ";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str " >>";
+    %concati/str " fail";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 271 "$display", "\033[1;31mFAILURE: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000100000100 {0 0 0};
+    %load/str v0x560646677440_0;
+    %concati/str " '";
+    %load/str v0x560646677920_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677440_0;
+    ; show_stmt_assign_vector: Get l-value for compressed += operand
+    %load/vec4 v0x560646677360_0;
+    %load/vec4 v0x5606466771f0_0;
+    %add;
+    %store/vec4 v0x560646677360_0, 0, 32;
+T_1.71 ;
+    %load/vec4 v0x560646677af0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %end;
+S_0x560646674cc0 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 4 131, 4 131 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646674f00_0 .var/2s "i", 31 0;
+E_0x560646572f10 .event negedge, v0x56064666e0e0_0;
+S_0x560646675000 .scope begin, "$ivl_for_loop1" "$ivl_for_loop1" 4 144, 4 144 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646675220_0 .var/2s "i", 31 0;
+E_0x560646652e30 .event posedge, v0x56064666dd40_0;
+S_0x560646675320 .scope begin, "$ivl_for_loop2" "$ivl_for_loop2" 4 155, 4 155 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646675500_0 .var/2s "i", 31 0;
+S_0x5606466755e0 .scope begin, "$ivl_for_loop3" "$ivl_for_loop3" 4 172, 4 172 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x5606466757c0_0 .var/2s "i", 31 0;
+S_0x5606466758c0 .scope begin, "$ivl_for_loop4" "$ivl_for_loop4" 4 187, 4 187 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646675af0_0 .var/2s "i", 31 0;
+S_0x560646675bf0 .scope begin, "$ivl_for_loop5" "$ivl_for_loop5" 4 205, 4 205 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646675dd0_0 .var/2s "i", 31 0;
+S_0x560646675ed0 .scope begin, "$ivl_for_loop6" "$ivl_for_loop6" 4 229, 4 229 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x5606466760b0_0 .var/2s "i", 31 0;
+S_0x5606466761b0 .scope begin, "$ivl_for_loop7" "$ivl_for_loop7" 4 239, 4 239 0, S_0x560646674aa0;
+ .timescale -9 -12;
+v0x560646676410_0 .var/2s "i", 31 0;
+E_0x560646676390 .event negedge, v0x56064666dd40_0;
+S_0x5606466765f0 .scope task, "setup" "setup" 4 74, 4 74 0, S_0x5606466445d0;
+ .timescale -9 -12;
+v0x5606466767d0_0 .var "msg", 0 0;
+TD_async_fifo_unit_test.setup ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5606466780f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646678050_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677ef0_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646677090_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646676ff0_0, 0, 1;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5606466780f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x560646677090_0, 0, 1;
+    %delay 50000, 0;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677d70_0, 0, 32;
+    %wait E_0x560646588030;
+    %end;
+S_0x560646676890 .scope task, "teardown" "teardown" 4 92, 4 92 0, S_0x5606466445d0;
+ .timescale -9 -12;
+v0x560646676a70_0 .var "msg", 0 0;
+TD_async_fifo_unit_test.teardown ;
+    %delay 50000, 0;
+    %end;
+    .scope S_0x5606466703a0;
+T_4 ;
+    %wait E_0x56064658a640;
+    %load/vec4 v0x5606466709f0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_4.0, 8;
+    %pushi/vec4 0, 0, 10;
+    %split/vec4 5;
+    %assign/vec4 v0x560646670860_0, 0;
+    %assign/vec4 v0x560646670930_0, 0;
+    %jmp T_4.1;
+T_4.0 ;
+    %load/vec4 v0x560646670860_0;
+    %load/vec4 v0x560646670680_0;
+    %concat/vec4; draw_concat_vec4
+    %split/vec4 5;
+    %assign/vec4 v0x560646670860_0, 0;
+    %assign/vec4 v0x560646670930_0, 0;
+T_4.1 ;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_0x560646670b80;
+T_5 ;
+    %wait E_0x56064658a340;
+    %load/vec4 v0x560646671180_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_5.0, 8;
+    %pushi/vec4 0, 0, 10;
+    %split/vec4 5;
+    %assign/vec4 v0x560646670fd0_0, 0;
+    %assign/vec4 v0x5606466710b0_0, 0;
+    %jmp T_5.1;
+T_5.0 ;
+    %load/vec4 v0x560646670fd0_0;
+    %load/vec4 v0x560646671250_0;
+    %concat/vec4; draw_concat_vec4
+    %split/vec4 5;
+    %assign/vec4 v0x560646670fd0_0, 0;
+    %assign/vec4 v0x5606466710b0_0, 0;
+T_5.1 ;
+    %jmp T_5;
+    .thread T_5;
+    .scope S_0x5606466713c0;
+T_6 ;
+    %wait E_0x56064658a640;
+    %load/vec4 v0x5606466737f0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_6.0, 8;
+    %pushi/vec4 0, 0, 10;
+    %split/vec4 5;
+    %assign/vec4 v0x560646673650_0, 0;
+    %assign/vec4 v0x560646673040_0, 0;
+    %jmp T_6.1;
+T_6.0 ;
+    %load/vec4 v0x560646673100_0;
+    %load/vec4 v0x5606466733c0_0;
+    %concat/vec4; draw_concat_vec4
+    %split/vec4 5;
+    %assign/vec4 v0x560646673650_0, 0;
+    %assign/vec4 v0x560646673040_0, 0;
+T_6.1 ;
+    %jmp T_6;
+    .thread T_6;
+    .scope S_0x5606466713c0;
+T_7 ;
+    %wait E_0x56064658a640;
+    %load/vec4 v0x5606466737f0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_7.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x560646672e00_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x560646673280_0, 0;
+    %jmp T_7.1;
+T_7.0 ;
+    %load/vec4 v0x560646672ec0_0;
+    %assign/vec4 v0x560646672e00_0, 0;
+    %load/vec4 v0x560646673320_0;
+    %assign/vec4 v0x560646673280_0, 0;
+T_7.1 ;
+    %jmp T_7;
+    .thread T_7;
+    .scope S_0x56064666d550;
+T_8 ;
+    %wait E_0x560646588030;
+    %load/vec4 v0x56064666e1a0_0;
+    %flag_set/vec4 9;
+    %flag_get/vec4 9;
+    %jmp/0 T_8.2, 9;
+    %load/vec4 v0x56064666e340_0;
+    %nor/r;
+    %and;
+T_8.2;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_8.0, 8;
+    %load/vec4 v0x56064666e260_0;
+    %load/vec4 v0x56064666e000_0;
+    %pad/u 6;
+    %ix/vec4 3;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x56064664db80, 0, 4;
+T_8.0 ;
+    %jmp T_8;
+    .thread T_8;
+    .scope S_0x56064666e520;
+T_9 ;
+    %wait E_0x56064658a340;
+    %load/vec4 v0x5606466701e0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_9.0, 8;
+    %pushi/vec4 0, 0, 10;
+    %split/vec4 5;
+    %assign/vec4 v0x560646670040_0, 0;
+    %assign/vec4 v0x56064666f9e0_0, 0;
+    %jmp T_9.1;
+T_9.0 ;
+    %load/vec4 v0x56064666faa0_0;
+    %load/vec4 v0x56064666fdb0_0;
+    %concat/vec4; draw_concat_vec4
+    %split/vec4 5;
+    %assign/vec4 v0x560646670040_0, 0;
+    %assign/vec4 v0x56064666f9e0_0, 0;
+T_9.1 ;
+    %jmp T_9;
+    .thread T_9;
+    .scope S_0x56064666e520;
+T_10 ;
+    %wait E_0x56064658a340;
+    %load/vec4 v0x5606466701e0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_10.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x56064666f690_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x56064666fc50_0, 0;
+    %jmp T_10.1;
+T_10.0 ;
+    %load/vec4 v0x56064666f750_0;
+    %assign/vec4 v0x56064666f690_0, 0;
+    %load/vec4 v0x56064666fcf0_0;
+    %assign/vec4 v0x56064666fc50_0, 0;
+T_10.1 ;
+    %jmp T_10;
+    .thread T_10;
+    .scope S_0x5606466445d0;
+T_11 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677af0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677780_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677bd0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677130_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466771f0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x560646677360_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466775c0_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5606466776a0_0, 0, 32;
+    %pushi/str "";
+    %store/str v0x560646677920_0;
+    %pushi/str "";
+    %store/str v0x560646677860_0;
+    %pushi/str "";
+    %store/str v0x560646677500_0;
+    %pushi/str "Failling test(s):";
+    %store/str v0x560646677440_0;
+    %end;
+    .thread T_11, $init;
+    .scope S_0x5606466445d0;
+T_12 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646677e50_0, 0, 1;
+    %end;
+    .thread T_12;
+    .scope S_0x5606466445d0;
+T_13 ;
+    %delay 2000, 0;
+    %load/vec4 v0x560646677e50_0;
+    %inv;
+    %assign/vec4 v0x560646677e50_0, 0;
+    %jmp T_13;
+    .thread T_13;
+    .scope S_0x5606466445d0;
+T_14 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x560646676d70_0, 0, 1;
+    %end;
+    .thread T_14;
+    .scope S_0x5606466445d0;
+T_15 ;
+    %delay 3000, 0;
+    %load/vec4 v0x560646676d70_0;
+    %inv;
+    %assign/vec4 v0x560646676d70_0, 0;
+    %jmp T_15;
+    .thread T_15;
+    .scope S_0x5606466445d0;
+T_16 ;
+    %vpi_call/w 4 70 "$dumpfile", "async_fifo_unit_test.vcd" {0 0 0};
+    %vpi_call/w 4 71 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5606466445d0 {0 0 0};
+    %end;
+    .thread T_16;
+    .scope S_0x5606466445d0;
+T_17 ;
+    %pushi/vec4 0, 0, 8; draw_string_vec4
+    %pad/u 1;
+    %store/vec4 v0x560646676510_0, 0, 1;
+    %fork TD_async_fifo_unit_test.run, S_0x560646674aa0;
+    %join;
+    %vpi_call/w 4 267 "$display", "\000" {0 0 0};
+    %pushi/str "Stop testsuite '";
+    %load/str v0x560646677860_0;
+    %concat/str;
+    %concati/str "'";
+    %store/str v0x560646677500_0;
+    %vpi_call/w 4 270 "$display", "\033[0;34mINFO: %s (@ %0t) (%s:%0d)\033[0m", v0x560646677500_0, $realtime, "/workspace/async_fifo/sim/async_fifo_unit_test.sv", 32'sb00000000000000000000000100000110 {0 0 0};
+    %load/vec4 v0x560646677360_0;
+    %cmpi/s 0, 0, 32;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %jmp/0xz  T_17.0, 5;
+    %vpi_call/w 4 272 "$display", "\033[1;31m" {0 0 0};
+    %vpi_call/w 4 273 "$display", v0x560646677440_0 {0 0 0};
+    %vpi_call/w 4 274 "$display", "\000" {0 0 0};
+T_17.0 ;
+    %vpi_call/w 4 276 "$display", "  \033[1;33m- Warning number:  %0d\033[0m", v0x560646677bd0_0 {0 0 0};
+    %vpi_call/w 4 277 "$display", "  \033[1;35m- Critical number: %0d\033[0m", v0x560646677130_0 {0 0 0};
+    %vpi_call/w 4 278 "$display", "  \033[1;31m- Error number:    %0d\033[0m", v0x560646677360_0 {0 0 0};
+    %load/vec4 v0x5606466776a0_0;
+    %load/vec4 v0x5606466775c0_0;
+    %cmp/ne;
+    %jmp/0xz  T_17.2, 4;
+    %vpi_call/w 4 280 "$display", "  \033[1;31m- STATUS: %0d/%0d test(s) passed\033[0m\012", v0x5606466776a0_0, v0x5606466775c0_0 {0 0 0};
+    %jmp T_17.3;
+T_17.2 ;
+    %vpi_call/w 4 282 "$display", "  \033[0;32m- STATUS: %0d/%0d test(s) passed\033[0m\012", v0x5606466776a0_0, v0x5606466775c0_0 {0 0 0};
+T_17.3 ;
+    %vpi_call/w 4 284 "$finish" {0 0 0};
+    %end;
+    .thread T_17;
+# The file index is used to find the file name in the following table.
+:file_names 11;
+    "N/A";
+    "<interactive>";
+    "-";
+    "./svut_h.sv";
+    "/workspace/async_fifo/sim/async_fifo_unit_test.sv";
+    "../rtl/async_fifo.v";
+    "../rtl/fifomem.v";
+    "../rtl/rptr_empty.v";
+    "../rtl/sync_r2w.v";
+    "../rtl/sync_w2r.v";
+    "../rtl/wptr_full.v";

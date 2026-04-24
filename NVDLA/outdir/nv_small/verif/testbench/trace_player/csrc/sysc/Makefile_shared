@@ -1,0 +1,14 @@
+CXX = /home/utils/gcc-9.5.0-binutils-2.33.1/bin/g++
+CXXFLAGS = -MMD -m64 -fPIC
+include modellist
+libcsrc_sysc.so:
+	$(CXX) -o $@ -shared $(addsuffix .o,$(MODELS)) $(CXXFLAGS)
+include stublist
+stubs:	libcsrc_sysc_stubs.a
+libcsrc_sysc_stubs.a:	$(addsuffix .o,$(STUBS))
+	@ar cr $@ $(addsuffix .o,$(STUBS))
+_stublist.o:	_stublist.cpp
+	@$(CXX) -c -o $@ _stublist.cpp $(CXXFLAGS)
+clean:
+	@rm -f libcsrc_sysc.so
+	@rm -f libcsrc_sysc_stubs.a

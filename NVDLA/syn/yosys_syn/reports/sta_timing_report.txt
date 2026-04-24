@@ -1,0 +1,486 @@
+================================================================================
+                    OpenSTA TIMING REPORT
+================================================================================
+
+Design:     NV_nvdla
+Technology: ASAP7 RVT TT
+Date:       2026-04-24 02:43:40
+
+--------------------------------------------------------------------------------
+                         INPUT FILES
+--------------------------------------------------------------------------------
+
+Synthesized Netlist: /workspace/NVDLA/syn/yosys_syn/syn_results/NV_nvdla_syn.v
+SDC Constraints:     /workspace/NVDLA/syn/yosys_syn/constraint.sdc
+
+Liberty Files:
+  asap7sc7p5t_AO_RVT_TT_nldm_211120.lib
+  asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib
+  asap7sc7p5t_OA_RVT_TT_nldm_211120.lib
+  asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib
+  asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib
+
+--------------------------------------------------------------------------------
+                         TIMING UNITS
+--------------------------------------------------------------------------------
+
+  Time:        picoseconds (ps)
+  Capacitance: femtofarads (fF)
+  Resistance:  ohms
+
+================================================================================
+                         TIMING SUMMARY TABLE
+================================================================================
+
++----------------------+------------------+------------------+
+| Metric               | Setup (max)      | Hold (min)       |
++----------------------+------------------+------------------+
+| WNS                  |      -5788.40 ps |          0.00 ps |
+| TNS                  |     -28942.00 ps |          0.00 ps |
+| Worst Slack          |      -5788.40 ps |         42.40 ps |
++----------------------+------------------+------------------+
+
+  Setup Timing: FAILED (negative slack: -5788.40 ps)
+  Hold Timing:  PASSED (positive slack)
+
+================================================================================
+                         CLOCK DEFINITIONS TABLE
+================================================================================
+
++------------------+------------+------------+------------+
+| Clock Name       | Period(ps) | Period(ns) | Freq(MHz)  |
++------------------+------------+------------+------------+
+| dla_core_clk     |   30000.00 |    30.0000 |      33.33 |
+| dla_csb_clk      |   60000.00 |    60.0000 |      16.67 |
++------------------+------------+------------+------------+
+
+================================================================================
+                         CLOCK SKEW ANALYSIS
+================================================================================
+
+Setup Clock Skew:
+Clock dla_core_clk
+2257.20 source latency u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_syncfifo/u_data_sync_fifo/_436_/CLK ^
+   0.00 target latency u_partition_o/u_NV_NVDLA_cdp/u_rdma/u_reg/_1453_/CLK ^
+   0.00 CRPR
+--------------
+2257.20 setup skew
+
+Clock dla_csb_clk
+ 114.36 source latency u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/_554_/CLK ^
+   0.00 target latency u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/wr_clk_rcv_gate/p_clkgate/_6_/CLK v
+   0.00 CRPR
+--------------
+ 114.36 setup skew
+
+
+Hold Clock Skew:
+Clock dla_core_clk
+   0.00 source latency u_partition_o/u_sync_core_reset/sync_reset_synced_rstn/NV_GENERIC_CELL/_5_/CLK ^
+-2257.20 target latency u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_syncfifo/u_data_sync_fifo/_407_/CLK ^
+   0.00 CRPR
+--------------
+-2257.20 hold skew
+
+Clock dla_csb_clk
+   0.00 source latency u_partition_o/u_sync_falcon_reset/sync_reset_synced_rstn/NV_GENERIC_CELL/_5_/CLK ^
+-114.36 target latency u_partition_o/u_NV_NVDLA_csb_master/u_fifo_csb2nvdla/_554_/CLK ^
+   0.00 CRPR
+--------------
+-114.36 hold skew
+
+
+================================================================================
+                         DESIGN RULE CHECK (ERC) TABLE
+================================================================================
+
++----------------------+------------------+------------------+------------------+
+| Check Type           | Slack            | Limit            | Violations       |
++----------------------+------------------+------------------+------------------+
+| Max Slew             |     -64915.09 ps |        320.00 ps |            38508 |
+| Max Capacitance      |     -14777.10 fF |         92.16 fF |                7 |
+| Max Fanout           | 1000000015047466219876688855040.00 |              N/A |                0 |
++----------------------+------------------+------------------+------------------+
+
+ERC Violators (excluding async reset pins SETN/RESETN):
+
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_2544_/Y  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_3213_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3305_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3307_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3310_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3312_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3353_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3495_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3507_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3509_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3523_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3537_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3540_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3558_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3606_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3608_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3610_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3612_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3620_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3630_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3647_/B  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3657_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3668_/A1  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3671_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3680_/C  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3682_/A  320.00 1090.02 -770.02 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_2539_/Y  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_3243_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3324_/A1  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3413_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3414_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3580_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3601_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3642_/A  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3757_/B  320.00  336.71  -16.71 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_2537_/Y  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_3255_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_0/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_1/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_2/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_3/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_4/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_5/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_6/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3328_/A1  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3388_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3599_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3638_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3639_/B  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3772_/A  320.00  333.53  -13.53 (VIOLATED)
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/unit1d_7/_3778_/A1  320.00  333.53  -13.53 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+
+
+
+
+
+
+u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal1d/_2544_/Y   46.08  125.20  -79.12 (VIOLATED)
+
+
+
+(Filtered 38204 async reset pin violations - known pre-layout artifacts)
+
+================================================================================
+                         CELL COUNT TABLE
+================================================================================
+
++----------------------+------------------+
+| Category             | Count            |
++----------------------+------------------+
+| Total Cells          |           590797 |
+| Sequential           |            87446 |
+| Combinational        |           503351 |
++----------------------+------------------+
+
+Cell Type Breakdown (top 20):
++------------------------------------------+------------+
+| Cell Type                                | Count      |
++------------------------------------------+------------+
+| INVx1_ASAP7_75t_R                        |      62487 |
+| AO21x1_ASAP7_75t_R                       |      57097 |
+| DFFHQNx1_ASAP7_75t_R                     |      48896 |
+| DFFASRHQNx1_ASAP7_75t_R                  |      38249 |
+| BUFx2_ASAP7_75t_R                        |      37308 |
+| OA21x2_ASAP7_75t_R                       |      36554 |
+| NAND2x1_ASAP7_75t_R                      |      35962 |
+| NOR2x1_ASAP7_75t_R                       |      34305 |
+| AND2x2_ASAP7_75t_R                       |      30190 |
+| XNOR2x2_ASAP7_75t_R                      |      21829 |
+| OR3x1_ASAP7_75t_R                        |      13368 |
+| AND3x1_ASAP7_75t_R                       |      12668 |
+| OA211x2_ASAP7_75t_R                      |      12347 |
+| AO22x1_ASAP7_75t_R                       |      12010 |
+| AND4x1_ASAP7_75t_R                       |      11984 |
+| OR2x2_ASAP7_75t_R                        |      11362 |
+| AOI21x1_ASAP7_75t_R                      |      11139 |
+| MAJx2_ASAP7_75t_R                        |      10446 |
+| AO221x1_ASAP7_75t_R                      |       8909 |
+| XOR2x2_ASAP7_75t_R                       |       7310 |
++------------------------------------------+------------+
+
+================================================================================
+                         ADDITIONAL REPORTS
+================================================================================
+
+  Detailed Timing Paths: /workspace/NVDLA/syn/yosys_syn/reports/sta_timing_paths.txt
+  Power Analysis:        /workspace/NVDLA/syn/yosys_syn/reports/sta_power_report.txt
+  Yosys Synthesis:       syn_results/synth_final_report.txt
+
+================================================================================
+                         END OF TIMING REPORT
+================================================================================

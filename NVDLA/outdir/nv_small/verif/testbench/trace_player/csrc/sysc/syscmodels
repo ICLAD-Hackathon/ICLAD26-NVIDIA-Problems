@@ -1,0 +1,9 @@
+MODELS_csrc = \
+	uvmc \
+	nvdla_dbb_scsv_extension_packer \
+	nvdla_scsv_converter \
+	nvdla_top_sc_layer \
+	log \
+	nvdla_top_sc_adapter/nvdla_top_sc_adapter_vcs \
+	nvdla_top_sc_adapter/nvdla_top_sc_adapter \
+	rm_convertor_dpi \

@@ -1,0 +1,300 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Design internal header
+// See VNV_nvdla.h for the primary calling header
+
+#ifndef VERILATED_VNV_NVDLA_NV_NVDLA_PARTITION_M_H_
+#define VERILATED_VNV_NVDLA_NV_NVDLA_PARTITION_M_H_  // guard
+
+#include "verilated.h"
+
+class VNV_nvdla__Syms;
+VL_MODULE(VNV_nvdla_NV_NVDLA_partition_m) {
+  public:
+
+    // DESIGN SPECIFIC STATE
+    // Anonymous structures to workaround compiler member-count bugs
+    struct {
+        CData/*0:0*/ __PVT__nvdla_core_rstn;
+        VL_IN8(nvdla_core_clk,0,0);
+        CData/*0:0*/ __PVT__u_partition_m_reset__DOT__sync_reset_synced_rstn__DOT__inreset_tm_;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_4;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_5;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_3;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__nvdla_op_gated_clk_6;
+        VL_IN8(test_mode,0,0);
+        VL_IN8(direct_reset_,0,0);
+        VL_IN8(csb2cmac_a_req_pvld,0,0);
+        VL_OUT8(csb2cmac_a_req_prdy,0,0);
+        VL_OUT8(cmac_a2csb_resp_valid,0,0);
+        VL_IN8(sc2mac_wt_pvld,0,0);
+        VL_IN8(sc2mac_wt_mask,7,0);
+        VL_IN8(sc2mac_wt_data0,7,0);
+        VL_IN8(sc2mac_wt_data1,7,0);
+        VL_IN8(sc2mac_wt_data2,7,0);
+        VL_IN8(sc2mac_wt_data3,7,0);
+        VL_IN8(sc2mac_wt_data4,7,0);
+        VL_IN8(sc2mac_wt_data5,7,0);
+        VL_IN8(sc2mac_wt_data6,7,0);
+        VL_IN8(sc2mac_wt_data7,7,0);
+        VL_IN8(sc2mac_wt_sel,3,0);
+        VL_IN8(sc2mac_dat_pvld,0,0);
+        VL_IN8(sc2mac_dat_mask,7,0);
+        VL_IN8(sc2mac_dat_data0,7,0);
+        VL_IN8(sc2mac_dat_data1,7,0);
+        VL_IN8(sc2mac_dat_data2,7,0);
+        VL_IN8(sc2mac_dat_data3,7,0);
+        VL_IN8(sc2mac_dat_data4,7,0);
+        VL_IN8(sc2mac_dat_data5,7,0);
+        VL_IN8(sc2mac_dat_data6,7,0);
+        VL_IN8(sc2mac_dat_data7,7,0);
+        VL_OUT8(mac2accu_pvld,0,0);
+        VL_OUT8(mac2accu_mask,3,0);
+        VL_OUT8(mac2accu_mode,0,0);
+        VL_IN8(global_clk_ovr_on,0,0);
+        VL_IN8(tmc2slcg_disable_clock_gating,0,0);
+        VL_IN8(dla_reset_rstn,0,0);
+        VL_IN8(nvdla_clk_ovr_on,0,0);
+        CData/*0:0*/ __PVT__u_partition_m_reset__DOT__sync_reset_synced_rstn__DOT__reset_;
+        CData/*0:0*/ __PVT__u_partition_m_reset__DOT__sync_reset_synced_rstn__DOT__NV_GENERIC_CELL__DOT__d0;
+        CData/*0:0*/ __PVT__u_dla_clk_ovr_on_sync__DOT__sync_sbus;
+        CData/*0:0*/ __PVT__u_dla_clk_ovr_on_sync__DOT__sync_0__DOT__NV_GENERIC_CELL__DOT__d1;
+        CData/*0:0*/ __PVT__u_dla_clk_ovr_on_sync__DOT__sync_0__DOT__NV_GENERIC_CELL__DOT__d0;
+        CData/*0:0*/ __PVT__u_global_clk_ovr_on_sync__DOT__sync_sbus;
+        CData/*0:0*/ __PVT__u_global_clk_ovr_on_sync__DOT__sync_0__DOT__NV_GENERIC_CELL__DOT__d1;
+        CData/*0:0*/ __PVT__u_global_clk_ovr_on_sync__DOT__sync_0__DOT__NV_GENERIC_CELL__DOT__d0;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__out_mask;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt0_actv_nz;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt0_actv_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt0_sd_pvld;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt1_actv_nz;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt1_actv_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt1_sd_pvld;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt2_actv_nz;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt2_actv_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt2_sd_pvld;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt3_actv_nz;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt3_actv_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt3_sd_pvld;
+    };
+    struct {
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__in_dat_pvld_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__in_dat_pvld_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_pvld_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_mask_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_pvld_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_mask_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_mask_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_pvld_d1;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_sel_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_mask_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_pvld_d2;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_sel_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data0_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data1_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data2_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data3_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data4_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data5_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data6_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data7_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data0_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data1_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data2_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data3_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data4_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data5_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data6_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data7_d1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data0_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data1_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data2_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data3_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data4_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data5_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data6_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_data7_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data0_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data1_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data2_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data3_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data4_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data5_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data6_d2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_wt_data7_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_stripe_end;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_stripe_st;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt_pre_nz;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt_pre_sel;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt0_sd_pvld_w;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt0_sd_nz;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt1_sd_pvld_w;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt1_sd_nz;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt2_sd_pvld_w;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt2_sd_nz;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt3_sd_pvld_w;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt3_sd_nz;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_stripe_end;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt0_actv_vld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt0_actv_pvld_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt1_actv_vld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt1_actv_pvld_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt2_actv_vld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt2_actv_pvld_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt3_actv_vld;
+    };
+    struct {
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt3_actv_pvld_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_pvld;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_nz;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_pvld_reg0;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_nz_reg0;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_pvld_reg1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_nz_reg1;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_pvld_reg2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_nz_reg2;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_pvld_reg3;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_nz_reg3;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__op_out_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__pp_pvld_d0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__pp_pvld_d0_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__pp_pvld_d0_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__pp_pvld_d0_d3;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__op_out_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__pp_pvld_d0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__pp_pvld_d0_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__pp_pvld_d0_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__pp_pvld_d0_d3;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__op_out_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__pp_pvld_d0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__pp_pvld_d0_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__pp_pvld_d0_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__pp_pvld_d0_d3;
+        CData/*7:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__op_out_pvld;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__pp_pvld_d0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__pp_pvld_d0_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__pp_pvld_d0_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__pp_pvld_d0_d3;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_pvld_d1;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_mask_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_pvld_d2;
+        CData/*3:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_mask_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_done_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_done_d2;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_done_d3;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_0__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_1__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_2__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_3__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_4__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_5__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_slcg_op_6__DOT__nvdla_core_clk_slcg_0__DOT__p_clkgate__DOT__qd;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__d0_reg_wr_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__d1_reg_wr_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__dp2reg_consumer_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d0_conv_mode;
+        CData/*1:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d0_proc_precision;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d1_conv_mode;
+        CData/*1:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d1_proc_precision;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_producer;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg_rd_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg_wr_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__s_reg_wr_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__select_d0;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__select_d1;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__dp2reg_consumer;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d0_op_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d0_op_en_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d1_op_en;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_d1_op_en_w;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__reg2dp_op_en_ori;
+    };
+    struct {
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__req_pvld;
+        CData/*6:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__slcg_op_en_d1;
+        CData/*6:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__slcg_op_en_d2;
+        CData/*6:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__slcg_op_en_d3;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_single_reg__DOT__arreggen_abort_on_invalid_wr;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_single_reg__DOT__arreggen_abort_on_rowr;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_single_reg__DOT__arreggen_dump;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d0__DOT__arreggen_abort_on_invalid_wr;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d0__DOT__arreggen_dump;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d0__DOT__nvdla_cmac_a_d_misc_cfg_0_wren;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d1__DOT__arreggen_abort_on_invalid_wr;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d1__DOT__arreggen_dump;
+        CData/*0:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__u_dual_reg_d1__DOT__nvdla_cmac_a_d_misc_cfg_0_wren;
+        VL_IN16(sc2mac_dat_pd,8,0);
+        VL_OUT16(mac2accu_pd,8,0);
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__in_dat_pd_d1;
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__in_dat_pd_d2;
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_pd_d1;
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_in__DOT__in_rt_dat_pd_d2;
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_pd_d1;
+        SData/*8:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_pd_d2;
+        VL_OUT(mac2accu_data0,18,0);
+        VL_OUT(mac2accu_data1,18,0);
+        VL_OUT(mac2accu_data2,18,0);
+        VL_OUT(mac2accu_data3,18,0);
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__sum_out;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__sum_out_d0_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__sum_out_d0_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_0__DOT__sum_out_d0_d3;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__sum_out;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__sum_out_d0_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__sum_out_d0_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_1__DOT__sum_out_d0_d3;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__sum_out;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__sum_out_d0_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__sum_out_d0_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_2__DOT__sum_out_d0_d3;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__sum_out;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__sum_out_d0_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__sum_out_d0_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_mac_3__DOT__sum_out_d0_d3;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data0_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data1_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data2_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data3_d1;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data0_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data1_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data2_d2;
+        IData/*18:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_rt_out__DOT__out_rt_data3_d2;
+        VL_IN64(csb2cmac_a_req_pd,62,0);
+        VL_OUT64(cmac_a2csb_resp_pd,33,0);
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt0_actv_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt1_actv_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt2_actv_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__wt3_actv_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_data_reg0;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_data_reg1;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_data_reg2;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_actv_data_reg3;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_data_w;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt_pre_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt_pre_data_w;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt0_sd_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt1_sd_data;
+    };
+    struct {
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt2_sd_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__wt3_sd_data;
+        QData/*63:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_core__DOT__u_active__DOT__dat_pre_data;
+        QData/*62:0*/ __PVT__u_NV_NVDLA_cmac__DOT__u_reg__DOT__req_pd;
+    };
+
+    // INTERNAL VARIABLES
+    VNV_nvdla__Syms* vlSymsp;  // Symbol table
+
+    // CONSTRUCTORS
+    VNV_nvdla_NV_NVDLA_partition_m(const char* name);
+    ~VNV_nvdla_NV_NVDLA_partition_m();
+    VL_UNCOPYABLE(VNV_nvdla_NV_NVDLA_partition_m);
+
+    // INTERNAL METHODS
+    void __Vconfigure(VNV_nvdla__Syms* symsp, bool first);
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
+
+
+#endif  // guard

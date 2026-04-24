@@ -1,0 +1,43 @@
+
+165. Printing statistics.
+
+=== prim_trivium ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     2690        - wires
+     3229        - wire bits
+       15        - public wires
+      554        - public wire bits
+       14        - ports
+      553        - port bits
+     2743  391.575 cells
+       57    4.986   AND2x2_ASAP7_75t_R
+        1    0.102   AND3x2_ASAP7_75t_R
+       45    4.593   AND4x1_ASAP7_75t_R
+       36    4.199   AND5x1_ASAP7_75t_R
+        1    0.292   AND5x2_ASAP7_75t_R
+       57    4.986   AO21x1_ASAP7_75t_R
+      192   27.994   AO221x1_ASAP7_75t_R
+       93   10.848   AO32x1_ASAP7_75t_R
+       40    4.666   AOI21x1_ASAP7_75t_R
+        6    1.575   BUFx12f_ASAP7_75t_R
+      269    19.61   BUFx2_ASAP7_75t_R
+       35    3.062   BUFx3_ASAP7_75t_R
+        3     0.35   BUFx4f_ASAP7_75t_R
+        5    0.729   BUFx6f_ASAP7_75t_R
+      289  109.554   DFFASRHQNx1_ASAP7_75t_R
+       99     4.33   INVx1_ASAP7_75t_R
+      137   11.985   NAND2x1_ASAP7_75t_R
+        1    0.292   NAND3x2_ASAP7_75t_R
+      343   30.006   NOR2x1_ASAP7_75t_R
+      195   22.745   OA211x2_ASAP7_75t_R
+      134   11.722   OR2x2_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+      640  102.643   XNOR2x2_ASAP7_75t_R
+       64   10.264   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\prim_trivium': 391.575060
+     of which used for sequential elements: 109.554120 (27.98%)
+

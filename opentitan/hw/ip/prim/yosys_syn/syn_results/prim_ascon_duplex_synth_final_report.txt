@@ -1,0 +1,152 @@
+================================================================================
+                    SYNTHESIS FINAL REPORT
+================================================================================
+
+Design:          prim_ascon_duplex
+Date:            2026-04-23 23:12:00
+Technology:      ASAP7 RVT TT
+Optimization:    Speed
+Flatten:         Yes
+
+--------------------------------------------------------------------------------
+                           RTL INPUT FILES
+--------------------------------------------------------------------------------
+Original SV Files:       186
+Converted V Files:       147
+Generated Directory:     /workspace/opentitan/hw/ip/prim/yosys_syn/generated
+
+--------------------------------------------------------------------------------
+                         TIMING CONFIGURATION
+--------------------------------------------------------------------------------
+SDC File:                /workspace/opentitan/hw/ip/prim/yosys_syn/prim_crc32_constraint.sdc
+Target Clock Period:     8000 ps (8.0 ns)
+Target Frequency:        125.00 MHz
+ABC Driver Cell:         BUFx2_ASAP7_75t_R
+ABC Load:                3.898 fF
+
+--------------------------------------------------------------------------------
+                              AREA SUMMARY
+--------------------------------------------------------------------------------
+Total Cell Count:        5995
+Total Area:              757.475 (liberty units)
+Sequential Area:         128.508 (16.97%)
+Combinational Area:      628.967 (83.03%)
+
+--------------------------------------------------------------------------------
+                            CELL BREAKDOWN
+--------------------------------------------------------------------------------
+Flip-Flops:              339
+Buffers:                 608
+Inverters:               340
+Logic Gates:             4708
+
+--------------------------------------------------------------------------------
+                          TIMING ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual WNS/TNS requires STA with OpenSTA or OpenROAD
+
+ABC Timing Target:       8000 ps
+ABC Optimization:        Timing-focused
+
+For accurate timing, run:
+  sta run_sta.tcl
+
+--------------------------------------------------------------------------------
+                          POWER ESTIMATION
+--------------------------------------------------------------------------------
+NOTE: Actual power requires simulation + power analysis tools
+
+Estimated Total Cells:   5995
+Rough Power Estimate:    ~4196.5 uW @ 125.0 MHz (rough estimate)
+
+--------------------------------------------------------------------------------
+                           OUTPUT FILES
+--------------------------------------------------------------------------------
+Synthesized Netlist:     /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_ascon_duplex_syn.v
+Synthesis Stats:         /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_ascon_duplex_synth_stat.txt
+Synthesis Check:         /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_ascon_duplex_synth_check.txt
+This Report:             /workspace/opentitan/hw/ip/prim/yosys_syn/syn_results/prim_ascon_duplex_synth_final_report.txt
+
+--------------------------------------------------------------------------------
+                         DETAILED CELL LIST
+--------------------------------------------------------------------------------
+
+
+169. Printing statistics.
+
+=== prim_ascon_duplex ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     5747        - wires
+     6413        - wire bits
+       28        - public wires
+      694        - public wire bits
+       24        - ports
+      690        - port bits
+     5995  757.475 cells
+      310   27.119   AND2x2_ASAP7_75t_R
+        2    0.292   AND2x4_ASAP7_75t_R
+      205   17.933   AND3x1_ASAP7_75t_R
+        3    0.306   AND3x2_ASAP7_75t_R
+       50    5.103   AND4x1_ASAP7_75t_R
+        1    0.117   AND4x2_ASAP7_75t_R
+        8    0.933   AND5x1_ASAP7_75t_R
+        1    0.233   AO211x2_ASAP7_75t_R
+      605   52.925   AO21x1_ASAP7_75t_R
+        2    0.204   AO21x2_ASAP7_75t_R
+      151   22.016   AO221x1_ASAP7_75t_R
+        1    0.175   AO222x2_ASAP7_75t_R
+       58    7.611   AO22x1_ASAP7_75t_R
+        1    0.146   AO22x2_ASAP7_75t_R
+        5    1.166   AO31x2_ASAP7_75t_R
+      181   21.112   AO32x1_ASAP7_75t_R
+        3    0.437   AO33x2_ASAP7_75t_R
+        8      1.4   AOI211x1_ASAP7_75t_R
+       96   11.197   AOI21x1_ASAP7_75t_R
+        1    0.204   AOI221x1_ASAP7_75t_R
+       36    5.249   AOI22x1_ASAP7_75t_R
+        6    1.575   BUFx12f_ASAP7_75t_R
+      545    39.73   BUFx2_ASAP7_75t_R
+       34    2.974   BUFx3_ASAP7_75t_R
+        4    0.467   BUFx4f_ASAP7_75t_R
+        5    0.583   BUFx5_ASAP7_75t_R
+       14    2.041   BUFx6f_ASAP7_75t_R
+      339  128.508   DFFASRHQNx1_ASAP7_75t_R
+      334   14.609   INVx1_ASAP7_75t_R
+        4    0.233   INVx2_ASAP7_75t_R
+        2    0.175   INVx4_ASAP7_75t_R
+      148   12.947   NAND2x1_ASAP7_75t_R
+       12    1.925   NAND3x1_ASAP7_75t_R
+      303   26.506   NOR2x1_ASAP7_75t_R
+        1    0.146   NOR2x2_ASAP7_75t_R
+       10    1.604   NOR3x1_ASAP7_75t_R
+      123   14.347   OA211x2_ASAP7_75t_R
+      342   34.905   OA21x2_ASAP7_75t_R
+        2     0.35   OA222x2_ASAP7_75t_R
+       50     7.29   OA22x2_ASAP7_75t_R
+        5    1.094   OA31x2_ASAP7_75t_R
+        2    0.292   OA33x2_ASAP7_75t_R
+      248   28.927   OAI21x1_ASAP7_75t_R
+       90   13.122   OAI22x1_ASAP7_75t_R
+       40    3.499   OR2x2_ASAP7_75t_R
+      147    12.86   OR3x1_ASAP7_75t_R
+        1    0.102   OR3x2_ASAP7_75t_R
+       38    3.878   OR4x1_ASAP7_75t_R
+        1    0.117   OR4x2_ASAP7_75t_R
+       11    1.283   OR5x1_ASAP7_75t_R
+        1    0.044   TIEHIx1_ASAP7_75t_R
+        8      1.4   XNOR2x1_ASAP7_75t_R
+     1165  186.843   XNOR2x2_ASAP7_75t_R
+        1    0.175   XOR2x1_ASAP7_75t_R
+      231   37.048   XOR2x2_ASAP7_75t_R
+
+   Chip area for module '\prim_ascon_duplex': 757.474740
+     of which used for sequential elements: 128.508120 (16.97%)
+
+
+
+================================================================================
+                         END OF REPORT
+================================================================================

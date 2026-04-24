@@ -1,0 +1,17 @@
+prim_ascon_duplex_tb.o: \
+ src/lowrisc_dv_verilator_prim_ascon_duplex_tb_0/cpp/prim_ascon_duplex_tb.cc \
+ Vprim_ascon_duplex_tb.h /usr/local/share/verilator/include/verilated.h \
+ /usr/local/share/verilator/include/verilatedos.h \
+ /usr/local/share/verilator/include/verilated_types.h \
+ /usr/local/share/verilator/include/verilated_funcs.h \
+ /usr/local/share/verilator/include/vltstd/svdpi.h \
+ src/lowrisc_dv_verilator_simutil_verilator_0/cpp/sim_ctrl_extension.h \
+ src/lowrisc_dv_verilator_simutil_verilator_0/cpp/verilated_toplevel.h \
+ /usr/local/share/verilator/include/verilated_fst_c.h \
+ /usr/local/share/verilator/include/verilated.h \
+ /usr/local/share/verilator/include/verilated_trace.h \
+ /usr/local/share/verilator/include/verilated_trace_defs.h \
+ /usr/local/share/verilator/include/gtkwave/fstapi.h \
+ src/lowrisc_dv_verilator_simutil_verilator_0/cpp/verilator_sim_ctrl.h \
+ src/lowrisc_dv_verilator_simutil_verilator_0/cpp/sim_ctrl_extension.h \
+ src/lowrisc_dv_verilator_simutil_verilator_0/cpp/verilated_toplevel.h

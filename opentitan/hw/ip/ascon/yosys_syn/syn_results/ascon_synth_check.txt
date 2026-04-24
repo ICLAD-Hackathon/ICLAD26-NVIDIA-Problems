@@ -1,0 +1,69 @@
+
+55. Executing CHECK pass (checking for obvious problems).
+Checking module ascon...
+Warning: Wire ascon.\idle_o [1] is used but has no driver.
+Warning: Wire ascon.\idle_o [0] is used but has no driver.
+Warning: Wire ascon.\edn_o is used but has no driver.
+Warning: Wire ascon.\tl_o [65] is used but has no driver.
+Warning: Wire ascon.\tl_o [62] is used but has no driver.
+Warning: Wire ascon.\tl_o [57] is used but has no driver.
+Warning: Wire ascon.\tl_o [56] is used but has no driver.
+Warning: Wire ascon.\tl_o [55] is used but has no driver.
+Warning: Wire ascon.\tl_o [54] is used but has no driver.
+Warning: Wire ascon.\tl_o [53] is used but has no driver.
+Warning: Wire ascon.\tl_o [52] is used but has no driver.
+Warning: Wire ascon.\tl_o [51] is used but has no driver.
+Warning: Wire ascon.\tl_o [50] is used but has no driver.
+Warning: Wire ascon.\tl_o [49] is used but has no driver.
+Warning: Wire ascon.\tl_o [47] is used but has no driver.
+Warning: Wire ascon.\tl_o [46] is used but has no driver.
+Warning: Wire ascon.\tl_o [45] is used but has no driver.
+Warning: Wire ascon.\tl_o [44] is used but has no driver.
+Warning: Wire ascon.\tl_o [43] is used but has no driver.
+Warning: Wire ascon.\tl_o [42] is used but has no driver.
+Warning: Wire ascon.\tl_o [41] is used but has no driver.
+Warning: Wire ascon.\tl_o [40] is used but has no driver.
+Warning: Wire ascon.\tl_o [39] is used but has no driver.
+Warning: Wire ascon.\tl_o [38] is used but has no driver.
+Warning: Wire ascon.\tl_o [37] is used but has no driver.
+Warning: Wire ascon.\tl_o [36] is used but has no driver.
+Warning: Wire ascon.\tl_o [35] is used but has no driver.
+Warning: Wire ascon.\tl_o [34] is used but has no driver.
+Warning: Wire ascon.\tl_o [33] is used but has no driver.
+Warning: Wire ascon.\tl_o [32] is used but has no driver.
+Warning: Wire ascon.\tl_o [31] is used but has no driver.
+Warning: Wire ascon.\tl_o [30] is used but has no driver.
+Warning: Wire ascon.\tl_o [29] is used but has no driver.
+Warning: Wire ascon.\tl_o [28] is used but has no driver.
+Warning: Wire ascon.\tl_o [27] is used but has no driver.
+Warning: Wire ascon.\tl_o [26] is used but has no driver.
+Warning: Wire ascon.\tl_o [25] is used but has no driver.
+Warning: Wire ascon.\tl_o [24] is used but has no driver.
+Warning: Wire ascon.\tl_o [23] is used but has no driver.
+Warning: Wire ascon.\tl_o [22] is used but has no driver.
+Warning: Wire ascon.\tl_o [21] is used but has no driver.
+Warning: Wire ascon.\tl_o [20] is used but has no driver.
+Warning: Wire ascon.\tl_o [19] is used but has no driver.
+Warning: Wire ascon.\tl_o [18] is used but has no driver.
+Warning: Wire ascon.\tl_o [17] is used but has no driver.
+Warning: Wire ascon.\tl_o [16] is used but has no driver.
+Warning: Wire ascon.$auto$hilomap.cc:47:hilomap_worker$48398 is used but has no driver.
+Warning: Wire ascon.\tl_o [14] is used but has no driver.
+Warning: Wire ascon.\tl_o [13] is used but has no driver.
+Warning: Wire ascon.\tl_o [12] is used but has no driver.
+Warning: Wire ascon.\tl_o [10] is used but has no driver.
+Warning: Wire ascon.\tl_o [9] is used but has no driver.
+Warning: Wire ascon.\tl_o [8] is used but has no driver.
+Warning: Wire ascon.\tl_o [7] is used but has no driver.
+Warning: Wire ascon.\tl_o [6] is used but has no driver.
+Warning: Wire ascon.\tl_o [5] is used but has no driver.
+Warning: Wire ascon.\tl_o [4] is used but has no driver.
+Warning: Wire ascon.\tl_o [3] is used but has no driver.
+Warning: Wire ascon.\tl_o [2] is used but has no driver.
+Warning: Wire ascon.\tl_o [1] is used but has no driver.
+Warning: Wire ascon.\tl_o [0] is used but has no driver.
+Warning: Wire ascon.\alert_tx_o [3] is used but has no driver.
+Warning: Wire ascon.\alert_tx_o [2] is used but has no driver.
+Warning: Wire ascon.\alert_tx_o [1] is used but has no driver.
+Warning: Wire ascon.\alert_tx_o [0] is used but has no driver.
+Found and reported 65 problems.

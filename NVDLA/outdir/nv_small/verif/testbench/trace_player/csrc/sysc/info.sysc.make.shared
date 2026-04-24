@@ -1,0 +1,2 @@
+/home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player/csrc/sysc/libcsrc_sysc.so:
+	+$(ACTIVE) (cd /home/scratch.chiatungh_nvresearch/NVDLA/outdir/nv_small/verif/testbench/trace_player; $(VCS_HOME)/bin/syscan -shared -Mdir=csrc -full64  )
