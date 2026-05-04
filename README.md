@@ -1,6 +1,10 @@
 # ICLAD RTL Design Collection
 
-This repository contains optimized IP designs with Verilator testbenches and Yosys synthesis flows.
+This repository contains optimized IP designs with Verilator testbenches and Yosys synthesis flows. The reference papers are below:
+
+[1] Yao, Xufeng, Yiwen Wang, Xing Li, Yingzhao Lian, Ran Chen, Lei Chen, Mingxuan Yuan, Hong Xu, and Bei Yu. "Rtlrewriter: Methodologies for large models aided rtl code optimization." In Proceedings of the 43rd IEEE/ACM International Conference on Computer-Aided Design, pp. 1-7. 2024.
+[2] Coward, Samuel, Theo Drane, and George A. Constantinides. "ROVER: RTL optimization via verified e-graph rewriting." IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems 43, no. 12 (2024): 4687-4700.
+[3] Zhang, Niansong, Chenhui Deng, Johannes Maximilian Kuehn, Chia-Tung Ho, Cunxi Yu, Zhiru Zhang, and Haoxing Ren. "ASPEN: LLM-Guided E-Graph Rewriting for RTL Datapath Optimization." In 2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD), pp. 1-9. IEEE, 2025.
 
 ## Available IPs
 
