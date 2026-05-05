@@ -20,6 +20,9 @@ This repository contains optimized IP designs with Verilator testbenches and Yos
 | PRIM | `opentitan/hw/ip/prim/` | OpenTitan primitive library (base components) |
 | KMAC | `opentitan/hw/ip/kmac/` | OpenTitan Keccak Message Authentication Code |
 
+## Evaluation Metric
+The evaluation has two phase. Firstly, we evaluate the functional correctness with the existing testbenches. Secondly, if the optimized RTL design from agent is functional correct, we track the power, performance, and area metrics after Yosys, number of LLM calls, and token cost for scoring. **We will provide a evaluation metric soon.**
+
 ## Prerequisites
 
 Full setup (Docker image, container usage, and **ASAP7 techlib** for synthesis/STA) is documented in **[ENV_PREPARATION.md](ENV_PREPARATION.md)**. Read that file first.
