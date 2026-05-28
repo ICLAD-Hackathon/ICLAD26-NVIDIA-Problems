@@ -10,7 +10,7 @@ This repository contains optimized IP designs with Verilator testbenches and Yos
 
 ## Agent Env Setup
 
-The following setups provide the env for agent to rewrite the RTL. Each team can build their own agent on top of Vertex AI (AgentSetup.md) to interact with this container env to improve the power-performance-area metrics. We evaluate the agent with Vertex AI (AgentSetup.md) so we can extract the token, and api usages for evaluation. 
+The following setups provide the env for agent to rewrite the RTL. Each team can build their own agent on top of Vertex AI (**[AgentSetup.md](AgentSetup.md)**) to interact with this container env to improve the power-performance-area metrics. We evaluate the agent with Vertex AI (AgentSetup.md) so we can extract the token, and api usages for evaluation. 
 
 ## Available IPs
 
