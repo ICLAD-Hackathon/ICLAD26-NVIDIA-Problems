@@ -75,6 +75,7 @@ RUN git clone https://github.com/steveicarus/iverilog.git && \
 WORKDIR /tmp
 RUN git clone https://github.com/YosysHQ/yosys.git && \
     cd yosys && \
+    git checkout 22ef99218 && \
     git submodule update --init && \
     make config-clang && \
     make -j$(nproc) && \
