@@ -98,7 +98,7 @@ RUN git clone https://github.com/verilator/verilator.git && \
     rm -rf /tmp/verilator
 
 # Set Verilator environment
-ENV VERILATOR_ROOT=/usr/local/share/verilator
+# ENV VERILATOR_ROOT=/usr/local/share/verilator
 
 # Install additional dependencies for OpenSTA
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
